@@ -13,7 +13,7 @@ export default function Navbar() {
       <div className="navbar-brand">
         <div className="navbar-logo">
           <Image
-            src="/thadeus(2).png"
+            src="/thadeuslogo.png"
             alt="Thadeus Logo"
             width={300}
             height={100}
