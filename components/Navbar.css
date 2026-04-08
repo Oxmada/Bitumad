@@ -23,14 +23,14 @@
   margin-right: auto; /* ← pousse les liens à droite */
 }
 .navbar-logo-image {
-  width: 200px !important;
-  height: 120px !important;
+  width: 150px !important;
+  height: 70px !important; /* ← réduire */
   object-fit: contain;
   object-position: left center;
 }
 
 .navbar {
-  height: 110px; /* ← un peu plus haute pour accueillir le logo */
+  height: 90px; /* ← réduire aussi */
   padding: 10px 40px;
 }
 .navbar-logo {
