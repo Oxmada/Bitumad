@@ -103,15 +103,16 @@
 }
 
 .team-photo-wrapper {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
   border-radius: 20px;
+   width: 100% !important;
+  height: auto !important; /* Hauteur dynamique */
+  max-height: 400px; /* Limite la hauteur maximale (ajuste cette valeur si besoin) */
+  overflow: hidden; /* Cache ce qui dépasse */
 }
 .team-photo {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100% !important;
+  height: auto !important; /* Hauteur automatique */
+  object-fit: contain; /* Garde les proportions de l'image */
   object-position: center; /* 🔥 IMPORTANT */
 }
 
@@ -208,11 +209,15 @@
   }
 
   /* 3. L'image : Doit toucher les bords */
-  .team-photo-wrapper {
-    width: 100% !important;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
+ .team-photo-wrapper {
+  width: 100% !important;
+  height: auto !important; /* Hauteur automatique */
+  max-height: 100% !important; /* Ne dépasse pas l'espace parent */
+  padding: 0 !important;
+  margin: 0 !important;
+  display: block; /* ou flex si nécessaire */
+  overflow: hidden; /* Évite les débordements */
+}
 
   .team-photo { 
     width: 100% !important; 

@@ -432,7 +432,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
+  padding: 20px 26px; /* ← ajout de 24px gauche/droite */
   cursor: pointer;
   text-align: left;
   gap: 24px;
@@ -449,8 +449,9 @@ body {
 }
 .faq-chevron {
   color: #fff;
-  font-size: 16px;
+  font-size: 32px; /* ← plus grand */
   flex-shrink: 0;
+  line-height: 1;
 }
 .faq-answer {
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -554,6 +555,18 @@ body {
   border-radius: 20px;
   background: #F5F5F5;
   padding: 60px 40px 20px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.footer-bg-image {
+  position: absolute;
+  right: -20px;
+  bottom: 0;
+  width: 280px;
+  height: auto;
+  opacity: 0.07;
+  pointer-events: none;
+  user-select: none;
 }
 .footer-grid {
   display: flex;

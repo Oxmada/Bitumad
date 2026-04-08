@@ -186,7 +186,17 @@ export default function HomePage() {
                 <div className="faq-item" key={i}>
                   <button className="faq-question" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
                     <span>{faq.q}</span>
-                    <span className="faq-chevron">{openFaq === i ? "∧" : "∨"}</span>
+                   <span className="faq-chevron">
+  {openFaq === i ? (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="18 15 12 9 6 15"/>
+    </svg>
+  ) : (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  )}
+</span>
                   </button>
                   {openFaq === i && <div className="faq-answer">{faq.a}</div>}
                 </div>

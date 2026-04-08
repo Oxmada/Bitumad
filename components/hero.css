@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');*
 .hero {
   background-color: #223553;
-  padding: 10px 40px 20px 40px;
+  padding: 10px 10px 20px 10px;
   display: flex;
   justify-content: center;
 }

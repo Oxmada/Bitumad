@@ -15,7 +15,7 @@ export default function Navbar() {
   src="/logotr.png"
   alt="Thadeus Logo"
   width={200}
-  height={90}
+  height={120}
   className="navbar-logo-image" // Ajoute cette classe
   style={{ objectFit: "contain" }}
 />

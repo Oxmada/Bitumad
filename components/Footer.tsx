@@ -4,6 +4,8 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-inner">
+        <img src="/footer.png" alt="" className="footer-bg-image" aria-hidden="true" />
+        
         <div className="footer-grid">
           {/* Brand */}
           <div className="footer-brand">
@@ -60,9 +62,11 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <span>Réalisé par Oxmad Digital</span>
-          <span>©2026 THADEUS. All rights reserved</span>
-        </div>
+  <a href="https://oxmad-digital.mg/" rel="nofollow" target="_blank">
+    Réalisé par Oxmad Digital
+  </a>
+  <span>©2026 THADEUS. All rights reserved</span>
+</div>
       </div>
     </footer>
   );
