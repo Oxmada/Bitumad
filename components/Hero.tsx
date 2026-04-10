@@ -2,10 +2,10 @@
 import Link from "next/link";
 import "./hero.css";
 
-export default function Hero() {
+export default function Hero({ small = false }: { small?: boolean }) {
   return (
     <section className="hero">
-      <div className="hero-inner">
+      <div className={`hero-inner ${small ? 'hero-small' : ''}`}>
         <div className="hero-title-container">
           <h1 className="hero-title">
             Thadeus Externalia Juris

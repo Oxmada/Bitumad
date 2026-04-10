@@ -177,8 +177,9 @@
 /* Responsive */
 @media (max-width: 768px) {
   /* 1. Conteneur principal : on centre tout */
-  .team-section { 
-    padding: 60px 0 !important; /* On enlève le padding latéral pour laisser les cartes respirer */
+ 
+ .team-section { 
+    padding: 100px 100px !important; /* ← MODIFIÉ : était 24px, essayez 32px */
   }
 
   .team-inner {
@@ -189,13 +190,15 @@
     padding: 0 20px; /* Le padding se met ici pour les titres, pas pour les cartes */
   }
 
-  .team-grid { 
-    display: flex !important;
-    flex-direction: column !important; 
-    gap: 40px; 
-    align-items: center; 
-    width: 100%;
-  }
+  .team-grid {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 40px;
+  align-items: center; /* ← cartes centrées */
+  width: 100%;
+  padding: 0;
+  box-sizing: border-box;
+}
 
   /* 2. La Carte : Largeur fixe de la maquette, hauteur automatique */
   .team-card { 
@@ -273,7 +276,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 8px;
   padding: 20px;
   align-items: center;
   justify-content: center;
@@ -493,4 +496,44 @@
     display: block;
   }
 
+}
+@media (max-width: 768px) {
+  
+  .team-title-container {
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px; /* ← espace 20px */
+  }
+
+  .team-heading-wrapper {
+    width: 100%; /* ← remplissage */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start; /* ← aligné à gauche */
+  }
+
+  .team-subtitle-wrapper {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .team-subtitle {
+    font-size: 14px;
+    line-height: 22px;
+    text-align: left;
+    width: 100%;
+  }
+
+  .team-title {
+    font-size: 32px;
+    line-height: 36px;
+    text-align: left;
+    white-space: normal;
+    width: 100%;
+  }
+
+  .section-label-gold {
+    text-align: left;
+  }
 }

@@ -35,14 +35,14 @@ export default function ContactPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <Hero />
+     <Hero small={true} />
 
       {/* ── SECTION ÉQUIPE ── */}
       <section className="team-section">
   <div className="team-inner">
     <div className="team-title-container">
   <div className="team-heading-wrapper">
-    <p className="section-label-gold">Notre approche</p>
+    <p className="section-label-gold">Nos membres</p>
     <h2 className="team-title">Découvrez les membres de l&apos;équipe</h2>
   </div>
   <div className="team-subtitle-wrapper">

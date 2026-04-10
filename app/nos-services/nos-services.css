@@ -26,12 +26,13 @@
   border: 5px solid #F5F5F5;
   gap: 20px;
   overflow: hidden;
+  align-items: stretch;
 }
 
 /* ── Gauche navy ── */
 .ns-left {
-  width: 526px;
-  min-height: 670px;
+   width: 526px;
+  min-height: unset;
   background: #223553;
   display: flex;
   flex-direction: column;
@@ -108,7 +109,7 @@
 /* ── Droite gris clair ── */
 .ns-right {
   width: 526px;
-  min-height: 670px;
+  min-height: unset;
   background: #F5F5F5;
   padding: 40px 30px;
   display: flex;

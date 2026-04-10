@@ -71,7 +71,7 @@ export default function NosServicesPage() {
 
   return (
     <>
-      <Hero />
+      <Hero small={true} />
 
       <section className="ns-section">
         <div className="ns-wrapper">
