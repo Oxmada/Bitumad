@@ -554,14 +554,14 @@ body {
 /* ─── FOOTER ─── */
 .footer {
   background: #223553;
-  width: 100vw;
-  padding: 10px;
+  width: 100%; /* Utilise 100% au lieu de 100vw pour éviter le scroll horizontal */
+  padding: 0;  /* On enlève tout padding externe */
 }
+
 .footer-inner {
   width: 100%;
-  max-width: 100vw;
-  height: auto;
-  margin: 10px auto;
+  max-width: 100%; 
+  margin: 0; /* Plus de marge qui crée des espaces vides */
   display: flex;
   flex-direction: column;
   background: #F5F5F5;
