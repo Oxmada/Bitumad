@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap');*
+/* ═══════════════════════════════════════
+   HERO BASE
+═══════════════════════════════════════ */
 .hero {
   background-color: #223553;
-  padding: 10px 10px 20px 10px;
+  padding: 0;
   display: flex;
   justify-content: center;
 }
@@ -23,10 +26,23 @@
   overflow: hidden;
   gap: 10px;
 }
-.hero-inner.hero-small {
-  height: 300px;
+
+/* ═══════════════════════════════════════
+   HERO SMALL (nos services + contact)
+═══════════════════════════════════════ */
+.hero:has(.hero-small) {
+  height: 400px;
+  padding: 0;
 }
 
+.hero-inner.hero-small {
+  height: 100%;
+  margin-bottom: 100px;
+}
+
+/* ═══════════════════════════════════════
+   TITRES
+═══════════════════════════════════════ */
 .hero-title-container {
   width: 755px;
   height: 200px;
@@ -64,21 +80,66 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 30px;
-  letter-spacing: 0px;
   color: #FFFFFF;
   margin: 0;
   text-align: right;
 }
-@media (max-width: 768px) {
-  .hero { padding: 10px 10px; } /* marges 10px */
 
-  .hero-inner {
-    width: 100%;
-    height: 300px; /* hauteur fixe 300px */
+/* ═══════════════════════════════════════
+   TABLETTE : 769px – 1200px
+═══════════════════════════════════════ */
+@media (min-width: 769px) and (max-width: 1200px) {
+  .hero {
+    height: auto;
     min-height: unset;
     padding: 0;
-    border-radius: 15px; /* rayon 15px */
-    opacity: 0.7; /* opacité 70% */
+  }
+
+  .hero-inner {
+    width: 100vw;
+    height: calc(100vh - 90px);
+    padding: 0;
+  }
+
+  .hero:has(.hero-small) {
+    height: 400px;
+  }
+
+  .hero-inner.hero-small {
+    height: 100%;
+    margin-bottom: 100px;
+  }
+
+  .hero-title {
+    font-size: 64px;
+    line-height: 72px;
+  }
+
+  .hero-title-container {
+    width: 100%;
+    padding: 0 40px;
+  }
+
+  .hero-subtitle {
+    font-size: 16px;
+  }
+}
+
+/* ═══════════════════════════════════════
+   MOBILE : max 768px
+═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .hero-inner {
+    width: 100%;
+    height: 300px;
+    min-height: unset;
+    padding: 0;
+    border-radius: 15px;
+    opacity: 0.7;
+  }
+
+  .hero-inner.hero-small {
+    margin-bottom: 60px;
   }
 
   .hero-title-container {
@@ -88,7 +149,7 @@
   }
 
   .hero-title {
-    font-size: 48px; /* réduit pour mobile */
+    font-size: 48px;
     line-height: 52px;
     text-align: center;
   }

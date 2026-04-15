@@ -4,6 +4,7 @@ import { useState } from "react";
 import Hero from "@/components/Hero";
 import Image from "next/image";
 
+import Link from "next/link";
 // Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
@@ -70,7 +71,7 @@ export default function HomePage() {
             </div>
             <div className="about-right">
               <p>Basés à Madagascar, nous accompagnons les experts-comptables et dirigeants pour transformer les contraintes administratives en leviers de réussite.</p>
-              <p>Nous agissons comme le prolongement naturel de vos bureaux, vous permettant de vous concentrer sur votre cœur de métier.</p>
+              <p>Nous agissons comme le prolongement de vos équipes pour vous faire gagner du temps précieux, en vous concentrant sur votre cœur de métier et le conseil à haute valeur ajoutée. Que vous soyez en phase de création ou en plein pic d'activité annuelle, notre équipe est prête à devenir le prolongement naturel de vos bureaux.</p>
             </div>
           </div>
         </div>
@@ -80,45 +81,49 @@ export default function HomePage() {
       <section className="services" id="services">
         <div className="services-container">
           <div className="services-inner">
-            <div className="services-header">
-              <span className="section-label">Nos services</span>
-              <h2>Un accompagnement 360°<br />pour vos formalités</h2>
-            </div>
-
+           <div className="services-header">
+  <span className="section-label">Nos services</span>
+  <h2>Un accompagnement 360°<br />pour vos formalités</h2>
+  <p>Une structure organisée en 4 pôles métiers pour répondre avec précision à l'ensemble des besoins de vos clients.</p>
+</div>
             {/* --- VERSION MOBILE (CAROUSEL 1 CARTE) --- */}
-            <div className="mobile-only-carousel">
-              <Swiper
-                modules={[Navigation]}
-                spaceBetween={20}
-                slidesPerView={1}
-                navigation={{
-                  nextEl: ".next-service",
-                  prevEl: ".prev-service",
-                }}
-              >
-                {SERVICES.map((service, i) => (
-                  <SwiperSlide key={i}>
-                    <div className="service-card">
-                      <div className="service-icon">
-                        <Image src={service.icon} alt={service.title} width={40} height={40} />
-                      </div>
-                      <h3>{service.title}</h3>
-                      <div className="service-content-wrapper">
-                        <p>{service.desc}</p>
-                        <div className="carousel-nav-inline">
-                          <button className="nav-btn prev-service" aria-label="Précédent">
-                            <svg width="24" height="24" fill="none" stroke="#C5A059" strokeWidth="2"><path d="m15 18-6-6 6-6"/></svg>
-                          </button>
-                          <button className="nav-btn next-service" aria-label="Suivant">
-                            <svg width="24" height="24" fill="none" stroke="#C5A059" strokeWidth="2"><path d="m9 18 6-6-6-6"/></svg>
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
+<div className="mobile-only-carousel">
+  <Swiper
+    modules={[Navigation]}
+    spaceBetween={20}
+    slidesPerView={1}
+    navigation={{
+      nextEl: ".next-service",
+      prevEl: ".prev-service",
+    }}
+  >
+    {SERVICES.map((service, i) => (
+      <SwiperSlide key={i}>
+        <div className="service-card">
+          <div className="service-icon">
+            <Image src={service.icon} alt={service.title} width={40} height={40} />
+          </div>
+          <h3>{service.title}</h3>
+          <div className="service-content-wrapper">
+            <p>{service.desc}</p>
+            <div className="carousel-nav-inline">
+              <button className="nav-btn prev-service" aria-label="Précédent">
+                <svg width="24" height="24" fill="none" stroke="#C5A059" strokeWidth="2">
+                  <path d="m15 18-6-6 6-6"/>
+                </svg>
+              </button>
+              <button className="nav-btn next-service" aria-label="Suivant">
+                <svg width="24" height="24" fill="none" stroke="#C5A059" strokeWidth="2">
+                  <path d="m9 18 6-6-6-6"/>
+                </svg>
+              </button>
             </div>
+          </div>
+        </div>
+      </SwiperSlide>
+    ))}
+  </Swiper>
+</div>
 
             {/* --- VERSION DESKTOP (GRILLE) --- */}
             <div className="services-grid desktop-only-grid">
@@ -213,7 +218,7 @@ export default function HomePage() {
             <h2>Besoin de plus d&apos;informations ?</h2>
             <p>Notre équipe se tient à disposition pour répondre à toutes vos questions.</p>
           </div>
-          <a href="thadeus@jurisexternalia.com" className="btn-gold">Contactez-nous !</a>
+          <Link href="/contact" className="btn-gold">Contactez-nous !</Link>
         </div>
       </section>
     </>

@@ -14,8 +14,8 @@ export default function Navbar() {
   <Image
   src="/logotr.png"
   alt="Thadeus Logo"
-  width={200}
-  height={120}
+  width={97}
+  height={60}
   className="navbar-logo-image" // Ajoute cette classe
   style={{ objectFit: "contain" }}
 />
@@ -29,9 +29,12 @@ export default function Navbar() {
       </div>
 
       {/* ── Bouton hamburger mobile ── */}
-      <button className="navbar-hamburger" onClick={() => setOpen(!open)}>
-        {open ? <X size={24} color="#fff" /> : <Menu size={24} color="#fff" />}
-      </button>
+  <button
+  className="navbar-hamburger"
+  onClick={() => setOpen(!open)}
+>
+  {open ? <X size={24} color="#fff" /> : <Menu size={24} color="#fff" />}
+</button>
 
       {/* ── Menu mobile ── */}
       {open && (

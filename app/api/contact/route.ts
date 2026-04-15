@@ -8,8 +8,8 @@ export async function POST(req: Request) {
 
   try {
     await resend.emails.send({ 
-      from: "onboarding@resend.dev",
-      to: "sitrakiniainadiary15@gmail.com", 
+      from: "contact@jurisexternalia.com",
+      to: "thadeus@jurisexternalia.com", 
       subject: `Nouveau message de ${nom}`,
       html: `
         <h2>Nouveau message depuis le site</h2>

@@ -88,124 +88,123 @@
   padding: 4px;
 }
 
+
 /* ─── MENU MOBILE ─── */
 .navbar-mobile {
-  display: flex;
+  display: none; /* ← MODIFIÉ : était flex */
   flex-direction: column;
-  align-items: center; /* centre horizontal */
+  align-items: center;
   width: 100%;
   padding: 20px 0;
   gap: 12px;
 }
+.navbar-hamburger {
+  display: none;
+}
 /* ─── RESPONSIVE ─── */
 @media (max-width: 768px) {
-  .navbar-logo-image {
-    width: 120px !important; /* Taille réduite */
-    height: auto !important; /* Conserve les proportions */
-    margin-left: 10px; /* Espacement à gauche */
-  }
 
-  /* 1. LA BARRE : On fixe la hauteur à 80px */
+  /* ─── NAVBAR ─── */
   .navbar {
     display: flex !important;
     align-items: center !important;
-    justify-content: center !important; /* On centre le parent par défaut */
-    
-    height: 80px !important;
+    justify-content: space-between !important;
+    height: auto !important;
     background: #223553 !important;
-    position: relative !important; /* Indispensable pour le positionnement des enfants */
+    position: relative !important;
     width: 100% !important;
-    padding: 0 !important;
+    padding: 20px !important;
     margin: 0 !important;
+    box-sizing: border-box !important;
   }
 
-  /* 2. LE LOGO : On le FORCE à gauche avec absolute */
-.navbar-brand {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
+  /* ─── LOGO : 65x40 ─── */
+  .navbar-brand {
+    position: static !important;        /* ← supprime le absolute */
+    transform: none !important;
   }
 
   .navbar-logo-image {
-    width: 110px !important; /* Taille ajustée pour mobile */
-    height: auto !important;
+    width: 65px !important;
+    height: 40px !important;
+    object-fit: contain !important;
+    margin-left: 0 !important;
   }
 
   .navbar-logo {
     width: auto !important;
-    height: 45px !important; /* Taille adaptée pour mobile */
+    height: auto !important;
     background: transparent !important;
   }
 
-
+  /* ─── HAMBURGER : 40x40 ─── */
   .navbar-hamburger {
-    position: absolute;
-    right: 15px; /* Position à droite */
-    top: 50%; /* Centrage vertical */
-    transform: translateY(-50%); /* Ajustement pour un centrage parfait */
-    width: 48px;
-    height: 48px;
-    padding: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    z-index: 101;
-  }
-
-  /* 4. ON CACHE LES LIENS TEXTE QUI GÊNENT */
-  .navbar-links {
-    display: none !important;
-  }
-/* Style du menu mobile */
-.navbar-mobile {
-  display: flex;
-  flex-direction: column;
-  position: fixed;
-  top: 70px; /* Juste sous la navbar */
-  left: 0;
-  width: 100%;
-  background: #ffffff; /* Fond blanc */
-  padding: 20px 0;
-  z-index: 100;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Ombre légère pour la profondeur */
-}
-
-/* Style des liens dans le menu mobile */
-.navbar-mobile a {
-    /* 1. COULEUR : On force le texte en blanc pour qu'il ressorte sur le bouton bleu */
-    color: #ffffff !important; 
-    font-size: 18px !important;
-    font-weight: 500 !important;
-    text-decoration: none !important;
-
-    /* 2. ALIGNEMENT : On centre le texte parfaitement dans le bouton */
+    position: static !important;        /* ← supprime le absolute */
+    transform: none !important;
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+    padding: 8px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    
-    /* 3. FORME DU BOUTON (Basé sur image_f48c3f) */
-    background-color: #223553 !important; /* Bleu foncé identique à la navbar */
-    width: 280px !important;              /* Largeur fixe pour l'harmonie */
-    height: 55px !important;              /* Hauteur confortable */
-    border-radius: 12px !important;       /* Arrondi des angles */
-    
-    /* 4. ESPACEMENT */
-    margin: 0 auto !important;            /* Centre le bouton lui-même */
-    transition: background 0.3s ease;
+   background: transparent !important;
+    z-index: 101 !important;
   }
 
-  /* Effet au survol (optionnel mais recommandé) */
+  /* ─── LIENS DESKTOP CACHÉS ─── */
+  .navbar-links {
+    display: none !important;
+  }
+
+  /* ─── MENU MOBILE ─── */
+  .navbar-mobile {
+    display: flex !important;
+    flex-direction: column !important;
+    position: fixed !important;
+    top: 80px !important;               /* ← aligné avec la nouvelle hauteur navbar */
+    left: 0 !important;
+    width: 100% !important;
+    background: #ffffff !important;
+    padding: 30px 20px !important;
+    gap: 16px !important;
+    z-index: 100 !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  .navbar-mobile a {
+    color: #ffffff !important;
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    text-decoration: none !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background-color: #223553 !important;
+    width: 100% !important;             /* ← pleine largeur au lieu de 280px fixe */
+    height: 55px !important;
+    border-radius: 12px !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    transition: background 0.3s ease !important;
+  }
+
   .navbar-mobile a:hover {
     background-color: #1a2a44 !important;
   }
-
-  /* ─── ESPACEMENT ENTRE LES BOUTONS ─── */
-  .navbar-mobile {
-    gap: 20px !important;                /* Espace vertical entre chaque bouton */
-    padding-top: 50px !important;        /* Espace entre la navbar et le premier bouton */
-  }
 }
-  /* 5. LE MENU QUI S'OUVRE (Boutons bleus sur fond blanc) */
+/* ════════════════════════════════════════
+   TABLETTE 769px - 1199px
+   ════════════════════════════════════════ */
+@media (min-width: 769px) and (max-width: 1199px) {
+  .navbar {
+    height: 90px;
+    padding: 10px 20px;
+  }
+
+  /* ── Afficher les liens, cacher le hamburger ── */
+  .navbar-links { display: flex !important; }
+  .navbar-hamburger { display: none !important; }
+  .navbar-mobile { display: none !important; }
+}
