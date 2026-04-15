@@ -5,10 +5,11 @@
 ═══════════════════════════════════════ */
 .hero {
   background-color: #223553;
-  padding: 0;
+  padding: 10px;
   display: flex;
   justify-content: center;
 }
+ 
 
 .hero-inner {
   background-image: url("/hero-bg.jpg");
@@ -21,30 +22,28 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0;
+  border-radius: 20px;
   position: relative;
   overflow: hidden;
   gap: 10px;
 }
 
-/* ═══════════════════════════════════════
-   HERO SMALL (nos services + contact)
-═══════════════════════════════════════ */
-.hero:has(.hero-small) {
-    height: auto;        /* ← supprime la hauteur fixe 400px */
-  }
 
-  .hero-inner.hero-small  {
-    height: 300px;       /* ← hauteur fixe mobile */
-    margin-bottom: 0;    /* ← supprime le 100px qui déborde */
-  }
 
+ .hero-inner.hero-small {
+  height: 400px;
+  min-height: unset; /* ✅ important */
+  
+}
+ 
 /* ═══════════════════════════════════════
    TITRES
 ═══════════════════════════════════════ */
 .hero-title-container {
-  width: 755px;
+
   height: 200px;
+  max-width: 755px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,20 +91,22 @@
     height: auto;
     min-height: unset;
     padding: 0;
+
   }
 
   .hero-inner {
-    width: 100vw;
-    height: calc(100vh - 90px);
+   
+   min-height: 500px;
+height: auto;
     padding: 0;
   }
 
   /* supprime: .hero:has(.hero-small) { ... } */
 
-  .hero-inner.hero-small {
-    height: 400px;     /* hauteur voulue sur tablette */
-    margin-bottom: 0; /* important pour éviter le décalage */
-  }
+ .hero-inner.hero-small  {
+  height: 400px;
+  margin-bottom: 0;
+}
 
   .hero-title {
     font-size: 64px;
