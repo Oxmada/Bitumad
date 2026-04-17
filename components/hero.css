@@ -12,7 +12,8 @@
  
 
 .hero-inner {
- background-image: url("/hero-bg.webp");
+  /* On ajoute un dégradé noir transparent par-dessus l'image */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("/hero-bg.webp");
   background-size: cover;
   background-position: center;
   width: 100vw;
