@@ -12,7 +12,7 @@
  
 
 .hero-inner {
-  background-image: url("/hero-bg.jpg");
+ background-image: url("/hero-bg.webp");
   background-size: cover;
   background-position: center;
   width: 100vw;
@@ -176,4 +176,26 @@ height: auto;
   line-height: 22px;
   text-align: right;
 }
+}
+/* ═══════════════════════════════════════
+   ANIMATIONS HERO
+═══════════════════════════════════════ */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  animation: fadeSlideUp 1.4s ease forwards;
+}
+
+.hero-subtitle {
+ opacity: 0;
+  animation: fadeSlideUp 1.4s ease 0.8s forwards;
 }

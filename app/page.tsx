@@ -1,6 +1,5 @@
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Hero from "@/components/Hero";
 import Image from "next/image";
 
@@ -10,6 +9,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+
 
 const SERVICES = [
   {
@@ -57,7 +57,54 @@ const FAQS = [
 export default function HomePage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
+          useEffect(() => {
+  const cards = document.querySelectorAll('.service-card');
+
+  const left = document.querySelectorAll(".about-left");
+  const right = document.querySelectorAll(".about-right");
+
+  const steps = document.querySelectorAll(".step-card"); // 👈 NEW
+
+  // about classes
+  left.forEach(el => el.classList.add("reveal", "reveal-left"));
+  right.forEach(el => el.classList.add("reveal", "reveal-right"));
+
+  // step animation class
+  steps.forEach(el => el.classList.add("reveal-step"));
+
+  const elements = document.querySelectorAll(".service-card, .reveal, .reveal-step");
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+
+        if (entry.target.classList.contains("service-card")) {
+          entry.target.classList.add("visible");
+        }
+
+        if (entry.target.classList.contains("reveal")) {
+          entry.target.classList.add("active");
+        }
+
+        // 👇 animation steps avec délai
+        if (entry.target.classList.contains("reveal-step")) {
+          const index = [...steps].indexOf(entry.target);
+
+          setTimeout(() => {
+            entry.target.classList.add("active");
+          }, index * 150); // delay entre chaque
+        }
+      }
+    });
+  }, { threshold: 0.2 });
+
+  elements.forEach(el => observer.observe(el));
+
+  return () => observer.disconnect();
+}, []);
   return (
+
+
     <>
       <Hero />
 
