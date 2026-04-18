@@ -28,9 +28,9 @@ export default function MentionsLegalesPage() {
               <h2>2. Hébergement</h2>
             </div>
             <div className="mentions-content-wrapper">
-              <p>Le site est conçu et hébergé par : <strong>Framer B.V.</strong></p>
-              <p>Adresse : Anthony Fokkerweg 61, 1059 CP Amsterdam, Pays-Bas</p>
-              <p>Site web : <a href="https://www.framer.com" target="_blank" rel="noopener noreferrer">www.framer.com</a></p>
+             <p>Le site est conçu et hébergé par : <strong>Vercel Inc.</strong></p>
+<p>Adresse : 340 Pine Street, Suite 701, San Francisco, CA 94104, États-Unis</p>
+<p>Site web : <a href="https://www.vercel.com" target="_blank">www.vercel.com</a></p>
             </div>
           </div>
 
@@ -94,7 +94,7 @@ export default function MentionsLegalesPage() {
             </div>
           </div>
 
-          <p className="mentions-date">Dernière mise à jour : Janvier 2026</p>
+          <p className="mentions-date">Dernière mise à jour : avril 2026</p>
         </div>
       </div>
     </section>
