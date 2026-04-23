@@ -3,6 +3,21 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Script from "next/script";
+import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+
+const garamond = EB_Garamond({
+  subsets: ["latin"],
+  weight: ["500"],
+  variable: "--font-garamond",
+  display: "swap",
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "600", "700"],
+  variable: "--font-jakarta",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Thadeus Externalia Juris – Externalisation Juridique, Sociale et Fiscale",
@@ -11,48 +26,21 @@ export const metadata: Metadata = {
   authors: [{ name: "Thadeus Externalia Juris" }],
   creator: "Thadeus Externalia Juris",
   metadataBase: new URL("https://www.jurisexternalia.com"),
-  alternates: {
-    canonical: "/",
-  },
-  icons: {
-    icon: "/favicon.png",
-  },
+  alternates: { canonical: "/" },
+  icons: { icon: "/favicon.png" },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={`${garamond.variable} ${jakarta.variable}`}>
       <head>
-        {/* OPTIMISATION LCP : 
-          On force le navigateur à télécharger l'image de fond immédiatement.
-          Cela évite d'attendre que le fichier CSS soit chargé et lu.
-        */}
-        <link
-          rel="preload"
-          href="/hero-bg.webp"
-          as="image"
-          type="image/webp"
-          fetchPriority="high"
-        />
+        <link rel="preload" href="/hero-bg.webp" as="image" type="image/webp" fetchPriority="high" />
       </head>
       <body>
         <Navbar />
         <main>{children}</main>
         <Footer />
-
-        {/* OPTIMISATION PERFORMANCE : 
-          Utilisation de 'lazyOnload' pour Google Analytics. 
-          Le script ne se chargera qu'une fois que la page est totalement prête,
-          ce qui libère du processeur pour l'affichage initial (FCP).
-        */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-J033ZDEWNC"
-          strategy="lazyOnload"
-        />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-J033ZDEWNC" strategy="lazyOnload" />
         <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];

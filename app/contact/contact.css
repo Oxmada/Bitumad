@@ -631,3 +631,45 @@
     height: 400px;
   }
 }
+
+/* ✅ SUCCESS MESSAGE - SIMPLE & PROFESSIONNEL */
+
+.contact-success {
+  background: #f0fdf4;
+  border: 2px solid #10b981;
+  border-radius: 8px;
+  padding: 2rem; /* ✅ Plus de padding */
+  animation: fadeIn 0.3s ease;
+  width: 100%;
+  min-height: 200px; /* ✅ Hauteur minimale */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0; /* ✅ Pas de marge */
+  box-sizing: border-box; /* ✅ Important */
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.contact-success p {
+  margin: 0;
+  color: #065f46;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-success {
+    padding: 1rem 1.25rem;
+  }
+  
+  .contact-success p {
+    font-size: 0.95rem;
+  }
+}

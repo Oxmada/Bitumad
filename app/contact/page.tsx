@@ -59,8 +59,17 @@ export default function ContactPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-      if (res.ok) setSent(true);
-      else alert("Erreur lors de l'envoi, réessayez.");
+      if (res.ok) {
+        setSent(true);
+        
+        // ✅ RETOUR AU FORMULAIRE APRÈS 3 SECONDES
+        setTimeout(() => {
+          setSent(false);
+          setForm({ nom: "", telephone: "", email: "", message: "" }); // ✅ Réinitialise le formulaire
+        }, 3000);
+      } else {
+        alert("Erreur lors de l'envoi, réessayez.");
+      }
     } catch {
       alert("Erreur serveur.");
     }

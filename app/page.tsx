@@ -80,7 +80,7 @@ export default function HomePage() {
         if (entry.isIntersecting) {
           if (entry.target.classList.contains("service-card")) {
             const index = [...cards].indexOf(entry.target as HTMLElement);
-            setTimeout(() => entry.target.classList.add("visible"), index * 150);
+            setTimeout(() => entry.target.classList.add("visible"), index * 50);
           }
           if (entry.target.classList.contains("anim")) {
             setTimeout(() => entry.target.classList.add("visible"), 100);
