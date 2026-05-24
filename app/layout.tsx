@@ -2,53 +2,56 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import Script from "next/script";
-import { EB_Garamond, Plus_Jakarta_Sans } from "next/font/google";
+import { Bebas_Neue, Instrument_Sans, JetBrains_Mono } from "next/font/google";
 
-const garamond = EB_Garamond({
+const bebasNeue = Bebas_Neue({
   subsets: ["latin"],
-  weight: ["500"],
-  variable: "--font-garamond",
+  weight: ["400"],
+  variable: "--font-display",
   display: "swap",
 });
 
-const jakarta = Plus_Jakarta_Sans({
+const instrumentSans = Instrument_Sans({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700"],
-  variable: "--font-jakarta",
+  weight: ["400", "500", "600"],
+  variable: "--font-body",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-mono",
   display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Thadeus Externalia Juris – Externalisation Juridique, Sociale et Fiscale",
-  description: "Thadeus Externalia Juris (SARL) est votre partenaire de confiance spécialisé dans l'externalisation (BPO) des formalités juridiques, administratives et sociales à Madagascar.",
-  keywords: "externalisation juridique, BPO Madagascar, formalités juridiques, INPI, expert-comptable, création entreprise, secrétariat juridique, gestion paie, ingénierie fiscale, cabinet juridique madagascar, externalisation comptable",
-  authors: [{ name: "Thadeus Externalia Juris" }],
-  creator: "Thadeus Externalia Juris",
-  metadataBase: new URL("https://www.jurisexternalia.com"),
+  title: "Bitumad – Des routes solides à Madagascar",
+  description:
+    "Bitumad est votre partenaire de confiance pour la fourniture de bitume de pénétration 60/70 à Madagascar. Qualité conforme aux normes internationales ASTM.",
+  keywords:
+    "bitume Madagascar, bitume 60/70, routes Madagascar, BTP Madagascar, fourniture bitume, ASTM",
+  authors: [{ name: "Bitumad" }],
+  creator: "Bitumad",
+  metadataBase: new URL("https://www.bitumad.mg"),
   alternates: { canonical: "/" },
-  icons: { icon: "/favicon.png" },
+  icons: { icon: "https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650741/bitumad_logo_cercle_remove_v2_zcpvnc.webp" },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="fr" className={`${garamond.variable} ${jakarta.variable}`}>
-      <head>
-        <link rel="preload" href="/hero-bg.webp" as="image" type="image/webp" fetchPriority="high" />
-      </head>
+    <html
+      lang="fr"
+      className={`${bebasNeue.variable} ${instrumentSans.variable} ${jetbrainsMono.variable}`}
+    >
       <body>
         <Navbar />
         <main>{children}</main>
         <Footer />
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-J033ZDEWNC" strategy="lazyOnload" />
-        <Script id="google-analytics" strategy="lazyOnload">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-J033ZDEWNC');
-          `}
-        </Script>
       </body>
     </html>
   );

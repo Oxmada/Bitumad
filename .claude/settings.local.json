@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Remove-Item -Recurse -Force \"c:\\\\Users\\\\antoi\\\\Documents\\\\Dev\\\\Oxmad_Digital\\\\bitumad\\\\.next\\\\cache\\\\images\" -ErrorAction SilentlyContinue)",
+      "Bash(Write-Host \"Cache images supprimé\")",
+      "Bash(npx tsc *)",
+      "Bash(Get-ChildItem -Path \"c:\\\\Users\\\\antoi\\\\Documents\\\\Dev\\\\Oxmad_Digital\\\\bitumad\" -Recurse -Directory)",
+      "Bash(Select-Object FullName)",
+      "Bash(node -e \"const p = require\\('./package.json'\\); console.log\\(p.dependencies['next-cloudinary'] || 'non installé'\\)\")",
+      "Bash(npm install *)"
+    ]
+  }
+}

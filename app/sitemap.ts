@@ -9,7 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: 'https://jurisexternalia.com/nos-services',
+      url: 'https://jurisexternalia.com/notre-bitume',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,

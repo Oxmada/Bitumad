@@ -1,6 +1,4 @@
 "use client";
-import Link from "next/link";
-import Image from "next/image";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import "./Navbar.css";
@@ -9,43 +7,36 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="navbar">
-      <div className="navbar-brand">
-        <Image
-          src="/logotr.png"
-          alt="Thadeus Externalia Juris Logo" // Un alt un peu plus descriptif pour le SEO
-          width={97}
-          height={60}
-          className="navbar-logo-image"
-          style={{ objectFit: "contain" }}
-          priority // On ajoute priority ici car le logo est tout en haut
-        />
-      </div>
+    <nav className="nav">
+      <a href="/" className="nav-logo">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650741/Bitumad-logo-simple_nal1lr.webp" alt="Bitumad" style={{ height: "40px", width: "auto" }} />
+      </a>
 
-      {/* ── Liens desktop ── */}
-      <div className="navbar-links">
-        <Link href="/">Accueil</Link>
-        <Link href="/nos-services">Nos services</Link>
-        <Link href="/contact">Contacts</Link>
-      </div>
+      <ul className="nav-links">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/a-propos">À propos</a></li>
+        <li><a href="/notre-bitume">Notre bitume</a></li>
+        <li><a href="/#commander">Commander</a></li>
+        <li><a href="/contact" className="nav-cta">Contact</a></li>
+      </ul>
 
-      {/* ── Bouton hamburger mobile ── */}
       <button
-        className="navbar-hamburger"
+        className="nav-hamburger"
         onClick={() => setOpen(!open)}
-        // CORRECTION ACCESSIBILITÉ : On donne un nom au bouton
         aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
         aria-expanded={open}
       >
-        {open ? <X size={24} color="#fff" /> : <Menu size={24} color="#fff" />}
+        {open ? <X size={22} color="var(--white)" /> : <Menu size={22} color="var(--white)" />}
       </button>
 
-      {/* ── Menu mobile ── */}
       {open && (
-        <div className="navbar-mobile">
-          <Link href="/" onClick={() => setOpen(false)}>Accueil</Link>
-          <Link href="/nos-services" onClick={() => setOpen(false)}>Nos services</Link>
-          <Link href="/contact" onClick={() => setOpen(false)}>Contacts</Link>
+        <div className="nav-mobile">
+          <a href="/" onClick={() => setOpen(false)}>Accueil</a>
+          <a href="/a-propos" onClick={() => setOpen(false)}>À propos</a>
+          <a href="/notre-bitume" onClick={() => setOpen(false)}>Notre bitume</a>
+          <a href="/#commander" onClick={() => setOpen(false)}>Commander</a>
+          <a href="/contact" className="nav-cta" onClick={() => setOpen(false)}>Contact</a>
         </div>
       )}
     </nav>
