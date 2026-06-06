@@ -152,6 +152,7 @@ export default function NosServicesPage() {
     <>
       {/* ─── PAGE HERO ─── */}
       <div className="nb-page-hero">
+        <div className="nb-page-hero-bg" />
         <div className="nb-page-hero-grid" />
         <div className="nb-page-hero-accent" aria-hidden="true">60/70</div>
         <div className="nb-page-hero-layout">

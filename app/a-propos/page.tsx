@@ -29,6 +29,7 @@ export default function APropos() {
     <>
       {/* PAGE HERO */}
       <div className="page-hero">
+        <div className="page-hero-bg" />
         <div className="page-hero-grid" />
         <div className="page-hero-content">
           <div className="breadcrumb reveal">
@@ -38,11 +39,8 @@ export default function APropos() {
           </div>
           <div className="eyebrow reveal reveal-delay-1">Notre entreprise</div>
           <h1 className="page-title reveal reveal-delay-2">
-            BITUME PUR,<br /><em>FUTUR SÛR</em>
+            BITUME PUR, <em>FUTUR SÛR</em>
           </h1>
-          <p className="page-lead reveal reveal-delay-3">
-            Née d&apos;un constat simple — Madagascar mérite des routes à la hauteur de son ambition — Bitumad fournit un bitume de qualité internationale au cœur de l&apos;île.
-          </p>
         </div>
       </div>
 
@@ -58,9 +56,14 @@ export default function APropos() {
           <div className="histoire-left reveal reveal-delay-2">
             <div className="histoire-year">2024</div>
             <div className="histoire-founded-label">Année de fondation</div>
-            <p style={{ fontSize: '14px', color: 'var(--muted)', lineHeight: 1.8, marginBottom: '32px' }}>
+            <p style={{ fontSize: '14px', color: 'var(--muted)', lineHeight: 1.8, marginBottom: '24px' }}>
               Bitumad voit le jour à Antananarivo, portée par la conviction que l&apos;état des infrastructures routières est un frein majeur au développement de Madagascar.
             </p>
+            <img
+              src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1780760304/bitumad-route-rurale-degradee-laterite-madagascar_lyucox.jpg"
+              alt="Route rurale dégradée à Madagascar — latérite rouge"
+              className="histoire-photo reveal reveal-delay-3"
+            />
             <div className="histoire-stat-grid">
               <div className="histoire-stat">
                 <div className="histoire-stat-num">60<em>/70</em></div>
@@ -87,7 +90,7 @@ export default function APropos() {
                 <span className="timeline-year-tag">2024 — Fondation</span>
                 <div className="timeline-title">Naissance de Bitumad</div>
                 <div className="timeline-body">
-                  Face à une demande non satisfaite en matériaux routiers de qualité à Madagascar, un groupe d&apos;entrepreneurs malgaches décide de créer Bitumad. L&apos;objectif : rendre accessible un bitume de pénétration 60/70 conforme aux normes internationales, directement importé depuis des fournisseurs certifiés.
+                  Face à une demande non satisfaite en matériaux routiers de qualité à Madagascar, Bitumad naît avec un objectif clair : rendre accessible un bitume de pénétration 60/70 conforme aux normes internationales, directement importé depuis des fournisseurs certifiés.
                 </div>
               </div>
             </div>
@@ -138,7 +141,6 @@ export default function APropos() {
             <div className="context-block-title">Madagascar et ses infrastructures : un défi urgent</div>
             <div className="context-block-text">
               <p>Madagascar dispose d&apos;un réseau de routes nationales et secondaires couvrant plusieurs dizaines de milliers de kilomètres. Mais une large portion de ce réseau reste non bitumée ou en état de dégradation avancée, pénalisant les échanges économiques, l&apos;accès aux soins et à l&apos;éducation.</p>
-              <p>Les grands projets d&apos;infrastructures financés par l&apos;État et les bailleurs de fonds internationaux créent une demande croissante en matériaux routiers de qualité. C&apos;est dans ce contexte que Bitumad s&apos;est positionné comme un fournisseur local fiable et certifié.</p>
             </div>
           </div>
           <div className="context-stat-list">
@@ -183,7 +185,7 @@ export default function APropos() {
       </section>
 
       {/* MISSION / VISION / VALEURS */}
-      <section id="mission" className="ap-section ap-mission">
+      <section id="mission" className="ap-section ap-mission" style={{ display: 'none' }}>
         <div className="eyebrow reveal">Mission · Vision · Valeurs</div>
         <h2 className="section-title reveal reveal-delay-1">CE QUI NOUS ANIME</h2>
         <p className="section-lead reveal reveal-delay-2">
@@ -285,7 +287,8 @@ export default function APropos() {
           </div>
         </div>
 
-        {/* Pays fournisseurs */}
+        {/* Pays fournisseurs — masqué, réactiver en retirant style={{ display: 'none' }} */}
+        <div style={{ display: 'none' }}>
         <div className="eyebrow reveal" style={{ marginBottom: '24px' }}>Pays d&apos;origine du bitume</div>
         <div className="pays-grid">
           <div className="pays-card reveal reveal-delay-2">
@@ -318,6 +321,7 @@ export default function APropos() {
               <span className="pays-tag">ASTM</span>
             </div>
           </div>
+        </div>
         </div>
 
         {/* Normes & certifications */}

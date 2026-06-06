@@ -48,6 +48,23 @@
   color: var(--white);
 }
 
+.nav-cmd {
+  background: var(--green);
+  color: var(--black);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 8px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+
+.nav-cmd:hover {
+  background: var(--green-light);
+  transform: translateY(-1px);
+}
 
 .nav-hamburger {
   display: none;
@@ -68,6 +85,10 @@
     flex-wrap: wrap;
     height: auto;
     padding: 16px 24px;
+  }
+
+  .nav-cmd {
+    display: none;
   }
 
   .nav-links {
@@ -103,6 +124,16 @@
 
   .nav-mobile a:hover {
     background: var(--dark3);
+  }
+
+  .nav-mobile .nav-cmd {
+    background: var(--green);
+    color: var(--black);
+    font-weight: 600;
+  }
+
+  .nav-mobile .nav-cmd:hover {
+    background: var(--green-light);
   }
 
 }

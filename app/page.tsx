@@ -88,13 +88,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ─── VIDEO STRIP ─── */}
-      <div className="video-strip">
-        <video src="https://res.cloudinary.com/uuiwf5lx/video/upload/q_auto/f_auto/v1779650745/Bitumad_vid%C3%A9o_bitume_coulant_ejc7u8.mp4" autoPlay muted loop playsInline />
-        <div className="video-strip-overlay" />
-        <span className="video-label">Bitumad · Application sur chantier</span>
-      </div>
-
       {/* ─── À PROPOS ─── */}
       <section id="apropos">
         <div className="eyebrow reveal">À propos</div>
@@ -332,20 +325,6 @@ export default function HomePage() {
                   <div className="devis-promise-desc">
                     Notre équipe traite chaque demande rapidement et vous
                     envoie une proposition claire.
-                  </div>
-                </div>
-              </div>
-              <div className="devis-promise-item">
-                <div className="devis-promise-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="15" height="15">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="devis-promise-title">Qualité ASTM garantie</div>
-                  <div className="devis-promise-desc">
-                    Chaque lot est accompagné de son certificat d'analyse
-                    conforme aux normes internationales.
                   </div>
                 </div>
               </div>

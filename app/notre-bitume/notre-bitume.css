@@ -1,3 +1,46 @@
+/* ─── VIDEO STRIP ─── */
+.nb-video-strip {
+  position: relative;
+  height: 420px;
+  overflow: hidden;
+  background: var(--dark);
+}
+
+.nb-video-strip video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.6;
+}
+
+.nb-video-strip-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    var(--black) 0%,
+    transparent 30%,
+    transparent 70%,
+    var(--black) 100%
+  );
+}
+
+.nb-video-label {
+  position: absolute;
+  bottom: 32px;
+  left: 80px;
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+  .nb-video-strip { height: 240px; }
+  .nb-video-label { left: 24px; bottom: 16px; }
+}
+
 /* ══════════════════════════════════════════
    PAGE HERO
 ══════════════════════════════════════════ */
@@ -7,6 +50,16 @@
   background: var(--dark);
   overflow: hidden;
   border-bottom: 0.5px solid var(--faint);
+}
+
+.nb-page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1780763068/bitumad-hangar-stockage-futs-bitume_jev4la.jpg');
+  background-size: cover;
+  background-position: center 50%;
+  filter: brightness(0.45) saturate(0.8);
+  pointer-events: none;
 }
 
 .nb-page-hero-grid {
@@ -463,15 +516,15 @@
 }
 
 .nb-val-min {
-  background: rgba(29, 158, 117, 0.15);
-  color: #4dd9a8;
-  border: 0.5px solid rgba(29, 158, 117, 0.3);
+  background: var(--green-dim);
+  color: var(--green-light);
+  border: 0.5px solid var(--green-border);
 }
 
 .nb-val-max {
-  background: rgba(210, 90, 50, 0.12);
-  color: #f0906a;
-  border: 0.5px solid rgba(210, 90, 50, 0.25);
+  background: var(--limit-bg);
+  color: var(--limit);
+  border: 0.5px solid var(--limit-border);
 }
 
 .nb-val-dash {

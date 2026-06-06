@@ -12,7 +12,9 @@ export default function Footer() {
         <li><a href="/#commander">Commander</a></li>
         <li><a href="/contact">Contact</a></li>
       </ul>
-      <span className="footer-copy">© 2025 BITUMAD</span>
+      <span className="footer-copy">
+        © 2025 BITUMAD &nbsp;·&nbsp; <a href="/mentions-legales" style={{ color: 'inherit', textDecoration: 'none' }}>Mentions légales</a>
+      </span>
     </footer>
   );
 }

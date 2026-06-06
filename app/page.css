@@ -387,15 +387,15 @@
 }
 
 .val-min {
-  background: rgba(29, 158, 117, 0.15);
-  color: #4dd9a8;
-  border: 0.5px solid rgba(29, 158, 117, 0.3);
+  background: var(--green-dim);
+  color: var(--green-light);
+  border: 0.5px solid var(--green-border);
 }
 
 .val-max {
-  background: rgba(210, 90, 50, 0.12);
-  color: #f0906a;
-  border: 0.5px solid rgba(210, 90, 50, 0.25);
+  background: var(--limit-bg);
+  color: var(--limit);
+  border: 0.5px solid var(--limit-border);
 }
 
 .val-dash {

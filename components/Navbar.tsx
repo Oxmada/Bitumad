@@ -17,9 +17,10 @@ export default function Navbar() {
         <li><a href="/">Accueil</a></li>
         <li><a href="/a-propos">À propos</a></li>
         <li><a href="/notre-bitume">Notre bitume</a></li>
-        <li><a href="/#commander">Commander</a></li>
         <li><a href="/contact" className="nav-cta">Contact</a></li>
       </ul>
+
+      <a href="/#commander" className="nav-cmd">Commander</a>
 
       <button
         className="nav-hamburger"
@@ -35,7 +36,7 @@ export default function Navbar() {
           <a href="/" onClick={() => setOpen(false)}>Accueil</a>
           <a href="/a-propos" onClick={() => setOpen(false)}>À propos</a>
           <a href="/notre-bitume" onClick={() => setOpen(false)}>Notre bitume</a>
-          <a href="/#commander" onClick={() => setOpen(false)}>Commander</a>
+          <a href="/#commander" className="nav-cmd" onClick={() => setOpen(false)}>Commander</a>
           <a href="/contact" className="nav-cta" onClick={() => setOpen(false)}>Contact</a>
         </div>
       )}

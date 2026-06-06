@@ -40,6 +40,28 @@
   border-bottom: 0.5px solid var(--faint);
   overflow: hidden;
 }
+.page-hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0.5;
+  filter: brightness(0.6) saturate(0.7);
+}
+
+.page-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(12, 12, 11, 0.4) 0%,
+    rgba(12, 12, 11, 0.55) 100%
+  );
+  pointer-events: none;
+}
+
 .page-hero-grid {
   position: absolute;
   inset: 0;

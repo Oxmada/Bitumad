@@ -1,10 +1,20 @@
 /* ─── PAGE HERO ─── */
 .page-hero {
   position: relative;
-  padding: 110px 80px 64px;
+  padding: 110px 80px 40px;
   background: var(--dark);
   border-bottom: 0.5px solid var(--faint);
   overflow: hidden;
+}
+
+.page-hero-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1780763068/bitumad-camion-transport-route-montagne_u5itmo.jpg');
+  background-size: cover;
+  background-position: center 50%;
+  filter: brightness(0.45) saturate(0.8);
+  pointer-events: none;
 }
 
 .page-hero-grid {
@@ -159,6 +169,18 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   margin-bottom: 28px;
+}
+
+.histoire-photo {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: center 60%;
+  border-radius: 8px;
+  border: 0.5px solid var(--faint);
+  filter: brightness(0.55) saturate(0.8);
+  display: block;
+  margin-bottom: 32px;
 }
 
 .histoire-stat-grid {

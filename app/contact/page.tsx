@@ -148,6 +148,8 @@ export default function ContactPage() {
     <>
       {/* PAGE HERO */}
       <div className="page-hero">
+        <video className="page-hero-video" src="https://res.cloudinary.com/uuiwf5lx/video/upload/q_auto/f_auto/v1779650745/Bitumad_vid%C3%A9o_bitume_coulant_ejc7u8.mp4" autoPlay muted loop playsInline />
+        <div className="page-hero-overlay" />
         <div className="page-hero-grid" />
         <div className="page-hero-content">
           <div className="c-breadcrumb reveal">
