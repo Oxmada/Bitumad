@@ -256,7 +256,7 @@ export default function HomePage() {
       <section id="commander">
         <div className="eyebrow reveal">Commander</div>
         <h2 className="section-title reveal reveal-delay-1">
-          PROCESSUS<br />DE COMMANDE
+          PROCESSUS DE COMMANDE
         </h2>
         <p className="section-lead reveal reveal-delay-2">
           Un parcours simple et rapide — de la demande de devis à la livraison

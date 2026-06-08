@@ -342,7 +342,7 @@
   display: grid;
   grid-template-columns: 1fr 400px;
   gap: 80px;
-  align-items: start;
+  align-items: center;
 }
 
 .nb-desc-body {

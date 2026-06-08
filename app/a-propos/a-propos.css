@@ -141,6 +141,7 @@
 /* ─── HISTOIRE ─── */
 .ap-histoire { background: var(--black); }
 
+
 .histoire-layout {
   display: grid;
   grid-template-columns: 340px 1fr;
@@ -501,6 +502,8 @@
 
 /* ─── PARTENAIRES ─── */
 .ap-partenaires { background: var(--black); }
+
+.ap-partenaires .section-title { margin-bottom: 8px; }
 
 .partenaires-intro {
   display: grid;

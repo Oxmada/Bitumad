@@ -224,40 +224,6 @@
 #commander { background: var(--dark); }
 #devis { background: var(--black); }
 
-.eyebrow {
-  font-family: var(--font-mono), 'JetBrains Mono', monospace;
-  font-size: 11px;
-  color: var(--green);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-bottom: 16px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.eyebrow::before {
-  content: '';
-  width: 24px;
-  height: 0.5px;
-  background: var(--green);
-}
-
-.section-title {
-  font-family: var(--font-display), 'Bebas Neue', sans-serif;
-  font-size: clamp(36px, 5vw, 64px);
-  line-height: 1.0;
-  letter-spacing: 0.02em;
-  color: var(--white);
-  margin-bottom: 20px;
-}
-
-.section-lead {
-  font-size: 15px;
-  color: var(--muted);
-  max-width: 560px;
-  line-height: 1.75;
-}
 
 /* ─── À PROPOS ─── */
 .about-grid {
@@ -328,80 +294,6 @@
 }
 
 /* ─── FICHE TECHNIQUE ─── */
-.product-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 56px;
-}
-
-.spec-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 14px;
-}
-
-.spec-table thead tr {
-  border-bottom: 0.5px solid var(--faint);
-}
-
-.spec-table thead th {
-  padding: 14px 20px;
-  text-align: left;
-  font-family: var(--font-mono), 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 400;
-  color: var(--muted);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.spec-table tbody tr {
-  border-bottom: 0.5px solid var(--faint);
-  transition: background 0.15s;
-}
-
-.spec-table tbody tr:hover {
-  background: var(--sand-dim);
-}
-
-.spec-table td {
-  padding: 18px 20px;
-  color: var(--white);
-}
-
-.spec-table td.method,
-.spec-table td.unit {
-  font-family: var(--font-mono), 'JetBrains Mono', monospace;
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.val-badge {
-  display: inline-block;
-  font-family: var(--font-mono), 'JetBrains Mono', monospace;
-  font-size: 12px;
-  font-weight: 500;
-  padding: 3px 10px;
-  border-radius: 4px;
-}
-
-.val-min {
-  background: var(--green-dim);
-  color: var(--green-light);
-  border: 0.5px solid var(--green-border);
-}
-
-.val-max {
-  background: var(--limit-bg);
-  color: var(--limit);
-  border: 0.5px solid var(--limit-border);
-}
-
-.val-dash {
-  color: var(--faint);
-}
-
 /* ─── PROCESSUS DE COMMANDE ─── */
 .process-grid {
   display: grid;
@@ -822,8 +714,6 @@
   .video-label { left: 40px; }
 
   .about-grid { grid-template-columns: 1fr; gap: 48px; }
-  .product-header { flex-direction: column; align-items: flex-start; gap: 24px; }
-  .product-header .section-lead { text-align: left !important; max-width: 100%; }
   .process-grid { grid-template-columns: 1fr; gap: 2px; }
   .process-step:first-child { border-radius: 12px 12px 0 0; }
   .process-step:last-child { border-radius: 0 0 12px 12px; }
@@ -853,15 +743,6 @@
   .feature-card:nth-child(2) { border-radius: 0; }
   .feature-card:nth-child(3) { border-radius: 0; }
   .feature-card:last-child { border-radius: 0 0 12px 12px; }
-
-  .product-header { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 32px; }
-  .product-header .section-lead { text-align: left !important; max-width: 100%; }
-
-  .spec-table { font-size: 12px; }
-  .spec-table thead th,
-  .spec-table td { padding: 12px 10px; }
-  .spec-table td.method,
-  .spec-table td.unit { display: none; }
 
   .process-grid { grid-template-columns: 1fr; gap: 2px; margin-top: 40px; }
   .process-step { padding: 32px 24px; }

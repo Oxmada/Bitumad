@@ -32,26 +32,18 @@ export default function APropos() {
         <div className="page-hero-bg" />
         <div className="page-hero-grid" />
         <div className="page-hero-content">
-          <div className="breadcrumb reveal">
-            <a href="/">Accueil</a>
-            <span className="breadcrumb-sep">/</span>
-            <span>À propos</span>
-          </div>
-          <div className="eyebrow reveal reveal-delay-1">Notre entreprise</div>
+<div className="eyebrow reveal reveal-delay-1">Notre histoire</div>
           <h1 className="page-title reveal reveal-delay-2">
-            BITUME PUR, <em>FUTUR SÛR</em>
+            L&apos;ORIGINE DE BITUMAD
           </h1>
+          <p className="page-lead reveal reveal-delay-3">
+            Une entreprise fondée sur un constat terrain et une conviction forte : l&apos;accès à un bitume de qualité est un levier direct de développement économique pour Madagascar.
+          </p>
         </div>
       </div>
 
       {/* HISTOIRE */}
       <section id="histoire" className="ap-section ap-histoire">
-        <div className="eyebrow reveal">Notre histoire</div>
-        <h2 className="section-title reveal reveal-delay-1">L&apos;ORIGINE DE BITUMAD</h2>
-        <p className="section-lead reveal reveal-delay-2">
-          Une entreprise fondée sur un constat terrain et une conviction forte : l&apos;accès à un bitume de qualité est un levier direct de développement économique pour Madagascar.
-        </p>
-
         <div className="histoire-layout">
           <div className="histoire-left reveal reveal-delay-2">
             <div className="histoire-year">2024</div>

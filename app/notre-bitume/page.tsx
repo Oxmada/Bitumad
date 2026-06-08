@@ -157,63 +157,19 @@ export default function NosServicesPage() {
         <div className="nb-page-hero-accent" aria-hidden="true">60/70</div>
         <div className="nb-page-hero-layout">
           <div className="nb-page-hero-left">
-            <div className="nb-breadcrumb reveal">
-              <a href="/">Accueil</a>
-              <span className="nb-breadcrumb-sep">/</span>
-              <span>Notre bitume</span>
-            </div>
-            <div className="nb-eyebrow reveal reveal-delay-1">Notre bitume</div>
+<div className="nb-eyebrow reveal reveal-delay-1">Description du produit</div>
             <h1 className="nb-page-title reveal reveal-delay-2">
-              BITUME DE PÉNÉTRATION<br /><em>60/70</em>
+              QU&apos;EST-CE QUE LE<br /><em>BITUME 60/70 ?</em>
             </h1>
             <p className="nb-page-lead reveal reveal-delay-3">
               Un bitume technique de référence, sélectionné pour sa performance dans les conditions climatiques de Madagascar et conforme aux normes internationales ASTM.
             </p>
           </div>
-
-          <div className="nb-hero-product-card reveal reveal-delay-3">
-            <div className="nb-hero-product-label">Fiche produit · Référence</div>
-            <div className="nb-hero-product-name">BITUME</div>
-            <div className="nb-hero-product-grade">Pénétration 60/70 · Norme ASTM</div>
-            <div className="nb-hero-product-specs">
-              <div className="nb-hero-spec">
-                <div className="nb-hero-spec-val">60<em>/70</em></div>
-                <div className="nb-hero-spec-label">Pénétrabilité (0,1 mm)</div>
-              </div>
-              <div className="nb-hero-spec">
-                <div className="nb-hero-spec-val">≥<em>250</em></div>
-                <div className="nb-hero-spec-label">Point éclair (°C)</div>
-              </div>
-              <div className="nb-hero-spec">
-                <div className="nb-hero-spec-val">49<em>–56</em></div>
-                <div className="nb-hero-spec-label">Ramollissement (°C)</div>
-              </div>
-              <div className="nb-hero-spec">
-                <div className="nb-hero-spec-val">≥<em>99</em></div>
-                <div className="nb-hero-spec-label">Pureté (% wt)</div>
-              </div>
-            </div>
-            <span className="nb-badge-astm">Conforme ASTM · Certifié lot par lot</span>
-          </div>
-        </div>
-      </div>
-
-      {/* ─── TICKER ─── */}
-      <div className="nb-ticker-wrap">
-        <div className="nb-ticker-track" aria-hidden="true">
-          {[...TICKER_ITEMS, ...TICKER_ITEMS].map((item, i) => (
-            <span className="nb-ticker-item" key={i}>
-              {item} <span className="nb-ticker-dot" />
-            </span>
-          ))}
         </div>
       </div>
 
       {/* ─── DESCRIPTION ─── */}
       <section id="nb-description" className="nb-section-description">
-        <div className="nb-eyebrow reveal">Description du produit</div>
-        <h2 className="nb-section-title reveal reveal-delay-1">QU'EST-CE QUE LE<br />BITUME 60/70 ?</h2>
-
         <div className="nb-desc-layout">
           <div>
             <div className="nb-desc-body reveal reveal-delay-2">
@@ -222,9 +178,7 @@ export default function NosServicesPage() {
               <p>Ce grade est particulièrement adapté aux <strong>conditions climatiques tropicales</strong> comme celles de Madagascar : il offre une résistance suffisante aux hautes températures estivales pour éviter les ornières, tout en conservant une flexibilité adéquate lors des variations saisonnières pour prévenir la fissuration.</p>
               <p>Le bitume 60/70 est utilisé en enrobage d'agrégats pour constituer les couches de roulement, les couches de liaison et les couches de base des structures de chaussées. Il peut également être employé en <strong>enduit superficiel</strong> pour le traitement de surface des routes à faible trafic.</p>
             </div>
-            <div className="nb-desc-highlight reveal reveal-delay-3">
-              « Le bitume 60/70 est le grade de référence pour les chantiers routiers dans les pays à climat tropical. Sa balance entre rigidité et flexibilité en fait le choix optimal pour les routes soumises à des amplitudes thermiques importantes. »
-            </div>
+
           </div>
 
           <div className="nb-composition-card reveal reveal-delay-3" id="compCard">
@@ -253,17 +207,24 @@ export default function NosServicesPage() {
 
       {/* ─── SPECS TABLE ─── */}
       <section id="nb-specs" className="nb-section-specs">
-        <div className="nb-eyebrow reveal">Spécifications techniques</div>
-        <h2 className="nb-section-title reveal reveal-delay-1">FICHE TECHNIQUE<br />COMPLÈTE</h2>
-        <p className="nb-section-lead reveal reveal-delay-2">
-          Tous les paramètres de contrôle qualité du bitume de pénétration 60/70, mesurés selon les méthodes ASTM internationales.
-        </p>
+        <div className="product-header">
+          <div>
+            <div className="eyebrow reveal">Notre bitume</div>
+            <h2 className="section-title reveal reveal-delay-1">
+              FICHE TECHNIQUE<br />BITUME 60/70
+            </h2>
+          </div>
+          <p className="section-lead reveal reveal-delay-2" style={{ maxWidth: "340px", textAlign: "right" }}>
+            Caractéristiques conformes aux normes ASTM pour la construction et
+            l'entretien des routes à Madagascar.
+          </p>
+        </div>
         <div className="reveal reveal-delay-2">
-          <table className="nb-spec-table">
+          <table className="spec-table">
             <thead>
               <tr>
                 <th>Intitulé</th>
-                <th>Méthode de test</th>
+                <th>Méthode</th>
                 <th>Unité</th>
                 <th>Min.</th>
                 <th>Max.</th>
@@ -273,17 +234,17 @@ export default function NosServicesPage() {
               {SPEC_ROWS.map((row) => (
                 <tr key={row.label}>
                   <td>{row.label}</td>
-                  <td className="nb-method">{row.method}</td>
-                  <td className="nb-unit">{row.unit}</td>
+                  <td className="method">{row.method}</td>
+                  <td className="unit">{row.unit}</td>
                   <td>
                     {row.min
-                      ? <span className="nb-val-badge nb-val-min">{row.min}</span>
-                      : <span className="nb-val-dash">—</span>}
+                      ? <span className="val-badge val-min">{row.min}</span>
+                      : <span className="val-dash">—</span>}
                   </td>
                   <td>
                     {row.max
-                      ? <span className="nb-val-badge nb-val-max">{row.max}</span>
-                      : <span className="nb-val-dash">—</span>}
+                      ? <span className="val-badge val-max">{row.max}</span>
+                      : <span className="val-dash">—</span>}
                   </td>
                 </tr>
               ))}

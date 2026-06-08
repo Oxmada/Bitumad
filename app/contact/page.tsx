@@ -152,12 +152,7 @@ export default function ContactPage() {
         <div className="page-hero-overlay" />
         <div className="page-hero-grid" />
         <div className="page-hero-content">
-          <div className="c-breadcrumb reveal">
-            <Link href="/">Accueil</Link>
-            <span className="breadcrumb-sep">/</span>
-            <span>Contact</span>
-          </div>
-          <div className="c-eyebrow reveal reveal-delay-1">Contactez-nous</div>
+<div className="c-eyebrow reveal reveal-delay-1">Contactez-nous</div>
           <h1 className="page-title reveal reveal-delay-2">
             PARLONS DE VOTRE<br /><em>PROJET</em>
           </h1>
