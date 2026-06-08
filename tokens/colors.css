@@ -1,0 +1,58 @@
+/* ─────────────────────────────────────────────
+   Bitumad — Color tokens
+   A dark "bitumen" system: near-black neutrals,
+   one confident green accent (Madagascar flag green),
+   a warm sand/off-white for text, and a single
+   reserved terracotta used only for "max / limit"
+   data states. Madagascar flag colors live in the logo.
+   ───────────────────────────────────────────── */
+:root {
+  /* ── Bitumen neutrals (warm-black, low saturation) ── */
+  --black:  #0c0c0b;   /* page background — the asphalt */
+  --dark:   #161614;   /* raised section background */
+  --dark2:  #1e1e1c;   /* card / surface */
+  --dark3:  #2a2a27;   /* card hover / input fill */
+
+  /* ── Warm light values ── */
+  --white:  #f5f2eb;   /* primary text — never pure white */
+  --sand:   #e8dfc8;   /* secondary warm tint */
+  --sand-dim: rgba(232, 223, 200, 0.06);  /* faint warm wash (row hover) */
+
+  /* ── Brand green (primary accent) ── */
+  --green:        #1D9E75;                  /* CTAs, links, accents */
+  --green-light:  #25c490;                  /* hover / active */
+  --green-dim:    rgba(29, 158, 117, 0.12); /* tinted icon wells */
+  --green-border: rgba(29, 158, 117, 0.35); /* accent hairlines */
+
+  /* ── Text on dark ── */
+  --muted:  rgba(245, 242, 235, 0.45);  /* secondary / supporting copy */
+  --faint:  rgba(245, 242, 235, 0.18);  /* hairline borders, dividers */
+
+  /* ── Reserved data color: terracotta = upper limit / max ── */
+  --limit:        #f0906a;
+  --limit-bg:     rgba(210, 90, 50, 0.12);
+  --limit-border: rgba(210, 90, 50, 0.25);
+
+  /* ── Logo / flag accents (use sparingly, brand marks only) ── */
+  --flag-red:   #d23a2c;
+  --flag-green: #2f9e4f;
+  --flag-gray:  #4d4d4a;
+
+  /* ───────────── Semantic aliases ───────────── */
+  --bg-page:        var(--black);
+  --surface-raised: var(--dark);
+  --surface-card:   var(--dark2);
+  --surface-input:  var(--dark3);
+
+  --text-primary:   var(--white);
+  --text-secondary: var(--muted);
+  --text-faint:     var(--faint);
+  --text-on-accent: var(--black);   /* dark text sits ON green */
+
+  --border-hairline: var(--faint);
+  --border-accent:   var(--green-border);
+
+  --accent:        var(--green);
+  --accent-hover:  var(--green-light);
+  --accent-well:   var(--green-dim);
+}

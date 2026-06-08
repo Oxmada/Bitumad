@@ -1,0 +1,8 @@
+/* ─────────────────────────────────────────────
+   Bitumad — Webfonts
+   All three families are served from Google Fonts.
+   Bebas Neue  → display / headlines / numerals
+   Instrument Sans → body & UI text
+   JetBrains Mono → eyebrows, labels, data, code
+   ───────────────────────────────────────────── */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');

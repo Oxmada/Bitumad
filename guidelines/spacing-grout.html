@@ -1,0 +1,34 @@
+<!-- @dsCard group="Spacing" viewport="700x200" name="Grout tiling & radii" subtitle="2px gaps; only outer corners round — the signature surface" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--black); padding: 28px; font-family: var(--font-body); display: flex; gap: 36px; align-items: center; }
+  .cluster { display: grid; grid-template-columns: 1fr 1fr; gap: var(--grout); width: 300px; }
+  .tile { background: var(--dark2); height: 64px; display: flex; align-items: center; justify-content: center; color: var(--muted); font-family: var(--font-mono); font-size: 11px; }
+  .tile:first-child { border-radius: 12px 0 0 0; }
+  .tile:nth-child(2) { border-radius: 0 12px 0 0; }
+  .tile:nth-child(3) { border-radius: 0 0 0 12px; }
+  .tile:last-child { border-radius: 0 0 12px 0; }
+  .legend { display: flex; flex-direction: column; gap: 9px; }
+  .li { font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: .03em; }
+  .li b { color: var(--white); font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="cluster">
+    <div class="tile">tile</div><div class="tile">tile</div>
+    <div class="tile">tile</div><div class="tile">tile</div>
+  </div>
+  <div class="legend">
+    <div class="li"><b>grout</b> &nbsp;2px gap on dark field</div>
+    <div class="li"><b>sm</b> &nbsp;4px · data badges</div>
+    <div class="li"><b>md</b> &nbsp;8px · buttons / inputs</div>
+    <div class="li"><b>lg</b> &nbsp;10px · small panels</div>
+    <div class="li"><b>xl</b> &nbsp;12px · clusters (outer only)</div>
+    <div class="li"><b>2xl</b> &nbsp;14px · feature panels / forms</div>
+  </div>
+</body>
+</html>

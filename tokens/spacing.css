@@ -1,0 +1,49 @@
+/* ─────────────────────────────────────────────
+   Bitumad — Spacing, radius, border, shadow, motion
+   The system is built on hairlines (0.5px), generous
+   section padding, and 2px "grout" gaps between tiled
+   cards (so surfaces read as cut stone, not floating).
+   ───────────────────────────────────────────── */
+:root {
+  /* ── Spacing scale ── */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 28px;
+  --space-7: 36px;
+  --space-8: 48px;
+  --space-9: 64px;
+  --space-10: 80px;
+  --space-11: 120px;
+
+  /* ── Layout ── */
+  --section-pad-y: 120px;   /* desktop vertical section padding */
+  --section-pad-x: 80px;    /* desktop horizontal gutter */
+  --nav-height: 80px;
+  --grout: 2px;             /* gap between tiled cards */
+  --content-max: 1280px;
+
+  /* ── Radii ── */
+  --radius-sm: 4px;    /* data badges */
+  --radius-md: 8px;    /* buttons, inputs */
+  --radius-lg: 10px;   /* small panels */
+  --radius-xl: 12px;   /* card clusters */
+  --radius-2xl: 14px;  /* feature panels / forms */
+
+  /* ── Borders ── */
+  --hairline: 0.5px solid var(--faint);
+  --hairline-accent: 0.5px solid var(--green-border);
+
+  /* ── Shadows (used sparingly — depth comes from value, not shadow) ── */
+  --shadow-card: 0 1px 0 rgba(0,0,0,0.4);
+  --shadow-lift: 0 8px 30px rgba(0,0,0,0.45);
+
+  /* ── Motion ── */
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 0.15s;
+  --dur-base: 0.2s;
+  --dur-slow: 0.7s;       /* scroll-reveal */
+  --reveal-shift: 24px;   /* translateY for reveal-on-scroll */
+}

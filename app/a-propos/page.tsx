@@ -370,7 +370,6 @@ export default function APropos() {
         </div>
         <a href="/contact" className="cta-banner-btn">
           Nous contacter
-          <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="14" y2="8"/><polyline points="10,4 14,8 10,12"/></svg>
         </a>
       </div>
     </>

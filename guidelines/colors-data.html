@@ -1,0 +1,38 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Data & flag accents" subtitle="Reserved terracotta for limits; flag colors live in the logo only" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--black); font-family: var(--font-body); padding: 28px; }
+  .group { margin-bottom: 22px; }
+  .gl { font-family: var(--font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+  .badges { display: flex; gap: 12px; align-items: center; }
+  .badge { font-family: var(--font-mono); font-size: 12px; font-weight: 500; padding: 4px 12px; border-radius: 4px; }
+  .min { background: rgba(29,158,117,.15); color: #4dd9a8; border: .5px solid rgba(29,158,117,.3); }
+  .max { background: var(--limit-bg); color: var(--limit); border: .5px solid var(--limit-border); }
+  .dash { color: var(--faint); }
+  .flag { display: flex; gap: 10px; }
+  .fc { width: 38px; height: 38px; border-radius: 8px; border: var(--hairline); }
+</style>
+</head>
+<body>
+  <div class="group">
+    <div class="gl">Data value badges</div>
+    <div class="badges">
+      <span class="badge min">60 · min</span>
+      <span class="badge max">70 · max / limit</span>
+      <span class="badge dash">—  n/a</span>
+    </div>
+  </div>
+  <div class="group" style="margin:0">
+    <div class="gl">Flag accents — logo mark only</div>
+    <div class="flag">
+      <div class="fc" style="background:var(--flag-red)"></div>
+      <div class="fc" style="background:var(--flag-green)"></div>
+      <div class="fc" style="background:var(--flag-gray)"></div>
+    </div>
+  </div>
+</body>
+</html>

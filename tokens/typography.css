@@ -1,0 +1,50 @@
+/* ─────────────────────────────────────────────
+   Bitumad — Typography tokens
+   Three families, sharply role-separated:
+   • Bebas Neue — tall condensed display caps. Headlines,
+     big numerals, logo wordmark. Always uppercase, tracked.
+   • Instrument Sans — humanist body & UI. 400/500/600/700.
+   • JetBrains Mono — eyebrows, table headers, data, meta.
+     Always uppercase + wide tracking when used as a label.
+   ───────────────────────────────────────────── */
+:root {
+  /* ── Families ── */
+  --font-display: 'Bebas Neue', 'Arial Narrow', sans-serif;
+  --font-body:    'Instrument Sans', system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', ui-monospace, 'SF Mono', monospace;
+
+  /* ── Display scale (Bebas Neue, fluid) ── */
+  --text-hero:    clamp(64px, 9vw, 120px);  /* hero headline, line-height .95 */
+  --text-section: clamp(36px, 5vw, 64px);   /* section titles, line-height 1.0 */
+  --text-display-sm: 28px;                  /* footer/nav wordmark */
+
+  /* ── Body scale (Instrument Sans) ── */
+  --text-lead:  15px;   /* section lead / hero sub, muted */
+  --text-body:  16px;   /* prose */
+  --text-ui:    14px;   /* buttons, inputs, nav */
+  --text-sm:    13px;   /* secondary UI, card body */
+  --text-xs:    12px;   /* fine print */
+
+  /* ── Mono / label scale (JetBrains Mono) ── */
+  --text-label: 11px;   /* eyebrows, table headers — UPPERCASE */
+  --text-meta:  10px;   /* form field labels, micro-meta */
+
+  /* ── Weights (Instrument Sans) ── */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+
+  /* ── Line heights ── */
+  --leading-display: 0.95;
+  --leading-tight:   1.0;
+  --leading-snug:    1.4;
+  --leading-body:    1.6;
+  --leading-relaxed: 1.8;
+
+  /* ── Letter spacing ── */
+  --track-display: 0.02em;  /* Bebas headlines */
+  --track-label:   0.14em;  /* mono eyebrows */
+  --track-wide:    0.1em;   /* mono meta / tickers */
+  --track-ui:      0.02em;  /* buttons */
+}

@@ -1,0 +1,26 @@
+<!-- @dsCard group="Colors" viewport="700x190" name="Green accent" subtitle="The single brand accent — CTAs, links, focus, icon wells" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--black); font-family: var(--font-body); }
+  .wrap { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--grout); padding: 28px; }
+  .sw { border-radius: 10px; overflow: hidden; border: var(--hairline); }
+  .chip { height: 86px; }
+  .meta { padding: 12px 14px; background: var(--dark2); }
+  .name { color: var(--white); font-size: 13px; font-weight: 600; margin-bottom: 3px; }
+  .hex { color: var(--muted); font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; }
+  .checker { background-image: linear-gradient(45deg, var(--dark3) 25%, transparent 25%), linear-gradient(-45deg, var(--dark3) 25%, transparent 25%), linear-gradient(45deg, transparent 75%, var(--dark3) 75%), linear-gradient(-45deg, transparent 75%, var(--dark3) 75%); background-size: 14px 14px; background-position: 0 0, 0 7px, 7px -7px, -7px 0; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="sw"><div class="chip" style="background:var(--green)"></div><div class="meta"><div class="name">--green</div><div class="hex">#1D9E75</div></div></div>
+    <div class="sw"><div class="chip" style="background:var(--green-light)"></div><div class="meta"><div class="name">--green-light</div><div class="hex">#25c490</div></div></div>
+    <div class="sw"><div class="chip checker"><div style="height:100%;background:var(--green-dim)"></div></div><div class="meta"><div class="name">--green-dim</div><div class="hex">12% — well</div></div></div>
+    <div class="sw"><div class="chip checker"><div style="height:100%;background:var(--green-border)"></div></div><div class="meta"><div class="name">--green-border</div><div class="hex">35% — line</div></div></div>
+  </div>
+</body>
+</html>

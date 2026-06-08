@@ -1,0 +1,28 @@
+<!-- @dsCard group="Type" viewport="700x250" name="Body — Instrument Sans" subtitle="Humanist UI & prose, weights 400–700" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--black); padding: 28px; font-family: var(--font-body); }
+  .stack { display: flex; flex-direction: column; gap: 14px; }
+  .row { display: flex; align-items: baseline; gap: 16px; border-bottom: var(--hairline); padding-bottom: 12px; }
+  .row:last-child { border: none; }
+  .ex { color: var(--white); flex: 1; }
+  .tag { font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: .06em; white-space: nowrap; }
+  .lead { font-size: 15px; color: var(--muted); }
+  .body { font-size: 16px; }
+  .ui { font-size: 14px; font-weight: 600; }
+  .sm { font-size: 13px; color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="stack">
+    <div class="row"><span class="ex body">Bitume de pénétration 60/70, conforme aux normes.</span><span class="tag">16px · 400 · body</span></div>
+    <div class="row"><span class="ex lead">Réponse sous 24h avec une proposition adaptée.</span><span class="tag">15px · muted · lead</span></div>
+    <div class="row"><span class="ex ui">Commander maintenant</span><span class="tag">14px · 600 · UI</span></div>
+    <div class="row"><span class="ex sm">Disponible du lundi au vendredi</span><span class="tag">13px · muted · sm</span></div>
+  </div>
+</body>
+</html>

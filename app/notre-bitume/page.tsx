@@ -347,15 +347,6 @@ export default function NosServicesPage() {
               </div>
             </div>
 
-            <a href="/contact" className="nb-pdf-download-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Télécharger la fiche technique
-            </a>
-
             <div className="nb-contact-nudge">
               <div className="nb-contact-nudge-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -367,6 +358,15 @@ export default function NosServicesPage() {
                 <a href="/contact">Contactez notre équipe</a> — nous vous le transmettrons sous 24h.
               </div>
             </div>
+
+            <a href="/api/fiche-technique" target="_blank" rel="noopener noreferrer" className="nb-pdf-download-btn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Télécharger la fiche technique
+            </a>
           </div>
         </div>
       </section>
@@ -378,10 +378,7 @@ export default function NosServicesPage() {
           <p>Notre équipe vous accompagne du devis à la livraison sur site.</p>
         </div>
         <a href="/#commander" className="nb-cta-banner-btn">
-          Voir le processus de commande
-          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
-            <line x1="2" y1="8" x2="14" y2="8" /><polyline points="10,4 14,8 10,12" />
-          </svg>
+          Commander
         </a>
       </div>
     </>

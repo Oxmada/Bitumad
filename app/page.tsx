@@ -65,17 +65,7 @@ export default function HomePage() {
             à Madagascar. Bitume haute qualité conforme aux normes
             internationales ASTM.
           </p>
-          <div className="hero-actions reveal reveal-delay-4">
-            <a href="#commander" className="btn-primary">
-              Commander maintenant
-              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
-                <path d="M3 8h10M9 4l4 4-4 4" />
-              </svg>
-            </a>
-            <a href="#notreproduit" className="btn-ghost">
-              Voir la fiche technique
-            </a>
-          </div>
+
         </div>
         <div className="ticker-wrap">
           <div className="ticker-track" aria-hidden="true">
@@ -454,9 +444,9 @@ export default function HomePage() {
               </p>
               <button className="form-submit">
                 Envoyer ma demande
-                <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
-                  <line x1="2" y1="8" x2="14" y2="8" />
-                  <polyline points="10,4 14,8 10,12" />
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+                  <path d="M22 12L2 5l5 7-5 7 20-7z" />
+                  <line x1="7" y1="12" x2="14" y2="12" />
                 </svg>
               </button>
             </div>

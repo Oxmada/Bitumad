@@ -1,0 +1,27 @@
+<!-- @dsCard group="Colors" viewport="700x180" name="Text on dark" subtitle="Warm off-white and its muted / faint steps" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--black); font-family: var(--font-body); padding: 28px; }
+  .row { display: flex; flex-direction: column; gap: 14px; }
+  .line { display: flex; align-items: baseline; justify-content: space-between; border-bottom: var(--hairline); padding-bottom: 12px; }
+  .label { font-size: 18px; }
+  .token { font-family: var(--font-mono); font-size: 11px; letter-spacing: .04em; }
+  .p { color: var(--white); } .p .token { color: var(--white); }
+  .m { color: var(--muted); }
+  .f { color: var(--faint); }
+  .s { color: var(--sand); }
+</style>
+</head>
+<body>
+  <div class="row">
+    <div class="line p"><span class="label">Primary — warm off-white text</span><span class="token">--white · #f5f2eb</span></div>
+    <div class="line"><span class="label s">Sand — secondary warm tint</span><span class="token s">--sand · #e8dfc8</span></div>
+    <div class="line"><span class="label m">Muted — supporting copy (45%)</span><span class="token m">--muted</span></div>
+    <div class="line" style="border:none"><span class="label f">Faint — hairlines & dividers (18%)</span><span class="token f">--faint</span></div>
+  </div>
+</body>
+</html>

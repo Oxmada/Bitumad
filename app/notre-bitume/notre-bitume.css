@@ -58,7 +58,7 @@
   background-image: url('https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1780763068/bitumad-hangar-stockage-futs-bitume_jev4la.jpg');
   background-size: cover;
   background-position: center 50%;
-  filter: brightness(0.45) saturate(0.8);
+  filter: brightness(0.6) saturate(0.8);
   pointer-events: none;
 }
 

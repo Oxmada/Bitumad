@@ -28,7 +28,7 @@
   background-image: url('https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650742/bitumad_hero_route_madagascar_avce_fux_de_bitume_whcflo.jpg');
   background-size: cover;
   background-position: center 40%;
-  filter: brightness(0.55) saturate(0.8);
+  filter: brightness(0.7) saturate(0.8);
   transform: scale(1.04);
   transition: transform 8s ease-out;
   will-change: transform;
@@ -43,9 +43,9 @@
   inset: 0;
   background: linear-gradient(
     180deg,
-    rgba(12, 12, 11, 0.35) 0%,
-    rgba(12, 12, 11, 0.5) 50%,
-    rgba(12, 12, 11, 0.6) 100%
+    rgba(12, 12, 11, 0.15) 0%,
+    rgba(12, 12, 11, 0.3) 50%,
+    rgba(12, 12, 11, 0.45) 100%
   );
 }
 

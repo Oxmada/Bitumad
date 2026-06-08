@@ -1,0 +1,24 @@
+<!-- @dsCard group="Type" viewport="700x210" name="Mono labels — JetBrains Mono" subtitle="Eyebrows, table headers, data & meta — uppercase, tracked" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  body { margin: 0; background: var(--black); padding: 28px; font-family: var(--font-body); }
+  .stack { display: flex; flex-direction: column; gap: 20px; }
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; color: var(--green); letter-spacing: .14em; text-transform: uppercase; display: flex; align-items: center; gap: 12px; }
+  .eyebrow::before { content:''; width: 24px; height: .5px; background: var(--green); }
+  .hdr { font-family: var(--font-mono); font-size: 11px; color: var(--muted); letter-spacing: .1em; text-transform: uppercase; }
+  .meta { font-family: var(--font-mono); font-size: 10px; color: var(--faint); letter-spacing: .1em; text-transform: uppercase; }
+  .lbl { font-family: var(--font-mono); font-size: 10px; color: var(--muted); letter-spacing: .04em; margin-top: 4px; }
+</style>
+</head>
+<body>
+  <div class="stack">
+    <div><div class="eyebrow">À propos</div><div class="lbl">Eyebrow · 11px · green · tracking .14em</div></div>
+    <div><div class="hdr">MÉTHODE&nbsp;&nbsp;·&nbsp;&nbsp;UNITÉ&nbsp;&nbsp;·&nbsp;&nbsp;MIN.&nbsp;&nbsp;·&nbsp;&nbsp;MAX.</div><div class="lbl">Table header · 11px · muted · tracking .1em</div></div>
+    <div><div class="meta">© 2025 BITUMAD · ÉTAPE 01</div><div class="lbl">Meta / micro · 10px · faint</div></div>
+  </div>
+</body>
+</html>

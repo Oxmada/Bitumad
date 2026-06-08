@@ -3,14 +3,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import "./contact.css";
 
-type Tab = "devis" | "message" | "partenariat";
-
-const PROJECT_TYPES = [
-  { label: "Route nationale / régionale", sub: "Infrastructure" },
-  { label: "Voirie urbaine", sub: "Milieu urbain" },
-  { label: "Aéroport / parking / zone industrielle", sub: "Spécialisé" },
-  { label: "Autre projet", sub: "À préciser" },
-];
+type Tab = "message" | "partenariat";
 
 const PARTNER_TYPES = [
   { label: "Distribution régionale", sub: "Réseau" },
@@ -29,7 +22,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Quelle est la quantité minimale de commande ?",
-    a: "Nous acceptons des commandes à partir de quelques tonnes et nous adressons aussi bien aux particuliers qu'aux grandes entreprises de BTP ou aux institutions publiques. Contactez-nous pour discuter de vos besoins spécifiques.",
+    a: "Nous acceptons des commandes à partir d'un fût et nous adressons aussi bien aux particuliers qu'aux grandes entreprises de BTP ou aux institutions publiques. Contactez-nous pour discuter de vos besoins spécifiques.",
   },
   {
     q: "Le bitume est-il fourni avec un certificat d'analyse ?",
@@ -46,23 +39,20 @@ const FAQ_ITEMS = [
 ];
 
 const ArrowIcon = () => (
-  <svg viewBox="0 0 16 16">
-    <line x1="2" y1="8" x2="14" y2="8" />
-    <polyline points="10,4 14,8 10,12" />
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+    <path d="M22 12L2 5l5 7-5 7 20-7z" />
+    <line x1="7" y1="12" x2="14" y2="12" />
   </svg>
 );
 
 export default function ContactPage() {
-  const [activeTab, setActiveTab] = useState<Tab>("devis");
+  const [activeTab, setActiveTab] = useState<Tab>("message");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [radioDevis, setRadioDevis] = useState(0);
   const [radioPart, setRadioPart] = useState(0);
 
-  const [devisForm, setDevisForm] = useState({ nom: "", org: "", tel: "", email: "", quantite: "", region: "", message: "" });
   const [msgForm, setMsgForm] = useState({ nom: "", email: "", sujet: "", message: "" });
   const [partForm, setPartForm] = useState({ nom: "", poste: "", org: "", email: "", message: "" });
 
-  const [sentDevis, setSentDevis] = useState(false);
   const [sentMsg, setSentMsg] = useState(false);
   const [sentPart, setSentPart] = useState(false);
   const [sending, setSending] = useState(false);
@@ -86,25 +76,6 @@ export default function ContactPage() {
     });
     return () => obs.disconnect();
   }, []);
-
-  const submitDevis = async () => {
-    setSending(true);
-    try {
-      const res = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: "devis", typeProjet: PROJECT_TYPES[radioDevis].label, ...devisForm }),
-      });
-      if (res.ok) {
-        setSentDevis(true);
-        setTimeout(() => {
-          setSentDevis(false);
-          setDevisForm({ nom: "", org: "", tel: "", email: "", quantite: "", region: "", message: "" });
-        }, 3000);
-      }
-    } catch { /* noop */ }
-    setSending(false);
-  };
 
   const submitMsg = async () => {
     setSending(true);
@@ -234,12 +205,6 @@ export default function ContactPage() {
           <div className="contact-form-col reveal reveal-delay-2">
             <div className="form-tabs">
               <button
-                className={`form-tab${activeTab === "devis" ? " active" : ""}`}
-                onClick={() => setActiveTab("devis")}
-              >
-                Demande de devis <span className="tab-badge">Recommandé</span>
-              </button>
-              <button
                 className={`form-tab${activeTab === "message" ? " active" : ""}`}
                 onClick={() => setActiveTab("message")}
               >
@@ -252,79 +217,6 @@ export default function ContactPage() {
                 Partenariat
               </button>
             </div>
-
-            {/* Panel Devis */}
-            {activeTab === "devis" && (
-              <div className="form-panel active">
-                <div className="form-panel-body">
-                  <div className="form-row">
-                    <div className="form-field">
-                      <label htmlFor="d-nom">Nom complet</label>
-                      <input type="text" id="d-nom" placeholder="Jean Rakoto" value={devisForm.nom} onChange={(e) => setDevisForm({ ...devisForm, nom: e.target.value })} />
-                    </div>
-                    <div className="form-field">
-                      <label htmlFor="d-org">Entreprise / Organisation</label>
-                      <input type="text" id="d-org" placeholder="BTP Madagascar SARL" value={devisForm.org} onChange={(e) => setDevisForm({ ...devisForm, org: e.target.value })} />
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-field">
-                      <label htmlFor="d-tel">Téléphone</label>
-                      <input type="tel" id="d-tel" placeholder="+261 XX XX XXX XX" value={devisForm.tel} onChange={(e) => setDevisForm({ ...devisForm, tel: e.target.value })} />
-                    </div>
-                    <div className="form-field">
-                      <label htmlFor="d-email">Email</label>
-                      <input type="email" id="d-email" placeholder="jean@exemple.com" value={devisForm.email} onChange={(e) => setDevisForm({ ...devisForm, email: e.target.value })} />
-                    </div>
-                  </div>
-                  <div className="form-field">
-                    <label>Type de projet</label>
-                    <div className="radio-group">
-                      {PROJECT_TYPES.map((pt, i) => (
-                        <div key={i} className={`radio-option${radioDevis === i ? " selected" : ""}`} onClick={() => setRadioDevis(i)}>
-                          <div className="radio-dot" />
-                          <span className="radio-label">{pt.label}</span>
-                          <span className="radio-sub">{pt.sub}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="form-row">
-                    <div className="form-field">
-                      <label htmlFor="d-qte">Quantité estimée</label>
-                      <div className="select-wrap">
-                        <select id="d-qte" value={devisForm.quantite} onChange={(e) => setDevisForm({ ...devisForm, quantite: e.target.value })}>
-                          <option value="">Sélectionner…</option>
-                          <option>Moins de 5 tonnes</option>
-                          <option>5 – 20 tonnes</option>
-                          <option>20 – 50 tonnes</option>
-                          <option>50 – 100 tonnes</option>
-                          <option>Plus de 100 tonnes</option>
-                        </select>
-                      </div>
-                    </div>
-                    <div className="form-field">
-                      <label htmlFor="d-region">Région de livraison</label>
-                      <input type="text" id="d-region" placeholder="Ex : Antananarivo, Toamasina…" value={devisForm.region} onChange={(e) => setDevisForm({ ...devisForm, region: e.target.value })} />
-                    </div>
-                  </div>
-                  <div className="form-field">
-                    <label htmlFor="d-msg">Détails du chantier</label>
-                    <textarea id="d-msg" placeholder="Calendrier souhaité, contraintes logistiques, informations sur le chantier…" value={devisForm.message} onChange={(e) => setDevisForm({ ...devisForm, message: e.target.value })} />
-                  </div>
-                </div>
-                <div className="form-panel-footer">
-                  <p className="form-note">Vos données ne sont utilisées que pour traiter votre demande. Aucune divulgation à des tiers.</p>
-                  {sentDevis ? (
-                    <div className="sent-confirm">✓ Demande envoyée !</div>
-                  ) : (
-                    <button className="btn-submit" onClick={submitDevis} disabled={sending}>
-                      Envoyer ma demande <ArrowIcon />
-                    </button>
-                  )}
-                </div>
-              </div>
-            )}
 
             {/* Panel Message */}
             {activeTab === "message" && (
@@ -460,9 +352,8 @@ export default function ContactPage() {
           <h2>PRÊT À DÉMARRER<br />VOTRE PROJET ?</h2>
           <p>Demandez votre devis personnalisé dès maintenant.</p>
         </div>
-        <a href="#contact-main" className="cta-banner-btn">
-          Faire une demande de devis
-          <svg viewBox="0 0 16 16"><line x1="2" y1="8" x2="14" y2="8" /><polyline points="10,4 14,8 10,12" /></svg>
+        <a href="/#devis" className="cta-banner-btn">
+          Obtenir un devis
         </a>
       </div>
     </>
