@@ -17,7 +17,16 @@ const BRAND = {
 const s = StyleSheet.create({
   page: {
     backgroundColor: "#ffffff",
-    paddingTop: 28,
+    paddingTop: 0,
+    paddingBottom: 40,
+    paddingHorizontal: 0,
+    fontFamily: "Helvetica",
+    fontSize: 9,
+    color: "#1a1a18",
+  },
+  page2: {
+    backgroundColor: "#ffffff",
+    paddingTop: 30,
     paddingBottom: 40,
     paddingHorizontal: 0,
     fontFamily: "Helvetica",
@@ -30,7 +39,6 @@ const s = StyleSheet.create({
     paddingHorizontal: 40,
     paddingTop: 28,
     paddingBottom: 22,
-    marginTop: -28,
     flexDirection: "row",
     alignItems: "flex-end",
     justifyContent: "space-between",
@@ -355,6 +363,23 @@ const SPEC_ROWS = [
   { label: "Solubilité dans le trichloréthylène", method: "ASTM D2042", unit: "% wt", min: "99", max: null },
 ];
 
+const Footer = () =>
+  React.createElement(
+    View,
+    { style: s.footer },
+    React.createElement(
+      View,
+      null,
+      React.createElement(Text, { style: s.footerBrand }, "BITUMAD"),
+      React.createElement(Text, { style: s.footerVersion }, "Fiche Technique · Bitume 60/70 · Version 2025")
+    ),
+    React.createElement(
+      Text,
+      { style: s.footerInfo },
+      "Les informations contenues dans ce document sont fournies à titre indicatif.\nConfirmation des spécifications par certificat d'analyse lot par lot sur demande."
+    )
+  );
+
 const FicheTechnique = () =>
   React.createElement(
     Document,
@@ -365,6 +390,10 @@ const FicheTechnique = () =>
       keywords: "bitume, 60/70, ASTM, Madagascar, fiche technique",
       creator: "BITUMAD",
     },
+
+    // ════════════════════════════════
+    // PAGE 1 — Header + Spécifications
+    // ════════════════════════════════
     React.createElement(
       Page,
       { size: "A4", style: s.page },
@@ -395,7 +424,7 @@ const FicheTechnique = () =>
         React.createElement(Text, { style: s.greenBannerGrade }, "60/70")
       ),
 
-      // ─── Body ───
+      // ─── Body page 1 ───
       React.createElement(
         View,
         { style: s.body },
@@ -418,7 +447,6 @@ const FicheTechnique = () =>
           View,
           { style: s.section },
           React.createElement(Text, { style: s.sectionTitle }, "Spécifications techniques ASTM"),
-          // Table header
           React.createElement(
             View,
             { style: s.tableHeader },
@@ -428,7 +456,6 @@ const FicheTechnique = () =>
             React.createElement(Text, { style: s.thVal }, "Min."),
             React.createElement(Text, { style: s.thVal }, "Max.")
           ),
-          // Table rows
           ...SPEC_ROWS.map((row, i) =>
             React.createElement(
               View,
@@ -436,40 +463,44 @@ const FicheTechnique = () =>
               React.createElement(Text, { style: s.tdLabel }, row.label),
               React.createElement(Text, { style: s.tdMethod }, row.method),
               React.createElement(Text, { style: s.tdUnit }, row.unit),
-              // Min badge
               React.createElement(
                 View,
                 { style: s.badgeMin },
                 row.min
-                  ? React.createElement(
-                      View,
-                      { style: s.badgePillMin },
-                      React.createElement(Text, { style: s.badgeTextMin }, row.min)
-                    )
+                  ? React.createElement(View, { style: s.badgePillMin }, React.createElement(Text, { style: s.badgeTextMin }, row.min))
                   : React.createElement(Text, { style: s.dashText }, "—")
               ),
-              // Max badge
               React.createElement(
                 View,
                 { style: s.badgeMax },
                 row.max
-                  ? React.createElement(
-                      View,
-                      { style: s.badgePillMax },
-                      React.createElement(Text, { style: s.badgeTextMax }, row.max)
-                    )
+                  ? React.createElement(View, { style: s.badgePillMax }, React.createElement(Text, { style: s.badgeTextMax }, row.max))
                   : React.createElement(Text, { style: s.dashText }, "—")
               )
             )
           )
-        ),
+        )
+      ),
 
-        // Two columns: Applications + Usage
+      React.createElement(Footer, null)
+    ),
+
+    // ════════════════════════════════
+    // PAGE 2 — Applications + Stockage
+    // ════════════════════════════════
+    React.createElement(
+      Page,
+      { size: "A4", style: s.page2 },
+
+      React.createElement(
+        View,
+        { style: s.body },
+
+        // Applications + Usage
         React.createElement(
           View,
           { style: [s.twoCol, s.section] },
 
-          // Applications
           React.createElement(
             View,
             { style: s.col },
@@ -490,7 +521,6 @@ const FicheTechnique = () =>
             )
           ),
 
-          // Usage steps
           React.createElement(
             View,
             { style: s.col },
@@ -504,11 +534,7 @@ const FicheTechnique = () =>
               React.createElement(
                 View,
                 { style: s.step, key: step.num },
-                React.createElement(
-                  View,
-                  { style: s.stepNum },
-                  React.createElement(Text, { style: s.stepNumText }, step.num)
-                ),
+                React.createElement(View, { style: s.stepNum }, React.createElement(Text, { style: s.stepNumText }, step.num)),
                 React.createElement(
                   View,
                   { style: s.stepContent },
@@ -532,9 +558,7 @@ const FicheTechnique = () =>
               View,
               { style: s.infoBox },
               React.createElement(Text, { style: s.infoBoxTitle }, "Conditions de stockage"),
-              React.createElement(
-                Text,
-                { style: s.infoBoxText },
+              React.createElement(Text, { style: s.infoBoxText },
                 "• Température de stockage recommandée : 120–150 °C\n" +
                 "• Conserver en citernes ou fûts hermétiques à l'abri de l'humidité\n" +
                 "• Durée de conservation maximale : 12 mois à température contrôlée\n" +
@@ -545,9 +569,7 @@ const FicheTechnique = () =>
               View,
               { style: s.infoBox },
               React.createElement(Text, { style: s.infoBoxTitle }, "Transport"),
-              React.createElement(
-                Text,
-                { style: s.infoBoxText },
+              React.createElement(Text, { style: s.infoBoxText },
                 "Transporté en vrac dans des camions-citernes calorifugés ou en fûts métalliques étanches. Conforme aux réglementations de transport de matières dangereuses classe 3."
               )
             )
@@ -560,9 +582,7 @@ const FicheTechnique = () =>
               View,
               { style: s.warningBox },
               React.createElement(Text, { style: s.warningBoxTitle }, "Précautions d'emploi"),
-              React.createElement(
-                Text,
-                { style: s.infoBoxText },
+              React.createElement(Text, { style: s.infoBoxText },
                 "• Point éclair ≥ 250 °C — risque d'inflammation au-delà de cette température\n" +
                 "• Porter des équipements de protection individuelle (EPI) lors de la manipulation à chaud\n" +
                 "• Éviter tout contact cutané avec le produit chaud\n" +
@@ -573,9 +593,7 @@ const FicheTechnique = () =>
               View,
               { style: s.infoBox },
               React.createElement(Text, { style: s.infoBoxTitle }, "Conditionnement"),
-              React.createElement(
-                Text,
-                { style: s.infoBoxText },
+              React.createElement(Text, { style: s.infoBoxText },
                 "Disponible en vrac (camion-citerne) et en fûts de 200 kg. Livraison sur site à Madagascar selon conditions contractuelles."
               )
             )
@@ -583,22 +601,7 @@ const FicheTechnique = () =>
         )
       ),
 
-      // ─── Footer ───
-      React.createElement(
-        View,
-        { style: s.footer, fixed: true },
-        React.createElement(
-          View,
-          null,
-          React.createElement(Text, { style: s.footerBrand }, "BITUMAD"),
-          React.createElement(Text, { style: s.footerVersion }, "Fiche Technique · Bitume 60/70 · Version 2025")
-        ),
-        React.createElement(
-          Text,
-          { style: s.footerInfo },
-          "Les informations contenues dans ce document sont fournies à titre indicatif.\nConfirmation des spécifications par certificat d'analyse lot par lot sur demande."
-        )
-      )
+      React.createElement(Footer, null)
     )
   );
 
@@ -621,7 +624,7 @@ export async function GET() {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": 'attachment; filename="Bitumad_Fiche-Technique_Bitume-60-70.pdf"',
-        "Cache-Control": "public, max-age=86400",
+        "Cache-Control": "no-cache",
       },
     });
   } catch (error) {
