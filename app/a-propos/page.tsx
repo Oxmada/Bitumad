@@ -29,7 +29,8 @@ export default function APropos() {
     <>
       {/* PAGE HERO */}
       <div className="page-hero">
-        <div className="page-hero-bg" />
+        <div className="page-hero-bg page-hero-bg--1" />
+        <div className="page-hero-bg page-hero-bg--2" />
         <div className="page-hero-grid" />
         <div className="page-hero-content">
 <div className="eyebrow reveal reveal-delay-1">Notre histoire</div>
