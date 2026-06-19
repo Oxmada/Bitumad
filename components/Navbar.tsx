@@ -18,9 +18,9 @@ export default function Navbar() {
         <li><a href="/">Accueil</a></li>
         <li><a href="/a-propos">À propos</a></li>
         <li className="nav-dropdown-item">
-          <a href="/notre-bitume" className="nav-dropdown-trigger">
+          <a href="/notre-bitume" className="nav-dropdown-trigger" aria-haspopup="true">
             Nos bitumes
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="nav-chevron">
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="nav-chevron" aria-hidden="true" focusable="false">
               <polyline points="2,4 6,8 10,4" />
             </svg>
           </a>
@@ -59,14 +59,15 @@ export default function Navbar() {
             className="nav-mobile-group-btn"
             onClick={() => setBitumesOpen(!bitumesOpen)}
             aria-expanded={bitumesOpen}
+            aria-controls="nav-mobile-submenu"
           >
             Nos bitumes
-            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 12, height: 12, transition: "transform 0.2s", transform: bitumesOpen ? "rotate(180deg)" : "none" }}>
+            <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ width: 12, height: 12, transition: "transform 0.2s", transform: bitumesOpen ? "rotate(180deg)" : "none" }} aria-hidden="true" focusable="false">
               <polyline points="2,4 6,8 10,4" />
             </svg>
           </button>
           {bitumesOpen && (
-            <div className="nav-mobile-submenu">
+            <div className="nav-mobile-submenu" id="nav-mobile-submenu">
               <a href="/notre-bitume" onClick={() => setOpen(false)}>Catalogue</a>
               <a href="/notre-bitume/60-70" onClick={() => setOpen(false)}>Bitume 60/70 — Zones intérieures</a>
               <a href="/notre-bitume/35-50" onClick={() => setOpen(false)}>

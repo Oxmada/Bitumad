@@ -1,29 +1,10 @@
 'use client';
-import { useEffect } from 'react';
+import Image from 'next/image';
 import './a-propos.css';
+import { useReveal } from '@/hooks/useReveal';
 
 export default function APropos() {
-  useEffect(() => {
-    const reveals = document.querySelectorAll<HTMLElement>('.reveal');
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          obs.unobserve(e.target);
-          e.target.querySelectorAll<HTMLElement>('.context-stat-bar-fill').forEach(bar => {
-            setTimeout(() => bar.classList.add('animated'), 200);
-          });
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => obs.observe(el));
-
-    document.querySelectorAll<HTMLElement>('.page-hero .reveal').forEach((el, i) => {
-      setTimeout(() => el.classList.add('visible'), 100 + i * 120);
-    });
-
-    return () => obs.disconnect();
-  }, []);
+  useReveal({ heroSelector: '.page-hero' });
 
   return (
     <>
@@ -52,10 +33,13 @@ export default function APropos() {
             <p style={{ fontSize: '14px', color: 'var(--muted)', lineHeight: 1.8, marginBottom: '24px' }}>
               Bitumad voit le jour à Antananarivo, portée par la conviction que l&apos;état des infrastructures routières est un frein majeur au développement de Madagascar.
             </p>
-            <img
+            <Image
               src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1780760304/bitumad-route-rurale-degradee-laterite-madagascar_lyucox.jpg"
               alt="Route rurale dégradée à Madagascar — latérite rouge"
               className="histoire-photo reveal reveal-delay-3"
+              width={560}
+              height={360}
+              sizes="(max-width: 768px) 100vw, 50vw"
             />
             <div className="histoire-stat-grid">
               <div className="histoire-stat">
@@ -144,7 +128,15 @@ export default function APropos() {
                   <span className="context-stat-value">~80%</span>
                 </div>
                 <div className="context-stat-bar-bg">
-                  <div className="context-stat-bar-fill" style={{ width: '80%' }} />
+                  <div
+                    className="context-stat-bar-fill"
+                    style={{ width: '80%' }}
+                    role="progressbar"
+                    aria-valuenow={80}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-label="Routes en mauvais état : 80%"
+                  />
                 </div>
                 <div className="context-stat-sub">Réseau routier malgache classifié dégradé</div>
               </div>
@@ -156,7 +148,15 @@ export default function APropos() {
                   <span className="context-stat-value">~65%</span>
                 </div>
                 <div className="context-stat-bar-bg">
-                  <div className="context-stat-bar-fill" style={{ width: '65%' }} />
+                  <div
+                    className="context-stat-bar-fill"
+                    style={{ width: '65%' }}
+                    role="progressbar"
+                    aria-valuenow={65}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-label="Routes non bitumées : 65%"
+                  />
                 </div>
                 <div className="context-stat-sub">Part des routes nationales sans revêtement bitumineux</div>
               </div>
@@ -168,7 +168,15 @@ export default function APropos() {
                   <span className="context-stat-value">+12%/an</span>
                 </div>
                 <div className="context-stat-bar-bg">
-                  <div className="context-stat-bar-fill" style={{ width: '45%' }} />
+                  <div
+                    className="context-stat-bar-fill"
+                    style={{ width: '45%' }}
+                    role="progressbar"
+                    aria-valuenow={12}
+                    aria-valuemin={0}
+                    aria-valuemax={100}
+                    aria-label="Croissance des marchés BTP : +12% par an"
+                  />
                 </div>
                 <div className="context-stat-sub">Hausse de la demande en matériaux routiers à Madagascar</div>
               </div>
@@ -280,10 +288,13 @@ export default function APropos() {
               </div>
             </div>
           </div>
-          <img
+          <Image
             src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1781869241/Bitumad_chargement-conteneur-futs_ovko7a.webp"
             alt="Déchargement de fûts de bitume depuis un camion sur site"
             className="supply-chain-photo reveal reveal-delay-3"
+            width={560}
+            height={420}
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
 

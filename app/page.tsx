@@ -1,6 +1,8 @@
 "use client";
 import "./page.css";
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
+import Image from "next/image";
+import { useReveal } from "@/hooks/useReveal";
 
 type ProjetType = "route" | "voirie" | "aeroport" | "autre";
 type GradeType = "6070" | "3550" | "both";
@@ -32,36 +34,29 @@ const GRADE_OPTIONS: { value: GradeType; label: string; sub: string }[] = [
 export default function HomePage() {
   const [projet, setProjet] = useState<ProjetType>("route");
   const [grade, setGrade] = useState<GradeType>("6070");
+  const heroBgRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    // Scroll reveal
-    const reveals = document.querySelectorAll<HTMLElement>(".reveal");
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("visible");
-            obs.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.12 }
-    );
-    reveals.forEach((el) => obs.observe(el));
-
-    // Hero items reveal immediately on mount
-    document.querySelectorAll<HTMLElement>(".hero .reveal").forEach((el, i) => {
-      setTimeout(() => el.classList.add("visible"), 200 + i * 150);
-    });
-
-    return () => obs.disconnect();
-  }, []);
+  useReveal({ heroSelector: ".hero", baseDelay: 200, stepDelay: 150 });
 
   return (
     <>
       {/* ─── HERO ─── */}
       <div className="hero">
-        <div className="hero-bg" />
+        <div className="hero-bg-wrap" ref={heroBgRef}>
+          <Image
+            src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650742/bitumad_hero_route_madagascar_avce_fux_de_bitume_whcflo.jpg"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            onLoad={() => heroBgRef.current?.classList.add("loaded")}
+            style={{
+              objectFit: "cover",
+              objectPosition: "center 40%",
+              filter: "brightness(0.7) saturate(0.8)",
+            }}
+          />
+        </div>
         <div className="hero-grid" />
         <div className="hero-overlay" />
         <div className="hero-content">
@@ -99,8 +94,8 @@ export default function HomePage() {
             <p>
               Bitumad est une entreprise spécialisée dans la fourniture de
               bitume à Madagascar. Nous proposons deux grades de bitume de
-              pénétration — le <strong style={{ color: "var(--white)" }}>60/70</strong> pour les zones tropicales de
-              l'intérieur, et le <strong style={{ color: "var(--white)" }}>35/50</strong> pour les zones côtières à
+              pénétration — le <strong className="text-white-strong">60/70</strong> pour les zones tropicales de
+              l'intérieur, et le <strong className="text-white-strong">35/50</strong> pour les zones côtières à
               fort ensoleillement — conformes aux normes internationales ASTM.
             </p>
             <p>
@@ -175,7 +170,7 @@ export default function HomePage() {
               DEUX GRADES<br />DISPONIBLES
             </h2>
           </div>
-          <p className="section-lead reveal reveal-delay-2" style={{ maxWidth: "340px", textAlign: "right" }}>
+          <p className="section-lead section-lead--right reveal reveal-delay-2">
             Choisissez le grade adapté à votre zone de chantier — intérieure ou côtière.
           </p>
         </div>
@@ -200,9 +195,9 @@ export default function HomePage() {
                 <div className="home-product-spec-label">Ductilité</div>
               </div>
             </div>
-            <a href="/notre-bitume/60-70" className="home-product-link">
+            <a href="/notre-bitume/60-70" className="home-product-link" aria-label="Voir la fiche technique du bitume 60/70">
               Voir la fiche technique
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14" aria-hidden="true" focusable="false">
                 <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
@@ -228,9 +223,9 @@ export default function HomePage() {
                 <div className="home-product-spec-label">Ductilité</div>
               </div>
             </div>
-            <a href="/notre-bitume/35-50" className="home-product-link">
+            <a href="/notre-bitume/35-50" className="home-product-link" aria-label="Voir la fiche technique du bitume 35/50">
               Voir la fiche technique
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14" aria-hidden="true" focusable="false">
                 <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
               </svg>
             </a>
@@ -285,10 +280,13 @@ export default function HomePage() {
               </div>
             </div>
           </div>
-          <img
+          <Image
             src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1781873966/Bitumad_zone-chargement-crepuscule_ct1kns.webp"
             alt="Zone de chargement de bitume au crépuscule"
             className="process-img reveal reveal-delay-3"
+            width={400}
+            height={600}
+            sizes="(max-width: 768px) 100vw, 400px"
           />
         </div>
       </section>
@@ -367,71 +365,69 @@ export default function HomePage() {
               <div className="form-row">
                 <div className="form-field">
                   <label htmlFor="dv-nom">Nom complet</label>
-                  <input type="text" id="dv-nom" placeholder="Jean Rakoto" />
+                  <input type="text" id="dv-nom" placeholder="Jean Rakoto" aria-required="true" />
                 </div>
                 <div className="form-field">
                   <label htmlFor="dv-org">Entreprise / Organisation</label>
-                  <input type="text" id="dv-org" placeholder="BTP Madagascar SARL" />
+                  <input type="text" id="dv-org" placeholder="BTP Madagascar SARL" aria-required="true" />
                 </div>
               </div>
               <div className="form-row">
                 <div className="form-field">
                   <label htmlFor="dv-tel">Téléphone</label>
-                  <input type="tel" id="dv-tel" placeholder="+261 XX XX XXX XX" />
+                  <input type="tel" id="dv-tel" placeholder="+261 XX XX XXX XX" aria-required="true" />
                 </div>
                 <div className="form-field">
                   <label htmlFor="dv-email">Email</label>
-                  <input type="email" id="dv-email" placeholder="jean@exemple.com" />
+                  <input type="email" id="dv-email" placeholder="jean@exemple.com" aria-required="true" />
                 </div>
               </div>
 
-              <div className="form-field">
-                <label>Type de projet</label>
+              <fieldset className="form-field form-fieldset">
+                <legend>Type de projet</legend>
                 <div className="radio-group">
                   {RADIO_OPTIONS.map((opt) => (
                     <label
                       key={opt.value}
                       className={`radio-option${projet === opt.value ? " selected" : ""}`}
-                      onClick={() => setProjet(opt.value)}
                     >
                       <input
                         type="radio"
                         name="projet"
                         value={opt.value}
-                        readOnly
                         checked={projet === opt.value}
+                        onChange={() => setProjet(opt.value)}
                       />
-                      <div className="radio-dot" />
+                      <div className="radio-dot" aria-hidden="true" />
                       <span className="radio-label">{opt.label}</span>
                       <span className="radio-sub">{opt.sub}</span>
                     </label>
                   ))}
                 </div>
-              </div>
+              </fieldset>
 
-              <div className="form-field">
-                <label>Grade souhaité</label>
+              <fieldset className="form-field form-fieldset">
+                <legend>Grade souhaité</legend>
                 <div className="radio-group">
                   {GRADE_OPTIONS.map((opt) => (
                     <label
                       key={opt.value}
                       className={`radio-option${grade === opt.value ? " selected" : ""}`}
-                      onClick={() => setGrade(opt.value)}
                     >
                       <input
                         type="radio"
                         name="grade"
                         value={opt.value}
-                        readOnly
                         checked={grade === opt.value}
+                        onChange={() => setGrade(opt.value)}
                       />
-                      <div className="radio-dot" />
+                      <div className="radio-dot" aria-hidden="true" />
                       <span className="radio-label">{opt.label}</span>
                       <span className="radio-sub">{opt.sub}</span>
                     </label>
                   ))}
                 </div>
-              </div>
+              </fieldset>
 
               <div className="form-row">
                 <div className="form-field">

@@ -1,7 +1,8 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import "./contact.css";
+import { useReveal } from "@/hooks/useReveal";
 
 type Tab = "message" | "partenariat";
 
@@ -57,25 +58,7 @@ export default function ContactPage() {
   const [sentPart, setSentPart] = useState(false);
   const [sending, setSending] = useState(false);
 
-  useEffect(() => {
-    const reveals = document.querySelectorAll<HTMLElement>(".reveal");
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("visible");
-            obs.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    reveals.forEach((el) => obs.observe(el));
-    document.querySelectorAll<HTMLElement>(".page-hero .reveal").forEach((el, i) => {
-      setTimeout(() => el.classList.add("visible"), 100 + i * 120);
-    });
-    return () => obs.disconnect();
-  }, []);
+  useReveal({ heroSelector: ".page-hero" });
 
   const submitMsg = async () => {
     setSending(true);
@@ -119,7 +102,7 @@ export default function ContactPage() {
     <>
       {/* PAGE HERO */}
       <div className="page-hero">
-        <video className="page-hero-video" src="https://res.cloudinary.com/uuiwf5lx/video/upload/q_auto/f_auto/v1779650745/Bitumad_vid%C3%A9o_bitume_coulant_ejc7u8.mp4" autoPlay muted loop playsInline />
+        <video className="page-hero-video" src="https://res.cloudinary.com/uuiwf5lx/video/upload/q_auto/f_auto/v1779650745/Bitumad_vid%C3%A9o_bitume_coulant_ejc7u8.mp4" autoPlay muted loop playsInline aria-label="Vidéo décorative — bitume en cours de coulage" />
         <div className="page-hero-overlay" />
         <div className="page-hero-grid" />
         <div className="page-hero-content">
@@ -203,16 +186,24 @@ export default function ContactPage() {
 
           {/* RIGHT: formulaires à onglets */}
           <div className="contact-form-col reveal reveal-delay-2">
-            <div className="form-tabs">
+            <div className="form-tabs" role="tablist">
               <button
                 className={`form-tab${activeTab === "message" ? " active" : ""}`}
                 onClick={() => setActiveTab("message")}
+                role="tab"
+                aria-selected={activeTab === "message"}
+                aria-controls="panel-message"
+                id="tab-message"
               >
                 Message général
               </button>
               <button
                 className={`form-tab${activeTab === "partenariat" ? " active" : ""}`}
                 onClick={() => setActiveTab("partenariat")}
+                role="tab"
+                aria-selected={activeTab === "partenariat"}
+                aria-controls="panel-partenariat"
+                id="tab-partenariat"
               >
                 Partenariat
               </button>
@@ -220,7 +211,7 @@ export default function ContactPage() {
 
             {/* Panel Message */}
             {activeTab === "message" && (
-              <div className="form-panel active">
+              <div className="form-panel active" role="tabpanel" id="panel-message" aria-labelledby="tab-message">
                 <div className="form-panel-body">
                   <div className="form-row">
                     <div className="form-field">
@@ -265,12 +256,12 @@ export default function ContactPage() {
 
             {/* Panel Partenariat */}
             {activeTab === "partenariat" && (
-              <div className="form-panel active">
+              <div className="form-panel active" role="tabpanel" id="panel-partenariat" aria-labelledby="tab-partenariat">
                 <div className="form-panel-body">
                   <div className="form-row">
                     <div className="form-field">
                       <label htmlFor="p-nom">Nom &amp; prénom</label>
-                      <input type="text" id="p-nom" placeholder="Jean Rakoto" value={partForm.nom} onChange={(e) => setPartForm({ ...partForm, nom: e.target.value })} />
+                      <input type="text" id="p-nom" placeholder="Jean Rakoto" value={partForm.nom} onChange={(e) => setPartForm({ ...partForm, nom: e.target.value })} aria-required="true" />
                     </div>
                     <div className="form-field">
                       <label htmlFor="p-poste">Poste / Fonction</label>
@@ -284,21 +275,28 @@ export default function ContactPage() {
                     </div>
                     <div className="form-field">
                       <label htmlFor="p-email">Email professionnel</label>
-                      <input type="email" id="p-email" placeholder="jean@entreprise.com" value={partForm.email} onChange={(e) => setPartForm({ ...partForm, email: e.target.value })} />
+                      <input type="email" id="p-email" placeholder="jean@entreprise.com" value={partForm.email} onChange={(e) => setPartForm({ ...partForm, email: e.target.value })} aria-required="true" />
                     </div>
                   </div>
-                  <div className="form-field">
-                    <label>Nature du partenariat envisagé</label>
+                  <fieldset className="form-field form-fieldset">
+                    <legend>Nature du partenariat envisagé</legend>
                     <div className="radio-group">
                       {PARTNER_TYPES.map((pt, i) => (
-                        <div key={i} className={`radio-option${radioPart === i ? " selected" : ""}`} onClick={() => setRadioPart(i)}>
-                          <div className="radio-dot" />
+                        <label key={i} className={`radio-option${radioPart === i ? " selected" : ""}`}>
+                          <input
+                            type="radio"
+                            name="partenariat-type"
+                            value={i}
+                            checked={radioPart === i}
+                            onChange={() => setRadioPart(i)}
+                          />
+                          <div className="radio-dot" aria-hidden="true" />
                           <span className="radio-label">{pt.label}</span>
                           <span className="radio-sub">{pt.sub}</span>
-                        </div>
+                        </label>
                       ))}
                     </div>
-                  </div>
+                  </fieldset>
                   <div className="form-field">
                     <label htmlFor="p-msg">Décrivez votre proposition</label>
                     <textarea id="p-msg" style={{ height: "120px" }} placeholder="Contexte, objectifs, périmètre géographique et modalités envisagées…" value={partForm.message} onChange={(e) => setPartForm({ ...partForm, message: e.target.value })} />
@@ -333,13 +331,18 @@ export default function ContactPage() {
           <div className="faq-list reveal reveal-delay-2">
             {FAQ_ITEMS.map((item, i) => (
               <div key={i} className="faq-item">
-                <div className={`faq-q${openFaq === i ? " open" : ""}`} onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                <button
+                  className={`faq-q${openFaq === i ? " open" : ""}`}
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-answer-${i}`}
+                >
                   {item.q}
-                  <div className="faq-icon">
+                  <div className="faq-icon" aria-hidden="true">
                     <svg viewBox="0 0 12 12"><line x1="6" y1="2" x2="6" y2="10" /><line x1="2" y1="6" x2="10" y2="6" /></svg>
                   </div>
-                </div>
-                <div className={`faq-a${openFaq === i ? " open" : ""}`}>{item.a}</div>
+                </button>
+                <div id={`faq-answer-${i}`} className={`faq-a${openFaq === i ? " open" : ""}`}>{item.a}</div>
               </div>
             ))}
           </div>

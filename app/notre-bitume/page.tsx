@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect } from "react";
 import "./notre-bitume.css";
+import { useReveal } from "@/hooks/useReveal";
 
 const PRODUCTS = [
   {
@@ -67,27 +67,7 @@ const GUIDE_ROWS = [
 ];
 
 export default function NossBitumesPage() {
-  useEffect(() => {
-    const reveals = document.querySelectorAll<HTMLElement>(".reveal");
-    const obs = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("visible");
-            obs.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-    reveals.forEach((el) => obs.observe(el));
-
-    document.querySelectorAll<HTMLElement>(".nb-page-hero .reveal").forEach((el, i) => {
-      setTimeout(() => el.classList.add("visible"), 80 + i * 110);
-    });
-
-    return () => obs.disconnect();
-  }, []);
+  useReveal({ heroSelector: ".nb-page-hero", baseDelay: 80, stepDelay: 110 });
 
   return (
     <>
@@ -144,9 +124,9 @@ export default function NossBitumesPage() {
                 ))}
               </div>
 
-              <a href={p.href} className="nb-catalog-card-link">
+              <a href={p.href} className="nb-catalog-card-link" aria-label={`Voir la fiche technique — Bitume ${p.grade}`}>
                 Voir la fiche technique
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14" aria-hidden="true" focusable="false">
                   <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                 </svg>
               </a>
@@ -165,14 +145,15 @@ export default function NossBitumesPage() {
 
         <div className="nb-guide-table-wrap reveal reveal-delay-2">
           <table className="nb-guide-table">
+            <caption className="visually-hidden">Comparaison des grades de bitume 60/70 et 35/50 selon les critères techniques</caption>
             <thead>
               <tr>
-                <th>Critère</th>
-                <th>
+                <th scope="col">Critère</th>
+                <th scope="col">
                   <div className="nb-guide-th-grade">60/70</div>
                   <div className="nb-guide-th-sub">Zones intérieures</div>
                 </th>
-                <th>
+                <th scope="col">
                   <div className="nb-guide-th-grade nb-guide-th-grade--new">35/50</div>
                   <div className="nb-guide-th-sub">Zones côtières</div>
                 </th>
@@ -181,7 +162,7 @@ export default function NossBitumesPage() {
             <tbody>
               {GUIDE_ROWS.map((row, i) => (
                 <tr key={row.critere} className={i % 2 === 0 ? "nb-guide-row-alt" : ""}>
-                  <td className="nb-guide-critere">{row.critere}</td>
+                  <th scope="row" className="nb-guide-critere">{row.critere}</th>
                   <td>{row.val6070}</td>
                   <td>{row.val3550}</td>
                 </tr>

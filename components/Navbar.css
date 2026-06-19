@@ -133,10 +133,14 @@
   transform: translateX(-50%) rotate(45deg);
 }
 
-.nav-dropdown-item:hover .nav-dropdown {
+.nav-dropdown-item:hover .nav-dropdown,
+.nav-dropdown-item:focus-within .nav-dropdown {
   opacity: 1;
   visibility: visible;
   transform: translateX(-50%) translateY(0);
+}
+.nav-dropdown-item:focus-within .nav-chevron {
+  transform: rotate(180deg);
 }
 
 .nav-dropdown a {
