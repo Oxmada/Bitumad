@@ -22,19 +22,17 @@
   opacity: 0.35;
 }
 
-.hero-bg {
+.hero-bg-wrap {
   position: absolute;
   inset: 0;
-  background-image: url('https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650742/bitumad_hero_route_madagascar_avce_fux_de_bitume_whcflo.jpg');
-  background-size: cover;
-  background-position: center 40%;
-  filter: brightness(0.7) saturate(0.8);
+  overflow: hidden;
   transform: scale(1.04);
   transition: transform 8s ease-out;
   will-change: transform;
+  backface-visibility: hidden;
 }
 
-.hero-bg.loaded {
+.hero-bg-wrap.loaded {
   transform: scale(1);
 }
 
@@ -146,6 +144,9 @@
 .ticker-track {
   display: inline-flex;
   animation: ticker 28s linear infinite;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .ticker-item {
@@ -170,6 +171,14 @@
 @keyframes ticker {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* ─── UTILITAIRES ─── */
+.text-white-strong { color: var(--white); }
+
+.section-lead--right {
+  max-width: 340px;
+  text-align: right;
 }
 
 /* ─── VIDEO STRIP ─── */

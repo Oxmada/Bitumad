@@ -658,7 +658,7 @@ export async function GET(request: Request) {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": `attachment; filename="${filename}"`,
-        "Cache-Control": "no-cache",
+        "Cache-Control": "public, max-age=86400, s-maxage=86400",
       },
     });
   } catch (error) {
