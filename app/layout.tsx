@@ -26,11 +26,14 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bitumad – Des routes solides à Madagascar",
+  title: {
+    template: "%s | Bitumad",
+    default: "Bitumad — Fournisseur de bitume 60/70 & 35/50 à Madagascar",
+  },
   description:
-    "Bitumad est votre partenaire de confiance pour la fourniture de bitume de pénétration 60/70 à Madagascar. Qualité conforme aux normes internationales ASTM.",
+    "Bitumad livre du bitume de pénétration 60/70 et 35/50 à Madagascar, conforme aux normes ASTM. Routes, voiries, aéroports, ports. Devis gratuit sous 24h.",
   keywords:
-    "bitume Madagascar, bitume 60/70, routes Madagascar, BTP Madagascar, fourniture bitume, ASTM",
+    "bitume Madagascar, bitume 60/70, bitume 35/50, routes Madagascar, BTP Madagascar, fourniture bitume, ASTM, bitume pénétration",
   authors: [{ name: "Bitumad" }],
   creator: "Bitumad",
   metadataBase: new URL("https://www.bitumad.mg"),
@@ -39,28 +42,51 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.bitumad.mg",
-    title: "Bitumad – Des routes solides à Madagascar",
+    title: "Bitumad — Fournisseur de bitume 60/70 & 35/50 à Madagascar",
     description:
-      "Bitumad est votre partenaire de confiance pour la fourniture de bitume de pénétration 60/70 à Madagascar. Qualité conforme aux normes internationales ASTM.",
+      "Bitumad livre du bitume de pénétration 60/70 et 35/50 à Madagascar, conforme aux normes ASTM. Routes, voiries, aéroports, ports. Devis gratuit sous 24h.",
     siteName: "Bitumad",
     images: [
       {
         url: "https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650742/bitumad_hero_route_madagascar_avce_fux_de_bitume_whcflo.jpg",
         width: 1200,
         height: 630,
-        alt: "Bitumad – Fournisseur de bitume à Madagascar",
+        alt: "Bitumad — Fournisseur de bitume à Madagascar",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bitumad – Des routes solides à Madagascar",
+    title: "Bitumad — Fournisseur de bitume 60/70 & 35/50 à Madagascar",
     description:
-      "Bitumad est votre partenaire de confiance pour la fourniture de bitume de pénétration 60/70 à Madagascar.",
+      "Bitumad livre du bitume 60/70 et 35/50 à Madagascar, conforme ASTM. Routes, voiries, aéroports, ports. Devis gratuit sous 24h.",
     images: [
       "https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650742/bitumad_hero_route_madagascar_avce_fux_de_bitume_whcflo.jpg",
     ],
   },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Bitumad",
+  url: "https://www.bitumad.mg",
+  logo: "https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650741/bitumad_logo_cercle_remove_v2_zcpvnc.webp",
+  description: "Bitumad est le fournisseur de référence en bitume de pénétration 60/70 et 35/50 à Madagascar. Qualité conforme aux normes internationales ASTM.",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Propriété dite « KAIZ » TN°605, Tanjombato",
+    addressLocality: "Antananarivo",
+    postalCode: "10216",
+    addressCountry: "MG",
+  },
+  contactPoint: {
+    "@type": "ContactPoint",
+    telephone: "+261388120293",
+    contactType: "customer service",
+    availableLanguage: ["French"],
+  },
+  sameAs: [],
 };
 
 export default function RootLayout({
@@ -74,6 +100,10 @@ export default function RootLayout({
       className={`${bebasNeue.variable} ${instrumentSans.variable} ${jetbrainsMono.variable}`}
     >
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <a href="#main-content" className="skip-link">Aller au contenu principal</a>
         <Navbar />
         <main id="main-content">{children}</main>

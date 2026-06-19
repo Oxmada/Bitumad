@@ -45,7 +45,7 @@ export default function HomePage() {
         <div className="hero-bg-wrap" ref={heroBgRef}>
           <Image
             src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650742/bitumad_hero_route_madagascar_avce_fux_de_bitume_whcflo.jpg"
-            alt=""
+            alt="Route asphaltée à Madagascar — Bitumad, fournisseur de bitume de pénétration"
             fill
             priority
             sizes="100vw"

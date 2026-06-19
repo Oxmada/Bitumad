@@ -1,4 +1,16 @@
+import type { Metadata } from "next";
 import "./mentions-legales.css";
+
+export const metadata: Metadata = {
+  title: "Mentions légales – Bitumad",
+  description: "Mentions légales du site Bitumad — éditeur, hébergement, propriété intellectuelle, politique de confidentialité et conditions d'utilisation.",
+  alternates: { canonical: "/mentions-legales" },
+  openGraph: {
+    title: "Mentions légales – Bitumad",
+    description: "Mentions légales du site Bitumad — informations légales, éditeur et politique de confidentialité.",
+    url: "https://www.bitumad.mg/mentions-legales",
+  },
+};
 
 export default function MentionsLegalesPage() {
   return (
