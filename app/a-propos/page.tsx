@@ -243,47 +243,49 @@ export default function APropos() {
         <h2 className="section-title reveal reveal-delay-1">NOS SOURCES & GARANTIES</h2>
 
         <div className="partenaires-intro">
-          <div className="partenaires-text reveal reveal-delay-2">
-            <p>Bitumad s&apos;approvisionne auprès de raffineries et négociants internationaux reconnus, en sélectionnant exclusivement un bitume de pénétration 60/70 conforme aux standards ASTM et adapté aux conditions tropicales de Madagascar.</p>
-            <p>Chaque lot est accompagné de son certificat d&apos;analyse (CoA) permettant de vérifier la conformité des paramètres clés : pénétrabilité, point de ramollissement, ductilité et point éclair.</p>
+          <div className="partenaires-left reveal reveal-delay-2">
+            <div className="partenaires-text">
+              <p>Bitumad s&apos;approvisionne auprès de raffineries et négociants internationaux reconnus, en sélectionnant exclusivement un bitume de pénétration 60/70 conforme aux standards ASTM et adapté aux conditions tropicales de Madagascar.</p>
+              <p>Chaque lot est accompagné de son certificat d&apos;analyse (CoA) permettant de vérifier la conformité des paramètres clés : pénétrabilité, point de ramollissement, ductilité et point éclair.</p>
+            </div>
+            <div className="supply-chain">
+              <div className="supply-chain-title">Chaîne d&apos;approvisionnement</div>
+              <div className="supply-step">
+                <div className="supply-step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                </div>
+                Raffinage & production
+                <span className="supply-step-sub">Pays exportateurs</span>
+              </div>
+              <div className="supply-step">
+                <div className="supply-step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                </div>
+                Contrôle qualité & certification
+                <span className="supply-step-sub">ASTM</span>
+              </div>
+              <div className="supply-step">
+                <div className="supply-step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h20"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6V4"/><path d="M10 6V4"/><path d="M14 6V4"/><path d="M18 6V4"/></svg>
+                </div>
+                Transport maritime
+                <span className="supply-step-sub">En fûts 180 kg</span>
+              </div>
+              <div className="supply-step">
+                <div className="supply-step-icon">
+                  <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                </div>
+                Livraison — Madagascar
+                <span className="supply-step-sub">Sur chantier</span>
+              </div>
+            </div>
           </div>
-          <div className="supply-chain reveal reveal-delay-3">
-            <div className="supply-chain-title">Chaîne d&apos;approvisionnement</div>
-            <div className="supply-step">
-              <div className="supply-step-icon">
-                <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
-              </div>
-              Raffinage & production
-              <span className="supply-step-sub">Pays exportateurs</span>
-            </div>
-            <div className="supply-step">
-              <div className="supply-step-icon">
-                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-              </div>
-              Contrôle qualité & certification
-              <span className="supply-step-sub">ASTM</span>
-            </div>
-            <div className="supply-step">
-              <div className="supply-step-icon">
-                <svg viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h20"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6V4"/><path d="M10 6V4"/><path d="M14 6V4"/><path d="M18 6V4"/></svg>
-              </div>
-              Transport maritime
-              <span className="supply-step-sub">En fûts 180 kg</span>
-            </div>
-            <div className="supply-step">
-              <div className="supply-step-icon">
-                <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              </div>
-              Livraison — Madagascar
-              <span className="supply-step-sub">Sur chantier</span>
-            </div>
-          </div>
+          <img
+            src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1781869241/Bitumad_chargement-conteneur-futs_ovko7a.webp"
+            alt="Déchargement de fûts de bitume depuis un camion sur site"
+            className="supply-chain-photo reveal reveal-delay-3"
+          />
         </div>
-        <img
-          src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1781869241/Bitumad_chargement-conteneur-futs_ovko7a.webp"
-          alt="Déchargement de fûts de bitume depuis un camion sur site"
-          className="supply-chain-photo reveal reveal-delay-4"
-        />
 
         {/* Pays fournisseurs — masqué, réactiver en retirant style={{ display: 'none' }} */}
         <div style={{ display: 'none' }}>
