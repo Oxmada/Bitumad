@@ -277,6 +277,11 @@ export default function APropos() {
               Livraison — Madagascar
               <span className="supply-step-sub">Sur chantier</span>
             </div>
+            <img
+              src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1781869241/Bitumad_chargement-conteneur-futs_ovko7a.webp"
+              alt="Déchargement de fûts de bitume depuis un camion sur site"
+              className="supply-chain-photo reveal reveal-delay-4"
+            />
           </div>
         </div>
 

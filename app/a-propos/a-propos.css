@@ -588,6 +588,18 @@
   stroke-linejoin: round;
 }
 
+.supply-chain-photo {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 0 0 8px 8px;
+  border: 0.5px solid var(--faint);
+  border-top: none;
+  filter: brightness(0.85) saturate(0.9);
+  display: block;
+}
+
 .supply-step-sub {
   font-size: 11px;
   color: var(--muted);
