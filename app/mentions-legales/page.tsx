@@ -7,11 +7,7 @@ export default function MentionsLegalesPage() {
       <div className="ml-page-hero">
         <div className="ml-page-hero-grid" />
         <div className="ml-page-hero-content">
-          <div className="ml-breadcrumb">
-            <a href="/">Accueil</a>
-            <span className="ml-breadcrumb-sep">/</span>
-            <span>Mentions légales</span>
-          </div>
+
           <div className="ml-eyebrow">Informations légales</div>
           <h1 className="ml-page-title">MENTIONS LÉGALES</h1>
         </div>
@@ -87,7 +83,7 @@ export default function MentionsLegalesPage() {
           <p>Ce site a été conçu et développé par <strong>Oxmad Digital</strong>.</p>
         </div>
 
-        <p className="ml-date">Dernière mise à jour : avril 2026</p>
+        <p className="ml-date">Dernière mise à jour : juin 2026</p>
       </div>
     </>
   );

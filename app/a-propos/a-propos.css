@@ -824,6 +824,10 @@
   stroke-linejoin: round;
 }
 
+@media (min-width: 1440px) {
+  .partenaires-intro { grid-template-columns: 1fr 580px; }
+}
+
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
   .page-hero { padding: 140px 40px 80px; }

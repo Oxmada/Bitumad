@@ -98,12 +98,12 @@ export default function NossBitumesPage() {
         <div className="nb-page-hero-accent" aria-hidden="true">BITUME</div>
         <div className="nb-page-hero-layout">
           <div className="nb-page-hero-left">
-            <div className="nb-eyebrow reveal reveal-delay-1">Catalogue produits</div>
+            <div className="nb-eyebrow reveal reveal-delay-1">Nos produits</div>
             <h1 className="nb-page-title reveal reveal-delay-2">
-              NOS<br /><em>BITUMES</em>
+              DEUX GRADES <em>DISPONIBLES</em>
             </h1>
             <p className="nb-page-lead reveal reveal-delay-3">
-              Bitumad propose deux grades de bitume de pénétration, sélectionnés pour couvrir l'ensemble des conditions climatiques de Madagascar — de l'intérieur tropical aux zones côtières à fort ensoleillement.
+              Chaque grade est adapté à un contexte climatique précis. Choisissez le produit qui correspond à votre zone de chantier.
             </p>
           </div>
         </div>
@@ -111,14 +111,6 @@ export default function NossBitumesPage() {
 
       {/* ─── PRODUCTS GRID ─── */}
       <section className="nb-catalog-section">
-        <div className="nb-catalog-intro">
-          <div className="nb-eyebrow reveal">Nos produits</div>
-          <h2 className="nb-section-title reveal reveal-delay-1">DEUX GRADES DISPONIBLES</h2>
-          <p className="nb-section-lead reveal reveal-delay-2">
-            Chaque grade est adapté à un contexte climatique précis. Choisissez le produit qui correspond à votre zone de chantier.
-          </p>
-        </div>
-
         <div className="nb-catalog-grid">
           {PRODUCTS.map((p, idx) => (
             <div

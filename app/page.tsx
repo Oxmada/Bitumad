@@ -240,47 +240,56 @@ export default function HomePage() {
 
       {/* ─── PROCESSUS DE COMMANDE ─── */}
       <section id="commander">
-        <div className="eyebrow reveal">Commander</div>
-        <h2 className="section-title reveal reveal-delay-1">
-          PROCESSUS DE COMMANDE
-        </h2>
-        <p className="section-lead reveal reveal-delay-2">
-          Un parcours simple et rapide — de la demande de devis à la livraison
-          sur site.
-        </p>
+        <div className="process-layout">
+          <div className="process-content">
+            <div className="eyebrow reveal">Commander</div>
+            <h2 className="section-title reveal reveal-delay-1">
+              PROCESSUS DE COMMANDE
+            </h2>
+            <p className="section-lead reveal reveal-delay-2">
+              Un parcours simple et rapide — de la demande de devis à la livraison
+              sur site.
+            </p>
 
-        <div className="process-grid">
-          <div className="process-step reveal reveal-delay-2">
-            <div className="process-number">01</div>
-            <div className="process-step-num">ÉTAPE 01</div>
-            <div className="process-title">Demande de devis</div>
-            <div className="process-desc">
-              Remplissez notre formulaire de contact ou appelez-nous pour nous
-              communiquer vos besoins en bitume. Notre équipe analyse votre
-              demande et prépare une proposition claire et adaptée à votre
-              projet.
+            <div className="process-grid">
+              <div className="process-step reveal reveal-delay-2">
+                <div className="process-number">01</div>
+                <div className="process-step-num">ÉTAPE 01</div>
+                <div className="process-title">Demande de devis</div>
+                <div className="process-desc">
+                  Remplissez notre formulaire de contact ou appelez-nous pour nous
+                  communiquer vos besoins en bitume. Notre équipe analyse votre
+                  demande et prépare une proposition claire et adaptée à votre
+                  projet.
+                </div>
+              </div>
+              <div className="process-step reveal reveal-delay-3">
+                <div className="process-number">02</div>
+                <div className="process-step-num">ÉTAPE 02</div>
+                <div className="process-title">Confirmation de commande</div>
+                <div className="process-desc">
+                  Après validation du devis, nous confirmons ensemble les
+                  quantités, les modalités de paiement et le calendrier de
+                  livraison.
+                </div>
+              </div>
+              <div className="process-step reveal reveal-delay-4">
+                <div className="process-number">03</div>
+                <div className="process-step-num">ÉTAPE 03</div>
+                <div className="process-title">Livraison sur site</div>
+                <div className="process-desc">
+                  Nous organisons la logistique et assurons le transport du bitume
+                  directement jusqu'à votre chantier, partout à Madagascar, avec
+                  un suivi rigoureux pour respecter les délais.
+                </div>
+              </div>
             </div>
           </div>
-          <div className="process-step reveal reveal-delay-3">
-            <div className="process-number">02</div>
-            <div className="process-step-num">ÉTAPE 02</div>
-            <div className="process-title">Confirmation de commande</div>
-            <div className="process-desc">
-              Après validation du devis, nous confirmons ensemble les
-              quantités, les modalités de paiement et le calendrier de
-              livraison.
-            </div>
-          </div>
-          <div className="process-step reveal reveal-delay-4">
-            <div className="process-number">03</div>
-            <div className="process-step-num">ÉTAPE 03</div>
-            <div className="process-title">Livraison sur site</div>
-            <div className="process-desc">
-              Nous organisons la logistique et assurons le transport du bitume
-              directement jusqu'à votre chantier, partout à Madagascar, avec
-              un suivi rigoureux pour respecter les délais.
-            </div>
-          </div>
+          <img
+            src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1781873300/Bitumad_zone-chargement-crepuscule_yidkti.webp"
+            alt="Zone de chargement de bitume au crépuscule"
+            className="process-img reveal reveal-delay-3"
+          />
         </div>
       </section>
 
