@@ -299,7 +299,7 @@
   display: grid;
   grid-template-columns: 1fr 400px;
   gap: 64px;
-  align-items: center;
+  align-items: stretch;
 }
 
 .process-content .section-lead { margin-bottom: 0; }
@@ -316,7 +316,7 @@
 
 .process-img {
   width: 100%;
-  aspect-ratio: 3 / 4;
+  height: 100%;
   object-fit: cover;
   object-position: center;
   border-radius: 12px;
@@ -327,14 +327,12 @@
 
 .process-step {
   background: var(--dark2);
-  padding: 48px 36px;
+  padding: 28px 28px;
   position: relative;
   overflow: hidden;
   transition: background 0.2s;
 }
 
-.process-step:first-child { border-radius: 12px 0 0 12px; }
-.process-step:last-child { border-radius: 0 12px 12px 0; }
 .process-step:hover { background: var(--dark3); }
 
 .process-number {
