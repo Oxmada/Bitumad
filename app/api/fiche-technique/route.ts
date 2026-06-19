@@ -649,7 +649,8 @@ export async function GET(request: Request) {
     const grade = gradeParam === "35-50" ? "35/50" : "60/70";
     const filename = `Bitumad_Fiche-Technique_Bitume-${gradeParam}.pdf`;
 
-    const nodeStream = await pdf(React.createElement(FicheTechnique, { grade })).toBuffer();
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const nodeStream = await pdf(React.createElement(FicheTechnique, { grade }) as any).toBuffer();
     const bytes = await streamToBuffer(nodeStream);
 
     return new NextResponse(bytes as unknown as BodyInit, {
