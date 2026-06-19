@@ -113,7 +113,7 @@ export default function NossBitumesPage() {
       <section className="nb-catalog-section">
         <div className="nb-catalog-intro">
           <div className="nb-eyebrow reveal">Nos produits</div>
-          <h2 className="nb-section-title reveal reveal-delay-1">DEUX GRADES<br />DISPONIBLES</h2>
+          <h2 className="nb-section-title reveal reveal-delay-1">DEUX GRADES DISPONIBLES</h2>
           <p className="nb-section-lead reveal reveal-delay-2">
             Chaque grade est adapté à un contexte climatique précis. Choisissez le produit qui correspond à votre zone de chantier.
           </p>
@@ -166,7 +166,7 @@ export default function NossBitumesPage() {
       {/* ─── GUIDE SECTION ─── */}
       <section className="nb-guide-section">
         <div className="nb-eyebrow reveal">Aide au choix</div>
-        <h2 className="nb-section-title reveal reveal-delay-1">QUEL GRADE POUR<br />VOTRE CHANTIER ?</h2>
+        <h2 className="nb-section-title reveal reveal-delay-1">QUEL GRADE POUR VOTRE CHANTIER ?</h2>
         <p className="nb-section-lead reveal reveal-delay-2">
           Le choix du grade dépend principalement de la localisation de votre chantier et des températures de surface auxquelles la chaussée sera exposée.
         </p>

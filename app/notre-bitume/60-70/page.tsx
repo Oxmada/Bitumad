@@ -247,7 +247,7 @@ export default function Bitume6070Page() {
       {/* ─── APPLICATIONS ─── */}
       <section id="nb-applications" className="nb-section-applications">
         <div className="nb-eyebrow reveal">Domaines d'application</div>
-        <h2 className="nb-section-title reveal reveal-delay-1">OÙ UTILISE-T-ON<br />NOTRE BITUME ?</h2>
+        <h2 className="nb-section-title reveal reveal-delay-1">OÙ UTILISE-T-ON NOTRE BITUME ?</h2>
         <p className="nb-section-lead reveal reveal-delay-2">
           Le bitume 60/70 est adapté à une large gamme de chantiers, des routes nationales aux surfaces spécialisées, partout à Madagascar.
         </p>
