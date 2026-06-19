@@ -525,7 +525,7 @@
 
 .partenaires-intro {
   display: grid;
-  grid-template-columns: 1fr 380px;
+  grid-template-columns: 1fr 460px;
   gap: 64px;
   margin-bottom: 64px;
   align-items: start;
