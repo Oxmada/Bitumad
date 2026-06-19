@@ -148,11 +148,7 @@ export default function Bitume6070Page() {
         <div className="nb-page-hero-accent" aria-hidden="true">60/70</div>
         <div className="nb-page-hero-layout">
           <div className="nb-page-hero-left">
-            <nav className="nb-breadcrumb">
-              <a href="/notre-bitume">Nos bitumes</a>
-              <span className="nb-breadcrumb-sep">›</span>
-              <span>Bitume 60/70</span>
-            </nav>
+
             <div className="nb-eyebrow reveal reveal-delay-1">Description du produit</div>
             <h1 className="nb-page-title reveal reveal-delay-2">
               QU&apos;EST-CE QUE LE<br /><em>BITUME 60/70 ?</em>

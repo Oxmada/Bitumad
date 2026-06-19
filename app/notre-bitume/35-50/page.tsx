@@ -148,11 +148,7 @@ export default function Bitume3550Page() {
         <div className="nb-page-hero-accent" aria-hidden="true">35/50</div>
         <div className="nb-page-hero-layout">
           <div className="nb-page-hero-left">
-            <nav className="nb-breadcrumb">
-              <a href="/notre-bitume">Nos bitumes</a>
-              <span className="nb-breadcrumb-sep">›</span>
-              <span>Bitume 35/50</span>
-            </nav>
+
             <div className="nb-eyebrow reveal reveal-delay-1">Description du produit · Zones côtières</div>
             <h1 className="nb-page-title reveal reveal-delay-2">
               QU&apos;EST-CE QUE LE<br /><em>BITUME 35/50 ?</em>
