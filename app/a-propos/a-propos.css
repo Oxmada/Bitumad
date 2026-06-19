@@ -1,7 +1,8 @@
 /* ─── PAGE HERO ─── */
 .page-hero {
   position: relative;
-  padding: 110px 80px 40px;
+  padding: 110px 80px 64px;
+  min-height: 380px;
   background: var(--dark);
   border-bottom: 0.5px solid var(--faint);
   overflow: hidden;
@@ -36,6 +37,7 @@
 .page-hero-grid {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background-image:
     linear-gradient(var(--faint) 0.5px, transparent 0.5px),
     linear-gradient(90deg, var(--faint) 0.5px, transparent 0.5px);
@@ -61,7 +63,7 @@
 
 .page-hero-content {
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* ─── BREADCRUMB ─── */

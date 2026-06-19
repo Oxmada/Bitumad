@@ -46,7 +46,8 @@
 ══════════════════════════════════════════ */
 .nb-page-hero {
   position: relative;
-  padding: 110px 80px 64px;
+  padding: 110px 80px 32px;
+  min-height: 380px;
   background: var(--dark);
   overflow: hidden;
   border-bottom: 0.5px solid var(--faint);
