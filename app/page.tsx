@@ -3,6 +3,7 @@ import "./page.css";
 import { useState, useEffect } from "react";
 
 type ProjetType = "route" | "voirie" | "aeroport" | "autre";
+type GradeType = "6070" | "3550" | "both";
 
 const TICKER_ITEMS = [
   "DURABILITÉ ÉPROUVÉE",
@@ -11,6 +12,8 @@ const TICKER_ITEMS = [
   "QUALITÉ CERTIFIÉE ASTM",
   "LIVRAISON PARTOUT À MADAGASCAR",
   "BITUME 60/70",
+  "BITUME 35/50",
+  "ZONES CÔTIÈRES",
 ];
 
 const RADIO_OPTIONS: { value: ProjetType; label: string; sub: string }[] = [
@@ -20,8 +23,15 @@ const RADIO_OPTIONS: { value: ProjetType; label: string; sub: string }[] = [
   { value: "autre", label: "Autre projet", sub: "À préciser" },
 ];
 
+const GRADE_OPTIONS: { value: GradeType; label: string; sub: string }[] = [
+  { value: "6070", label: "Bitume 60/70", sub: "Zones intérieures" },
+  { value: "3550", label: "Bitume 35/50", sub: "Zones côtières" },
+  { value: "both", label: "Les deux grades", sub: "À préciser" },
+];
+
 export default function HomePage() {
   const [projet, setProjet] = useState<ProjetType>("route");
+  const [grade, setGrade] = useState<GradeType>("6070");
 
   useEffect(() => {
     // Scroll reveal
@@ -88,14 +98,16 @@ export default function HomePage() {
           <div className="about-body reveal reveal-delay-2">
             <p>
               Bitumad est une entreprise spécialisée dans la fourniture de
-              bitume à Madagascar. Nous proposons un bitume de pénétration
-              60/70, conforme aux normes internationales, idéal pour la
-              construction et l'entretien des routes.
+              bitume à Madagascar. Nous proposons deux grades de bitume de
+              pénétration — le <strong style={{ color: "var(--white)" }}>60/70</strong> pour les zones tropicales de
+              l'intérieur, et le <strong style={{ color: "var(--white)" }}>35/50</strong> pour les zones côtières à
+              fort ensoleillement — conformes aux normes internationales ASTM.
             </p>
             <p>
               Nos produits s'adressent aussi bien aux institutions publiques,
               aux entreprises de BTP qu'aux particuliers, garantissant qualité,
-              durabilité et performance pour vos projets d'infrastructure.
+              durabilité et performance pour vos projets d'infrastructure
+              partout à Madagascar.
             </p>
           </div>
           <div className="features-grid reveal reveal-delay-3">
@@ -119,8 +131,8 @@ export default function HomePage() {
               </div>
               <div className="feature-title">Performance optimale</div>
               <div className="feature-desc">
-                Pénétrabilité contrôlée (60/70) et point de ramollissement
-                adapté aux conditions climatiques.
+                Deux grades disponibles — 60/70 pour l'intérieur, 35/50 pour
+                la côte — chacun adapté à son contexte climatique.
               </div>
             </div>
             <div className="feature-card">
@@ -154,91 +166,75 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ─── FICHE TECHNIQUE ─── */}
+      {/* ─── NOS PRODUITS ─── */}
       <section id="notreproduit">
         <div className="product-header">
           <div>
-            <div className="eyebrow reveal">Notre bitume</div>
+            <div className="eyebrow reveal">Nos bitumes</div>
             <h2 className="section-title reveal reveal-delay-1">
-              FICHE TECHNIQUE<br />BITUME 60/70
+              DEUX GRADES<br />DISPONIBLES
             </h2>
           </div>
           <p className="section-lead reveal reveal-delay-2" style={{ maxWidth: "340px", textAlign: "right" }}>
-            Caractéristiques conformes aux normes ASTM pour la construction et
-            l'entretien des routes à Madagascar.
+            Choisissez le grade adapté à votre zone de chantier — intérieure ou côtière.
           </p>
         </div>
 
-        <div className="reveal reveal-delay-2">
-          <table className="spec-table">
-            <thead>
-              <tr>
-                <th>Intitulé</th>
-                <th>Méthode</th>
-                <th>Unité</th>
-                <th>Min.</th>
-                <th>Max.</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Gravité spécifique à 25 °C</td>
-                <td className="method">ASTM D70</td>
-                <td className="unit">kg/m³</td>
-                <td><span className="val-badge val-min">1.01</span></td>
-                <td><span className="val-badge val-max">1.06</span></td>
-              </tr>
-              <tr>
-                <td>Pénétrabilité à 25 °C, 100g, 5s</td>
-                <td className="method">ASTM D5</td>
-                <td className="unit">0.1 mm</td>
-                <td><span className="val-badge val-min">60</span></td>
-                <td><span className="val-badge val-max">70</span></td>
-              </tr>
-              <tr>
-                <td>Point de ramollissement</td>
-                <td className="method">ASTM D36</td>
-                <td className="unit">°C</td>
-                <td><span className="val-badge val-min">49</span></td>
-                <td><span className="val-badge val-max">56</span></td>
-              </tr>
-              <tr>
-                <td>Ductilité à 25 °C</td>
-                <td className="method">ASTM D113</td>
-                <td className="unit">cm</td>
-                <td><span className="val-badge val-min">100</span></td>
-                <td><span className="val-dash">—</span></td>
-              </tr>
-              <tr>
-                <td>Perte au chauffage</td>
-                <td className="method">ASTM D6</td>
-                <td className="unit">% wt</td>
-                <td><span className="val-dash">—</span></td>
-                <td><span className="val-badge val-max">0.2</span></td>
-              </tr>
-              <tr>
-                <td>Baisse de pénétrabilité après chauffage</td>
-                <td className="method">ASTM D5</td>
-                <td className="unit">%</td>
-                <td><span className="val-dash">—</span></td>
-                <td><span className="val-badge val-max">20</span></td>
-              </tr>
-              <tr>
-                <td>Point éclair</td>
-                <td className="method">ASTM D92</td>
-                <td className="unit">°C</td>
-                <td><span className="val-badge val-min">250</span></td>
-                <td><span className="val-dash">—</span></td>
-              </tr>
-              <tr>
-                <td>Solubilité dans le trichloréthylène</td>
-                <td className="method">ASTM D2042</td>
-                <td className="unit">% wt</td>
-                <td><span className="val-badge val-min">99</span></td>
-                <td><span className="val-dash">—</span></td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="home-products-grid">
+          <div className="home-product-card reveal reveal-delay-2">
+            <div className="home-product-grade-row">
+              <div className="home-product-grade">60/70</div>
+            </div>
+            <div className="home-product-zone">Zones intérieures · Hauts Plateaux · Villes</div>
+            <div className="home-product-specs">
+              <div className="home-product-spec">
+                <div className="home-product-spec-val">60–70</div>
+                <div className="home-product-spec-label">Pénétrabilité (0.1 mm)</div>
+              </div>
+              <div className="home-product-spec">
+                <div className="home-product-spec-val">49–56°C</div>
+                <div className="home-product-spec-label">Point de ramollissement</div>
+              </div>
+              <div className="home-product-spec">
+                <div className="home-product-spec-val">≥100 cm</div>
+                <div className="home-product-spec-label">Ductilité</div>
+              </div>
+            </div>
+            <a href="/notre-bitume/60-70" className="home-product-link">
+              Voir la fiche technique
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+
+          <div className="home-product-card reveal reveal-delay-3">
+            <div className="home-product-grade-row">
+              <div className="home-product-grade">35/50</div>
+              <span className="home-product-new">Nouveau</span>
+            </div>
+            <div className="home-product-zone">Zones côtières · Ports · Fort ensoleillement</div>
+            <div className="home-product-specs">
+              <div className="home-product-spec">
+                <div className="home-product-spec-val">35–50</div>
+                <div className="home-product-spec-label">Pénétrabilité (0.1 mm)</div>
+              </div>
+              <div className="home-product-spec">
+                <div className="home-product-spec-val">52–60°C</div>
+                <div className="home-product-spec-label">Point de ramollissement</div>
+              </div>
+              <div className="home-product-spec">
+                <div className="home-product-spec-val">≥50 cm</div>
+                <div className="home-product-spec-label">Ductilité</div>
+              </div>
+            </div>
+            <a href="/notre-bitume/35-50" className="home-product-link">
+              Voir la fiche technique
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -395,6 +391,30 @@ export default function HomePage() {
                         value={opt.value}
                         readOnly
                         checked={projet === opt.value}
+                      />
+                      <div className="radio-dot" />
+                      <span className="radio-label">{opt.label}</span>
+                      <span className="radio-sub">{opt.sub}</span>
+                    </label>
+                  ))}
+                </div>
+              </div>
+
+              <div className="form-field">
+                <label>Grade souhaité</label>
+                <div className="radio-group">
+                  {GRADE_OPTIONS.map((opt) => (
+                    <label
+                      key={opt.value}
+                      className={`radio-option${grade === opt.value ? " selected" : ""}`}
+                      onClick={() => setGrade(opt.value)}
+                    >
+                      <input
+                        type="radio"
+                        name="grade"
+                        value={opt.value}
+                        readOnly
+                        checked={grade === opt.value}
                       />
                       <div className="radio-dot" />
                       <span className="radio-label">{opt.label}</span>

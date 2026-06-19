@@ -981,6 +981,302 @@
 .nb-cta-banner-btn:hover { background: var(--dark2); transform: translateY(-2px); }
 
 /* ══════════════════════════════════════════
+   CTA BANNER VARIANTS
+══════════════════════════════════════════ */
+.nb-cta-banner--3550::before { content: '35/50'; }
+.nb-cta-banner--catalog::before { content: 'BITUME'; }
+
+/* ══════════════════════════════════════════
+   CATALOG PAGE
+══════════════════════════════════════════ */
+.nb-catalog-section {
+  padding: 100px 80px;
+  border-top: 0.5px solid var(--faint);
+  background: var(--black);
+}
+
+.nb-catalog-intro {
+  margin-bottom: 64px;
+}
+
+.nb-catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.nb-catalog-card {
+  background: var(--dark2);
+  border: 0.5px solid var(--faint);
+  border-radius: 16px;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s, background 0.25s;
+}
+
+.nb-catalog-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), transparent);
+}
+
+.nb-catalog-card:hover {
+  border-color: var(--green-border);
+  background: var(--dark3);
+}
+
+.nb-catalog-card-top {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nb-catalog-grade-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display), 'Bebas Neue', sans-serif;
+  font-size: 48px;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.nb-catalog-new-badge {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 400;
+  color: var(--green);
+  background: var(--green-dim);
+  border: 0.5px solid var(--green-border);
+  padding: 4px 10px;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  align-self: flex-start;
+  margin-top: 6px;
+}
+
+.nb-catalog-card-zone {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nb-catalog-card-name {
+  font-family: var(--font-display), 'Bebas Neue', sans-serif;
+  font-size: 16px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+}
+
+.nb-catalog-card-name em {
+  font-style: normal;
+  color: var(--green);
+}
+
+.nb-catalog-card-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+.nb-catalog-card-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.nb-catalog-spec-item {
+  background: var(--dark3);
+  padding: 16px 14px;
+  border-radius: 4px;
+}
+
+.nb-catalog-spec-val {
+  font-family: var(--font-display), 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.nb-catalog-spec-label {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.nb-catalog-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.nb-catalog-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: gap 0.2s, color 0.2s;
+  margin-top: auto;
+}
+
+.nb-catalog-card-link:hover {
+  gap: 12px;
+  color: var(--green-light);
+}
+
+/* ─── Guide Section ─── */
+.nb-guide-section {
+  padding: 100px 80px;
+  border-top: 0.5px solid var(--faint);
+  background: var(--dark);
+}
+
+.nb-guide-table-wrap {
+  overflow-x: auto;
+  margin-bottom: 32px;
+}
+
+.nb-guide-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.nb-guide-table thead tr {
+  border-bottom: 0.5px solid var(--faint);
+}
+
+.nb-guide-table thead th {
+  padding: 16px 20px;
+  text-align: left;
+  vertical-align: bottom;
+  background: var(--dark2);
+}
+
+.nb-guide-table thead th:first-child {
+  border-radius: 8px 0 0 0;
+  width: 200px;
+}
+
+.nb-guide-table thead th:last-child {
+  border-radius: 0 8px 0 0;
+}
+
+.nb-guide-th-grade {
+  font-family: var(--font-display), 'Bebas Neue', sans-serif;
+  font-size: 28px;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.nb-guide-th-grade--new {
+  color: var(--green);
+}
+
+.nb-guide-th-sub {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.nb-guide-table tbody tr {
+  border-bottom: 0.5px solid var(--faint);
+  transition: background 0.15s;
+}
+
+.nb-guide-table tbody tr:hover {
+  background: rgba(245, 242, 235, 0.03);
+}
+
+.nb-guide-row-alt {
+  background: rgba(245, 242, 235, 0.02);
+}
+
+.nb-guide-table td {
+  padding: 18px 20px;
+  color: var(--muted);
+  vertical-align: top;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.nb-guide-critere {
+  font-size: 12px !important;
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  color: var(--muted) !important;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 500 !important;
+}
+
+.nb-guide-table tbody td:nth-child(2) {
+  color: var(--white);
+}
+
+.nb-guide-table tbody td:nth-child(3) {
+  color: var(--green);
+}
+
+.nb-guide-tip {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--dark2);
+  border: 0.5px solid var(--faint);
+  border-radius: 10px;
+}
+
+.nb-guide-tip-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--green-dim);
+  border: 0.5px solid var(--green-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.nb-guide-tip-icon svg { width: 18px; height: 18px; }
+
+.nb-guide-tip p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.nb-guide-tip a {
+  color: var(--green);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nb-guide-tip a:hover { color: var(--green-light); }
+
+/* ══════════════════════════════════════════
    RESPONSIVE — TABLETTE
 ══════════════════════════════════════════ */
 @media (max-width: 1200px) {
@@ -999,6 +1295,10 @@
   .nb-download-layout { grid-template-columns: 1fr; gap: 48px; }
 
   .nb-cta-banner { margin: 0 40px 60px; padding: 48px 40px; }
+
+  .nb-catalog-section,
+  .nb-guide-section { padding: 80px 40px; }
+  .nb-catalog-grid { grid-template-columns: 1fr; gap: 16px; }
 }
 
 @media (max-width: 900px) {
@@ -1019,6 +1319,12 @@
    RESPONSIVE — MOBILE
 ══════════════════════════════════════════ */
 @media (max-width: 640px) {
+  .nb-catalog-section,
+  .nb-guide-section { padding: 60px 24px; }
+  .nb-catalog-card { padding: 32px 24px; }
+  .nb-catalog-card-specs { grid-template-columns: 1fr 1fr 1fr; }
+  .nb-catalog-grade-badge { font-size: 36px; }
+
   .nb-page-hero { padding: 96px 24px 48px; }
   .nb-page-hero-accent { font-size: 120px; }
   .nb-hero-product-specs { grid-template-columns: 1fr 1fr; }

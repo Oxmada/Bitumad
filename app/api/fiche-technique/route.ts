@@ -363,7 +363,18 @@ const SPEC_ROWS = [
   { label: "Solubilité dans le trichloréthylène", method: "ASTM D2042", unit: "% wt", min: "99", max: null },
 ];
 
-const Footer = () =>
+const SPEC_ROWS_3550 = [
+  { label: "Gravité spécifique à 25 °C", method: "ASTM D70", unit: "kg/m³", min: "1.01", max: "1.06" },
+  { label: "Pénétrabilité à 25 °C, 100g, 5s", method: "ASTM D5", unit: "0.1 mm", min: "35", max: "50" },
+  { label: "Point de ramollissement", method: "ASTM D36", unit: "°C", min: "52", max: "60" },
+  { label: "Ductilité à 25 °C", method: "ASTM D113", unit: "cm", min: "50", max: null },
+  { label: "Perte au chauffage", method: "ASTM D6", unit: "% wt", min: null, max: "0.2" },
+  { label: "Baisse de pénétrabilité après chauffage", method: "ASTM D5", unit: "%", min: null, max: "20" },
+  { label: "Point éclair", method: "ASTM D92", unit: "°C", min: "250", max: null },
+  { label: "Solubilité dans le trichloréthylène", method: "ASTM D2042", unit: "% wt", min: "99", max: null },
+];
+
+const Footer = ({ grade }: { grade: string }) =>
   React.createElement(
     View,
     { style: s.footer },
@@ -371,7 +382,7 @@ const Footer = () =>
       View,
       null,
       React.createElement(Text, { style: s.footerBrand }, "BITUMAD"),
-      React.createElement(Text, { style: s.footerVersion }, "Fiche Technique · Bitume 60/70 · Version 2025")
+      React.createElement(Text, { style: s.footerVersion }, `Fiche Technique · Bitume ${grade} · Version 2025`)
     ),
     React.createElement(
       Text,
@@ -380,14 +391,37 @@ const Footer = () =>
     )
   );
 
-const FicheTechnique = () =>
-  React.createElement(
+const FicheTechnique = ({ grade }: { grade: string }) => {
+  const is3550 = grade === "35/50";
+  const specRows = is3550 ? SPEC_ROWS_3550 : SPEC_ROWS;
+  const descText = is3550
+    ? "Le bitume de pénétration 35/50 est un liant hydrocarboné de grade plus dur, issu de la distillation du pétrole brut. Il se présente sous forme solide à température ambiante et devient fluide sous l'effet de la chaleur, permettant son application sur les chaussées.\n\n" +
+      "La désignation 35/50 correspond à l'indice de pénétrabilité : une aiguille standard de 100 grammes pénètre entre 35 et 50 dixièmes de millimètre dans le bitume à 25 °C pendant 5 secondes. Ce grade plus dur offre une résistance accrue à l'orniérage sous forte chaleur, avec un point de ramollissement de 52 à 60 °C. Il est particulièrement adapté aux zones côtières malgaches — Toamasina, Mahajanga, Toliary — où les températures de surface peuvent dépasser 70 °C en plein ensoleillement."
+    : "Le bitume de pénétration 60/70 est un liant hydrocarboné visqueux issu de la distillation du pétrole brut. Il se présente sous forme solide à température ambiante et devient fluide sous l'effet de la chaleur, permettant son application sur les chaussées.\n\n" +
+      "La désignation 60/70 correspond à l'indice de pénétrabilité : une aiguille standard de 100 grammes pénètre entre 60 et 70 dixièmes de millimètre dans le bitume à 25 °C pendant 5 secondes. Ce grade est particulièrement adapté aux conditions climatiques tropicales de Madagascar : résistance aux hautes températures pour éviter les ornières, flexibilité adéquate lors des variations saisonnières pour prévenir la fissuration.";
+  const applications = is3550
+    ? [
+        "Routes côtières à fort ensoleillement (couche de roulement anti-orniérage)",
+        "Zones portuaires, quais et aires de manœuvre",
+        "Voiries urbaines côtières (Toamasina, Mahajanga, Toliary, Nosy Be)",
+        "Zones industrielles et logistiques en bord de mer",
+        "Aéroports en zone tropicale à très forte chaleur de surface",
+      ]
+    : [
+        "Routes nationales et régionales (couche de roulement, base)",
+        "Voiries urbaines et axes à fort trafic",
+        "Pistes d'aéroport et aires de trafic",
+        "Parkings, zones logistiques et industrielles",
+        "Enduits superficiels pour routes à faible trafic",
+      ];
+
+  return React.createElement(
     Document,
     {
-      title: "Fiche Technique — Bitume de pénétration 60/70",
+      title: `Fiche Technique — Bitume de pénétration ${grade}`,
       author: "BITUMAD",
-      subject: "Spécifications techniques ASTM — Bitume 60/70",
-      keywords: "bitume, 60/70, ASTM, Madagascar, fiche technique",
+      subject: `Spécifications techniques ASTM — Bitume ${grade}`,
+      keywords: `bitume, ${grade.replace("/", "-")}, ASTM, Madagascar, fiche technique`,
       creator: "BITUMAD",
     },
 
@@ -420,8 +454,8 @@ const FicheTechnique = () =>
       React.createElement(
         View,
         { style: s.greenBanner },
-        React.createElement(Text, { style: s.greenBannerTitle }, "BITUME DE PÉNÉTRATION 60/70"),
-        React.createElement(Text, { style: s.greenBannerGrade }, "60/70")
+        React.createElement(Text, { style: s.greenBannerTitle }, `BITUME DE PÉNÉTRATION ${grade}`),
+        React.createElement(Text, { style: s.greenBannerGrade }, grade)
       ),
 
       // ─── Body page 1 ───
@@ -437,8 +471,7 @@ const FicheTechnique = () =>
           React.createElement(
             Text,
             { style: s.descText },
-            "Le bitume de pénétration 60/70 est un liant hydrocarboné visqueux issu de la distillation du pétrole brut. Il se présente sous forme solide à température ambiante et devient fluide sous l'effet de la chaleur, permettant son application sur les chaussées.\n\n" +
-            "La désignation 60/70 correspond à l'indice de pénétrabilité : une aiguille standard de 100 grammes pénètre entre 60 et 70 dixièmes de millimètre dans le bitume à 25 °C pendant 5 secondes. Ce grade est particulièrement adapté aux conditions climatiques tropicales de Madagascar : résistance aux hautes températures pour éviter les ornières, flexibilité adéquate lors des variations saisonnières pour prévenir la fissuration."
+            descText
           )
         ),
 
@@ -456,7 +489,7 @@ const FicheTechnique = () =>
             React.createElement(Text, { style: s.thVal }, "Min."),
             React.createElement(Text, { style: s.thVal }, "Max.")
           ),
-          ...SPEC_ROWS.map((row, i) =>
+          ...specRows.map((row, i) =>
             React.createElement(
               View,
               { style: [s.tableRow, i % 2 === 1 ? s.tableRowAlt : {}], key: row.label },
@@ -482,7 +515,7 @@ const FicheTechnique = () =>
         )
       ),
 
-      React.createElement(Footer, null)
+      React.createElement(Footer, { grade })
     ),
 
     // ════════════════════════════════
@@ -505,13 +538,7 @@ const FicheTechnique = () =>
             View,
             { style: s.col },
             React.createElement(Text, { style: s.sectionTitle }, "Domaines d'application"),
-            ...[
-              "Routes nationales et régionales (couche de roulement, base)",
-              "Voiries urbaines et axes à fort trafic",
-              "Pistes d'aéroport et aires de trafic",
-              "Parkings, zones logistiques et industrielles",
-              "Enduits superficiels pour routes à faible trafic",
-            ].map((item, i) =>
+            ...applications.map((item, i) =>
               React.createElement(
                 View,
                 { style: s.bulletItem, key: i },
@@ -601,9 +628,10 @@ const FicheTechnique = () =>
         )
       ),
 
-      React.createElement(Footer, null)
+      React.createElement(Footer, { grade })
     )
   );
+};
 
 async function streamToBuffer(stream: NodeJS.ReadableStream): Promise<Uint8Array> {
   const chunks: Uint8Array[] = [];
@@ -614,16 +642,21 @@ async function streamToBuffer(stream: NodeJS.ReadableStream): Promise<Uint8Array
   return new Uint8Array(merged);
 }
 
-export async function GET() {
+export async function GET(request: Request) {
   try {
-    const nodeStream = await pdf(React.createElement(FicheTechnique)).toBuffer();
+    const { searchParams } = new URL(request.url);
+    const gradeParam = searchParams.get("grade") ?? "60-70";
+    const grade = gradeParam === "35-50" ? "35/50" : "60/70";
+    const filename = `Bitumad_Fiche-Technique_Bitume-${gradeParam}.pdf`;
+
+    const nodeStream = await pdf(React.createElement(FicheTechnique, { grade })).toBuffer();
     const bytes = await streamToBuffer(nodeStream);
 
     return new NextResponse(bytes as unknown as BodyInit, {
       status: 200,
       headers: {
         "Content-Type": "application/pdf",
-        "Content-Disposition": 'attachment; filename="Bitumad_Fiche-Technique_Bitume-60-70.pdf"',
+        "Content-Disposition": `attachment; filename="${filename}"`,
         "Cache-Control": "no-cache",
       },
     });

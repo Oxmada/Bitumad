@@ -699,6 +699,106 @@
   transform: translateY(-1px);
 }
 
+/* ─── PRODUITS GRID (homepage) ─── */
+.home-products-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+}
+
+.home-product-card {
+  background: var(--dark2);
+  padding: 48px 36px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.home-product-card:first-child { border-radius: 12px 0 0 12px; }
+.home-product-card:last-child { border-radius: 0 12px 12px 0; }
+.home-product-card:hover { background: var(--dark3); }
+
+.home-product-grade-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.home-product-grade {
+  font-family: var(--font-display), 'Bebas Neue', sans-serif;
+  font-size: 56px;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.home-product-new {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--green);
+  background: var(--green-dim);
+  border: 0.5px solid var(--green-border);
+  padding: 4px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.home-product-zone {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.home-product-specs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.home-product-spec {
+  background: var(--dark3);
+  padding: 14px 12px;
+  border-radius: 4px;
+}
+
+.home-product-spec-val {
+  font-family: var(--font-display), 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 5px;
+}
+
+.home-product-spec-label {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.4;
+}
+
+.home-product-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+  transition: gap 0.2s, color 0.2s;
+  margin-top: auto;
+}
+
+.home-product-link:hover {
+  gap: 12px;
+  color: var(--green-light);
+}
+
 /* ════════════════════════════════════════
    TABLETTE 769px – 1199px
    ════════════════════════════════════════ */
@@ -725,6 +825,11 @@
    MOBILE ≤ 768px
    ════════════════════════════════════════ */
 @media (max-width: 768px) {
+  .home-products-grid { grid-template-columns: 1fr; }
+  .home-product-card:first-child { border-radius: 12px 12px 0 0; }
+  .home-product-card:last-child { border-radius: 0 0 12px 12px; }
+  .home-product-grade { font-size: 40px; }
+
   #apropos,
   #notreproduit,
   #commander,

@@ -3,111 +3,70 @@
 import { useEffect } from "react";
 import "./notre-bitume.css";
 
-const COMP_BARS = [
-  { name: "Résistance thermique", val: "Élevée", width: "88%", desc: "Stable jusqu'à 250 °C — point éclair ASTM D92" },
-  { name: "Flexibilité", val: "≥ 100 cm", width: "75%", desc: "Ductilité à 25 °C — ASTM D113" },
-  { name: "Pureté", val: "≥ 99%", width: "99%", desc: "Solubilité dans le trichloréthylène — ASTM D2042" },
-  { name: "Stabilité au vieillissement", val: "≤ 20%", width: "82%", desc: "Baisse de pénétrabilité après chauffage — ASTM D5" },
-  { name: "Densité", val: "1.01–1.06 kg/m³", width: "60%", desc: "Gravité spécifique à 25 °C — ASTM D70" },
-];
-
-const SPEC_ROWS = [
-  { label: "Gravité spécifique à 25 °C", method: "ASTM D70", unit: "kg/m³", min: "1.01", max: "1.06" },
-  { label: "Pénétrabilité à 25 °C, 100g, 5s", method: "ASTM D5", unit: "0.1 mm", min: "60", max: "70" },
-  { label: "Point de ramollissement", method: "ASTM D36", unit: "°C", min: "49", max: "56" },
-  { label: "Ductilité à 25 °C", method: "ASTM D113", unit: "cm", min: "100", max: null },
-  { label: "Perte au chauffage", method: "ASTM D6", unit: "% wt", min: null, max: "0.2" },
-  { label: "Baisse de pénétrabilité après chauffage", method: "ASTM D5", unit: "%", min: null, max: "20" },
-  { label: "Point éclair", method: "ASTM D92", unit: "°C", min: "250", max: null },
-  { label: "Solubilité dans le trichloréthylène", method: "ASTM D2042", unit: "% wt", min: "99", max: null },
-];
-
-const APP_CARDS = [
+const PRODUCTS = [
   {
-    num: "01",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M3 17l3-10h12l3 10" /><path d="M3 17h18" /><path d="M12 7V3" /><path d="M8 17v2" /><path d="M16 17v2" />
-      </svg>
-    ),
-    category: "Infrastructure principale",
-    title: "ROUTES NATIONALES & RÉGIONALES",
-    desc: "Le bitume 60/70 constitue la couche de roulement et les couches de base des routes nationales soumises à des charges lourdes et à un trafic intense. Sa résistance à l'orniérage et sa durabilité en font le choix de référence pour les grands axes malgaches.",
-    tags: ["Couche de roulement", "Trafic lourd", "Longue durée"],
-    delay: "reveal-delay-2",
+    grade: "60/70",
+    href: "/notre-bitume/60-70",
+    zone: "Zones intérieures · Hauts Plateaux · Grandes villes",
+    desc: "Grade de référence pour les conditions climatiques tropicales de l'intérieur de Madagascar. Flexibilité et résistance thermique équilibrées pour les routes nationales, voiries urbaines et aéroports.",
+    specs: [
+      { val: "60–70", label: "Pénétrabilité (0.1 mm)" },
+      { val: "49–56 °C", label: "Point de ramollissement" },
+      { val: "≥ 100 cm", label: "Ductilité" },
+    ],
+    tags: ["Routes nationales", "Voiries urbaines", "Aéroports"],
+    accentColor: "var(--green)",
   },
   {
-    num: "02",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8" /><path d="M12 17v4" /><path d="M7 8h.01" /><path d="M12 8h.01" /><path d="M17 8h.01" />
-      </svg>
-    ),
-    category: "Milieu urbain",
-    title: "VOIRIES URBAINES & AXES DE VILLE",
-    desc: "En milieu urbain, le bitume 60/70 est utilisé pour la réfection et la construction de chaussées urbaines, de boulevards et d'artères à fort passage. Sa capacité à supporter les cycles thermiques journaliers et les sollicitations fréquentes en fait un choix optimal pour les villes malgaches.",
-    tags: ["Réfection", "Chaussée urbaine", "Cycles thermiques"],
-    delay: "reveal-delay-3",
-  },
-  {
-    num: "03",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M17.8 19.2L16 11l3.5-3.5C21 6 21 4 19 2c-2-2-4-2-5.5-.5L10 5 1.8 6.2c-1.1.2-1.3 1.6-.3 2.3L6 11l-2 3.5c-.5.8-.1 1.9.8 2.2l3.9.9.9 3.9c.3.9 1.4 1.3 2.2.8L15 20l2.5 4.5c.7 1 2.1.8 2.3-.3L17.8 19.2z" />
-      </svg>
-    ),
-    category: "Infrastructures aéroportuaires",
-    title: "PISTES D'AÉROPORT & AIRES DE TRAFIC",
-    desc: "Les pistes aéroportuaires exigent des performances exceptionnelles en matière de résistance aux charges statiques et dynamiques ainsi qu'aux variations de température. Le bitume 60/70 répond à ces exigences strictes, garantissant la planéité et la durabilité des surfaces de roulement des aéronefs.",
-    tags: ["Haute résistance", "Charges statiques", "Planéité"],
-    delay: "reveal-delay-2",
-  },
-  {
-    num: "04",
-    icon: (
-      <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="2" y="4" width="20" height="16" rx="2" /><path d="M9 12h4a2 2 0 1 0 0-4H9v8" />
-      </svg>
-    ),
-    category: "Surfaces commerciales & industrielles",
-    title: "PARKINGS & ZONES INDUSTRIELLES",
-    desc: "Les parkings et les zones logistiques soumis à des charges ponctuelles importantes — poids lourds, conteneurs, engins de chantier — nécessitent un bitume à forte résistance à l'orniérage. Le grade 60/70, plus rigide, convient particulièrement à ces surfaces exposées à des charges statiques prolongées.",
-    tags: ["Zones logistiques", "Anti-orniérage", "Charges statiques"],
-    delay: "reveal-delay-3",
+    grade: "35/50",
+    href: "/notre-bitume/35-50",
+    zone: "Zones côtières · Ports · Fort ensoleillement",
+    desc: "Grade plus dur, spécialement adapté aux zones littorales à très forte chaleur. Résistance maximale à l'orniérage pour les infrastructures portuaires, côtières et industrielles en bord de mer.",
+    specs: [
+      { val: "35–50", label: "Pénétrabilité (0.1 mm)" },
+      { val: "52–60 °C", label: "Point de ramollissement" },
+      { val: "≥ 50 cm", label: "Ductilité" },
+    ],
+    tags: ["Routes côtières", "Zones portuaires", "Logistique littorale"],
+    accentColor: "var(--green)",
+    isNew: true,
   },
 ];
 
-const USAGE_STEPS = [
-  { num: "01", title: "Chauffage", desc: "Le bitume est chauffé entre 150 et 180 °C pour atteindre la viscosité d'application." },
-  { num: "02", title: "Enrobage", desc: "Les agrégats sont enrobés au bitume chaud dans un malaxeur ou une centrale d'enrobage." },
-  { num: "03", title: "Répandage", desc: "L'enrobé est répandu sur la chaussée à l'aide d'un finisseur à la température optimale." },
-  { num: "04", title: "Compactage", desc: "Un compacteur à rouleau assure la densification finale et la planéité de la surface." },
+const GUIDE_ROWS = [
+  {
+    critere: "Dureté",
+    val6070: "Moyenne",
+    val3550: "Élevée",
+  },
+  {
+    critere: "Résistance à l'orniérage",
+    val6070: "Bonne",
+    val3550: "Maximale",
+  },
+  {
+    critere: "Flexibilité",
+    val6070: "≥ 100 cm",
+    val3550: "≥ 50 cm",
+  },
+  {
+    critere: "Point de ramollissement",
+    val6070: "49 – 56 °C",
+    val3550: "52 – 60 °C",
+  },
+  {
+    critere: "Zones recommandées",
+    val6070: "Hauts Plateaux, grandes villes, intérieur",
+    val3550: "Côte, ports, zones à fort ensoleillement",
+  },
+  {
+    critere: "Applications types",
+    val6070: "RN, voiries urbaines, aéroports, parkings",
+    val3550: "Routes côtières, quais, zones industrielles littorales",
+  },
 ];
 
-const TICKER_ITEMS = [
-  "BITUME DE PÉNÉTRATION 60/70",
-  "NORME ASTM",
-  "POINT ÉCLAIR ≥ 250 °C",
-  "ROUTES · AÉROPORTS · PARKINGS",
-  "DUCTILITÉ ≥ 100 CM",
-  "LIVRAISON MADAGASCAR",
-];
-
-const PDF_INCLUDES = [
-  "Tableau complet des spécifications ASTM (8 paramètres)",
-  "Méthodes de test et unités de mesure",
-  "Conditions de stockage et précautions de sécurité",
-  "Domaines d'application et recommandations de mise en œuvre",
-  "Informations de conditionnement et de transport",
-];
-
-const ArrowIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
-  </svg>
-);
-
-export default function NosServicesPage() {
+export default function NossBitumesPage() {
   useEffect(() => {
     const reveals = document.querySelectorAll<HTMLElement>(".reveal");
     const obs = new IntersectionObserver(
@@ -127,24 +86,6 @@ export default function NosServicesPage() {
       setTimeout(() => el.classList.add("visible"), 80 + i * 110);
     });
 
-    const compCard = document.getElementById("compCard");
-    if (compCard) {
-      const compObs = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((e) => {
-            if (e.isIntersecting) {
-              e.target.querySelectorAll<HTMLElement>(".nb-comp-bar").forEach((bar, i) => {
-                setTimeout(() => bar.classList.add("animated"), 300 + i * 120);
-              });
-              compObs.unobserve(e.target);
-            }
-          });
-        },
-        { threshold: 0.3 }
-      );
-      compObs.observe(compCard);
-    }
-
     return () => obs.disconnect();
   }, []);
 
@@ -154,231 +95,130 @@ export default function NosServicesPage() {
       <div className="nb-page-hero">
         <div className="nb-page-hero-bg" />
         <div className="nb-page-hero-grid" />
-        <div className="nb-page-hero-accent" aria-hidden="true">60/70</div>
+        <div className="nb-page-hero-accent" aria-hidden="true">BITUME</div>
         <div className="nb-page-hero-layout">
           <div className="nb-page-hero-left">
-<div className="nb-eyebrow reveal reveal-delay-1">Description du produit</div>
+            <div className="nb-eyebrow reveal reveal-delay-1">Catalogue produits</div>
             <h1 className="nb-page-title reveal reveal-delay-2">
-              QU&apos;EST-CE QUE LE<br /><em>BITUME 60/70 ?</em>
+              NOS<br /><em>BITUMES</em>
             </h1>
             <p className="nb-page-lead reveal reveal-delay-3">
-              Un bitume technique de référence, sélectionné pour sa performance dans les conditions climatiques de Madagascar et conforme aux normes internationales ASTM.
+              Bitumad propose deux grades de bitume de pénétration, sélectionnés pour couvrir l'ensemble des conditions climatiques de Madagascar — de l'intérieur tropical aux zones côtières à fort ensoleillement.
             </p>
           </div>
         </div>
       </div>
 
-      {/* ─── DESCRIPTION ─── */}
-      <section id="nb-description" className="nb-section-description">
-        <div className="nb-desc-layout">
-          <div>
-            <div className="nb-desc-body reveal reveal-delay-2">
-              <p>Le <strong>bitume de pénétration 60/70</strong> est un liant hydrocarboné visqueux issu de la distillation du pétrole brut. Il se présente sous forme solide à température ambiante et devient fluide sous l'effet de la chaleur, permettant son application sur les chaussées.</p>
-              <p>La désignation <strong>60/70</strong> correspond à l'indice de pénétrabilité du produit : une aiguille standard de 100 grammes pénètre entre 60 et 70 dixièmes de millimètre dans le bitume à 25 °C pendant 5 secondes. Cet indice détermine la consistance du produit — plus le chiffre est bas, plus le bitume est dur.</p>
-              <p>Ce grade est particulièrement adapté aux <strong>conditions climatiques tropicales</strong> comme celles de Madagascar : il offre une résistance suffisante aux hautes températures estivales pour éviter les ornières, tout en conservant une flexibilité adéquate lors des variations saisonnières pour prévenir la fissuration.</p>
-              <p>Le bitume 60/70 est utilisé en enrobage d'agrégats pour constituer les couches de roulement, les couches de liaison et les couches de base des structures de chaussées. Il peut également être employé en <strong>enduit superficiel</strong> pour le traitement de surface des routes à faible trafic.</p>
-            </div>
+      {/* ─── PRODUCTS GRID ─── */}
+      <section className="nb-catalog-section">
+        <div className="nb-catalog-intro">
+          <div className="nb-eyebrow reveal">Nos produits</div>
+          <h2 className="nb-section-title reveal reveal-delay-1">DEUX GRADES<br />DISPONIBLES</h2>
+          <p className="nb-section-lead reveal reveal-delay-2">
+            Chaque grade est adapté à un contexte climatique précis. Choisissez le produit qui correspond à votre zone de chantier.
+          </p>
+        </div>
 
-          </div>
-
-          <div className="nb-composition-card reveal reveal-delay-3" id="compCard">
-            <div className="nb-composition-header">
-              <span className="nb-composition-header-title">Propriétés clés</span>
-              <span className="nb-composition-astm">ASTM</span>
-            </div>
-            <div className="nb-composition-body">
-              {COMP_BARS.map((row) => (
-                <div className="nb-comp-row" key={row.name}>
-                  <div className="nb-comp-row-header">
-                    <span className="nb-comp-name">{row.name}</span>
-                    <span className="nb-comp-val">{row.val}</span>
-                  </div>
-                  <div className="nb-comp-bar-bg">
-                    <div className="nb-comp-bar" style={{ width: row.width }} />
-                  </div>
-                  <div className="nb-comp-desc">{row.desc}</div>
+        <div className="nb-catalog-grid">
+          {PRODUCTS.map((p, idx) => (
+            <div
+              className={`nb-catalog-card reveal reveal-delay-${idx + 2}`}
+              key={p.grade}
+            >
+              <div className="nb-catalog-card-top">
+                <div className="nb-catalog-grade-badge">
+                  {p.grade}
+                  {p.isNew && <span className="nb-catalog-new-badge">Nouveau</span>}
                 </div>
-              ))}
+                <div className="nb-catalog-card-zone">{p.zone}</div>
+                <div className="nb-catalog-card-name">
+                  BITUME DE PÉNÉTRATION <em>{p.grade}</em>
+                </div>
+                <p className="nb-catalog-card-desc">{p.desc}</p>
+              </div>
+
+              <div className="nb-catalog-card-specs">
+                {p.specs.map((spec) => (
+                  <div className="nb-catalog-spec-item" key={spec.label}>
+                    <div className="nb-catalog-spec-val">{spec.val}</div>
+                    <div className="nb-catalog-spec-label">{spec.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="nb-catalog-card-tags">
+                {p.tags.map((tag) => (
+                  <span className="nb-app-tag" key={tag}>{tag}</span>
+                ))}
+              </div>
+
+              <a href={p.href} className="nb-catalog-card-link">
+                Voir la fiche technique
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
             </div>
-            <div className="nb-composition-footer">Valeurs conformes au certificat d'analyse lot par lot</div>
-          </div>
+          ))}
         </div>
       </section>
 
-      {/* ─── SPECS TABLE ─── */}
-      <section id="nb-specs" className="nb-section-specs">
-        <div className="product-header">
-          <div>
-            <div className="eyebrow reveal">Notre bitume</div>
-            <h2 className="section-title reveal reveal-delay-1">
-              FICHE TECHNIQUE<br />BITUME 60/70
-            </h2>
-          </div>
-          <p className="section-lead reveal reveal-delay-2" style={{ maxWidth: "340px", textAlign: "right" }}>
-            Caractéristiques conformes aux normes ASTM pour la construction et
-            l'entretien des routes à Madagascar.
-          </p>
-        </div>
-        <div className="reveal reveal-delay-2">
-          <table className="spec-table">
+      {/* ─── GUIDE SECTION ─── */}
+      <section className="nb-guide-section">
+        <div className="nb-eyebrow reveal">Aide au choix</div>
+        <h2 className="nb-section-title reveal reveal-delay-1">QUEL GRADE POUR<br />VOTRE CHANTIER ?</h2>
+        <p className="nb-section-lead reveal reveal-delay-2">
+          Le choix du grade dépend principalement de la localisation de votre chantier et des températures de surface auxquelles la chaussée sera exposée.
+        </p>
+
+        <div className="nb-guide-table-wrap reveal reveal-delay-2">
+          <table className="nb-guide-table">
             <thead>
               <tr>
-                <th>Intitulé</th>
-                <th>Méthode</th>
-                <th>Unité</th>
-                <th>Min.</th>
-                <th>Max.</th>
+                <th>Critère</th>
+                <th>
+                  <div className="nb-guide-th-grade">60/70</div>
+                  <div className="nb-guide-th-sub">Zones intérieures</div>
+                </th>
+                <th>
+                  <div className="nb-guide-th-grade nb-guide-th-grade--new">35/50</div>
+                  <div className="nb-guide-th-sub">Zones côtières</div>
+                </th>
               </tr>
             </thead>
             <tbody>
-              {SPEC_ROWS.map((row) => (
-                <tr key={row.label}>
-                  <td>{row.label}</td>
-                  <td className="method">{row.method}</td>
-                  <td className="unit">{row.unit}</td>
-                  <td>
-                    {row.min
-                      ? <span className="val-badge val-min">{row.min}</span>
-                      : <span className="val-dash">—</span>}
-                  </td>
-                  <td>
-                    {row.max
-                      ? <span className="val-badge val-max">{row.max}</span>
-                      : <span className="val-dash">—</span>}
-                  </td>
+              {GUIDE_ROWS.map((row, i) => (
+                <tr key={row.critere} className={i % 2 === 0 ? "nb-guide-row-alt" : ""}>
+                  <td className="nb-guide-critere">{row.critere}</td>
+                  <td>{row.val6070}</td>
+                  <td>{row.val3550}</td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-      </section>
 
-      {/* ─── APPLICATIONS ─── */}
-      <section id="nb-applications" className="nb-section-applications">
-        <div className="nb-eyebrow reveal">Domaines d'application</div>
-        <h2 className="nb-section-title reveal reveal-delay-1">OÙ UTILISE-T-ON<br />NOTRE BITUME ?</h2>
-        <p className="nb-section-lead reveal reveal-delay-2">
-          Le bitume 60/70 est adapté à une large gamme de chantiers, des routes nationales aux surfaces spécialisées, partout à Madagascar.
-        </p>
-
-        <div className="nb-apps-grid">
-          {APP_CARDS.map((card) => (
-            <div className={`nb-app-card reveal ${card.delay}`} key={card.num}>
-              <div className="nb-app-bg-num">{card.num}</div>
-              <div className="nb-app-arrow"><ArrowIcon /></div>
-              <div className="nb-app-icon">{card.icon}</div>
-              <div className="nb-app-category">{card.category}</div>
-              <div className="nb-app-title">{card.title}</div>
-              <div className="nb-app-desc">{card.desc}</div>
-              <div className="nb-app-tags">
-                {card.tags.map((tag) => (
-                  <span className="nb-app-tag" key={tag}>{tag}</span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="nb-usage-strip">
-          {USAGE_STEPS.map((step, i) => (
-            <div className="nb-usage-step" key={step.num}>
-              <div className="nb-usage-step-num">{step.num}</div>
-              <div className="nb-usage-step-title">{step.title}</div>
-              <div className="nb-usage-step-desc">{step.desc}</div>
-              {i < USAGE_STEPS.length - 1 && (
-                <div className="nb-usage-arrow">
-                  <svg viewBox="0 0 12 12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="2" y1="6" x2="10" y2="6" /><polyline points="7,3 10,6 7,9" />
-                  </svg>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ─── TÉLÉCHARGEMENT ─── */}
-      <section id="nb-telechargement" className="nb-section-download">
-        <div className="nb-eyebrow reveal">Documentation technique</div>
-        <h2 className="nb-section-title reveal reveal-delay-1">TÉLÉCHARGEZ<br />LA FICHE TECHNIQUE</h2>
-
-        <div className="nb-download-layout">
-          <div className="nb-download-left">
-            <p className="nb-section-lead reveal reveal-delay-2">
-              La fiche technique complète du bitume de pénétration 60/70 regroupe l'ensemble des spécifications ASTM, les conditions de transport, de stockage et les recommandations d'application.
-            </p>
-            <div className="nb-pdf-includes reveal reveal-delay-3">
-              <div className="nb-pdf-includes-title">Contenu du document</div>
-              <div className="nb-pdf-includes-list">
-                {PDF_INCLUDES.map((item) => (
-                  <div className="nb-pdf-include-item" key={item}>
-                    <div className="nb-pdf-include-check">
-                      <svg viewBox="0 0 10 10" fill="none" stroke="var(--green)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                        <polyline points="2,5 4,7 8,3" />
-                      </svg>
-                    </div>
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
+        <div className="nb-guide-tip reveal reveal-delay-3">
+          <div className="nb-guide-tip-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="10" /><line x1="12" y1="8" x2="12" y2="12" /><line x1="12" y1="16" x2="12.01" y2="16" />
+            </svg>
           </div>
-
-          <div className="nb-download-card-wrap reveal reveal-delay-3">
-            <div className="nb-pdf-card">
-              <div className="nb-pdf-icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke="#e8952a" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                  <polyline points="14 2 14 8 20 8" />
-                  <line x1="16" y1="13" x2="8" y2="13" />
-                  <line x1="16" y1="17" x2="8" y2="17" />
-                  <polyline points="10 9 9 9 8 9" />
-                </svg>
-              </div>
-              <div className="nb-pdf-meta">
-                <div className="nb-pdf-type">Fiche technique · PDF</div>
-                <div className="nb-pdf-name">Bitume de pénétration 60/70</div>
-                <div className="nb-pdf-desc">Spécifications complètes, méthodes ASTM, conditions de stockage et recommandations d'application pour le marché malgache.</div>
-                <div className="nb-pdf-details">
-                  <span className="nb-pdf-detail">Format PDF</span>
-                  <span className="nb-pdf-detail">Version 2025</span>
-                  <span className="nb-pdf-detail">Français</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="nb-contact-nudge">
-              <div className="nb-contact-nudge-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.98-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-                </svg>
-              </div>
-              <div className="nb-contact-nudge-text">
-                Besoin d'un certificat d'analyse pour un lot spécifique ?{" "}
-                <a href="/contact">Contactez notre équipe</a> — nous vous le transmettrons sous 24h.
-              </div>
-            </div>
-
-            <a href="/api/fiche-technique" target="_blank" rel="noopener noreferrer" className="nb-pdf-download-btn">
-              <svg viewBox="0 0 24 24" fill="none" stroke="var(--black)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" width="14" height="14">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                <polyline points="7 10 12 15 17 10" />
-                <line x1="12" y1="15" x2="12" y2="3" />
-              </svg>
-              Télécharger la fiche technique
-            </a>
-          </div>
+          <p>
+            Vous ne savez pas quel grade choisir ? Notre équipe technique peut vous conseiller en fonction de votre zone géographique et des contraintes de votre chantier.{" "}
+            <a href="/contact">Contactez-nous</a> — réponse sous 24h.
+          </p>
         </div>
       </section>
 
       {/* ─── CTA BANNER ─── */}
-      <div className="nb-cta-banner reveal">
+      <div className="nb-cta-banner nb-cta-banner--catalog reveal">
         <div className="nb-cta-banner-text">
           <h2>PRÊT À PASSER<br />COMMANDE ?</h2>
           <p>Notre équipe vous accompagne du devis à la livraison sur site.</p>
         </div>
         <a href="/#commander" className="nb-cta-banner-btn">
-          Commander
+          Obtenir un devis
         </a>
       </div>
     </>
