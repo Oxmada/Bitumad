@@ -188,12 +188,12 @@
   margin-left: auto;
 }
 
-/* ─── MOBILE ─── */
-@media (max-width: 768px) {
+/* ─── TABLET + MOBILE ─── */
+@media (max-width: 1199px) {
   .nav {
     flex-wrap: wrap;
     height: auto;
-    padding: 16px 24px;
+    padding: 16px 40px;
   }
 
   .nav-cmd {
@@ -302,4 +302,8 @@
     margin-left: auto;
   }
 
+}
+
+@media (max-width: 768px) {
+  .nav { padding: 16px 24px; }
 }
