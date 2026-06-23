@@ -268,6 +268,76 @@ footer {
   .spec-table td.unit { display: none; }
 }
 
+/* ─── SPEC TABLE — CAROUSEL MOBILE ─── */
+.spec-swipe-hint {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+  color: var(--muted);
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 640px) {
+  .spec-table { display: block; font-size: 13px; }
+  .spec-table thead { display: none; }
+  .spec-table tbody {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 24px 20px;
+    margin: 0 -24px;
+    scrollbar-width: none;
+  }
+  .spec-table tbody::-webkit-scrollbar { display: none; }
+  .spec-table tbody tr {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 calc(82% - 5px);
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    background: rgba(245, 242, 235, 0.03);
+    border: 0.5px solid var(--faint);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .spec-table tbody tr:hover { background: rgba(245, 242, 235, 0.04); }
+  .spec-table thead th,
+  .spec-table td { padding: 10px 16px; }
+  .spec-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.5px solid var(--faint);
+  }
+  .spec-table td:last-child { border-bottom: none; }
+  .spec-table td:first-child {
+    font-size: 14px;
+    font-weight: 600;
+    padding: 16px;
+    background: rgba(245, 242, 235, 0.05);
+    justify-content: flex-start;
+    line-height: 1.4;
+  }
+  .spec-table td:not(:first-child)::before {
+    content: attr(data-label);
+    font-family: var(--font-mono), 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .spec-table td.method,
+  .spec-table td.unit { display: flex; }
+
+  .spec-swipe-hint { display: flex; }
+}
+
 /* ─── VISUALLY HIDDEN (accessible mais non visible) ─── */
 .visually-hidden {
   position: absolute;

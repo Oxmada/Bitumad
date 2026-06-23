@@ -225,14 +225,14 @@ export default function Bitume6070Page() {
               {SPEC_ROWS.map((row) => (
                 <tr key={row.label}>
                   <td>{row.label}</td>
-                  <td className="method">{row.method}</td>
-                  <td className="unit">{row.unit}</td>
-                  <td>
+                  <td className="method" data-label="Méthode">{row.method}</td>
+                  <td className="unit" data-label="Unité">{row.unit}</td>
+                  <td data-label="Min.">
                     {row.min
                       ? <span className="val-badge val-min">{row.min}</span>
                       : <span className="val-dash">—</span>}
                   </td>
-                  <td>
+                  <td data-label="Max.">
                     {row.max
                       ? <span className="val-badge val-max">{row.max}</span>
                       : <span className="val-dash">—</span>}
@@ -241,6 +241,11 @@ export default function Bitume6070Page() {
               ))}
             </tbody>
           </table>
+          <div className="spec-swipe-hint" aria-hidden="true">
+            <span>←</span>
+            <span>Glisser pour voir plus</span>
+            <span>→</span>
+          </div>
         </div>
       </section>
 
