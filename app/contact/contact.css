@@ -601,7 +601,7 @@
   #c-faq { padding: 60px 24px; }
   .faq-title { font-size: 32px; }
 
-  .c-cta-banner { margin: 0 24px 48px; padding: 40px 32px; flex-direction: column; align-items: flex-start; }
+  .c-cta-banner { margin: 48px 24px 48px; padding: 40px 32px; flex-direction: column; align-items: flex-start; }
   .c-cta-banner::before { display: none; }
   .cta-banner-btn { width: 100%; justify-content: center; }
 }
