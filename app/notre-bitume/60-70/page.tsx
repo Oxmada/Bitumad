@@ -153,9 +153,7 @@ export default function Bitume6070Page() {
             <h1 className="nb-page-title reveal reveal-delay-2">
               QU&apos;EST-CE QUE LE<br /><em>BITUME 60/70 ?</em>
             </h1>
-            <p className="nb-page-lead reveal reveal-delay-3">
-              Un bitume technique de référence, sélectionné pour sa performance dans les conditions climatiques de Madagascar et conforme aux normes internationales ASTM.
-            </p>
+
           </div>
         </div>
       </div>
@@ -205,12 +203,12 @@ export default function Bitume6070Page() {
               FICHE TECHNIQUE<br />BITUME 60/70
             </h2>
           </div>
-          <p className="section-lead reveal reveal-delay-2" style={{ maxWidth: "340px", textAlign: "right" }}>
+          <p className="section-lead reveal reveal-delay-2" style={{ maxWidth: "600px", textAlign: "right" }}>
             Caractéristiques conformes aux normes ASTM pour la construction et
             l'entretien des routes à Madagascar.
           </p>
         </div>
-        <div className="reveal reveal-delay-2">
+        <div className="spec-table-wrap reveal reveal-delay-2">
           <table className="spec-table">
             <thead>
               <tr>

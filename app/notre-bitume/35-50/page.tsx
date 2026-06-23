@@ -153,9 +153,7 @@ export default function Bitume3550Page() {
             <h1 className="nb-page-title reveal reveal-delay-2">
               QU&apos;EST-CE QUE LE<br /><em>BITUME 35/50 ?</em>
             </h1>
-            <p className="nb-page-lead reveal reveal-delay-3">
-              Un bitume de grade plus dur, spécialement adapté aux zones côtières et aux régions à très fort ensoleillement de Madagascar. Idéal pour les ports, voiries littorales et zones logistiques côtières.
-            </p>
+
           </div>
         </div>
       </div>

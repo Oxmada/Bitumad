@@ -848,6 +848,9 @@
   .process-img { aspect-ratio: 16 / 9; }
   .devis-layout { grid-template-columns: 1fr; gap: 48px; }
   .devis-left { position: static; }
+
+  #apropos .section-title br,
+  #notreproduit .section-title br { display: none; }
 }
 
 /* ════════════════════════════════════════
@@ -881,6 +884,7 @@
   .process-layout { grid-template-columns: 1fr; gap: 40px; }
   .process-grid { margin-top: 32px; }
   .process-step { padding: 32px 24px; }
+  .process-img { max-height: 500px; object-fit: cover; }
 
   .devis-layout { grid-template-columns: 1fr; gap: 40px; margin-top: 40px; }
   .devis-left { position: static; }

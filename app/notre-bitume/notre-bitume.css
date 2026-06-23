@@ -1280,8 +1280,13 @@
 /* ══════════════════════════════════════════
    RESPONSIVE — TABLETTE
 ══════════════════════════════════════════ */
+@media (min-width: 641px) and (max-width: 1200px) {
+  .nb-page-hero { padding: 130px 40px 56px; min-height: auto; }
+  .nb-section-specs .section-title br { display: none; }
+  .spec-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+}
+
 @media (max-width: 1200px) {
-  .nb-page-hero { padding: 80px 40px 48px; }
   .nb-page-hero-layout { grid-template-columns: 1fr; gap: 48px; }
 
   .nb-section-description,
@@ -1295,7 +1300,7 @@
 
   .nb-download-layout { grid-template-columns: 1fr; gap: 48px; }
 
-  .nb-cta-banner { margin: 0 40px 60px; padding: 48px 40px; }
+  .nb-cta-banner { margin: 60px 40px 60px; padding: 48px 40px; }
 
   .nb-catalog-section,
   .nb-guide-section { padding: 80px 40px; }
