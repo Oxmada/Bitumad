@@ -36,6 +36,54 @@ export default function HomePage() {
   const [grade, setGrade] = useState<GradeType>("6070");
   const heroBgRef = useRef<HTMLDivElement>(null);
 
+  const [devisForm, setDevisForm] = useState({
+    nom: "",
+    org: "",
+    tel: "",
+    email: "",
+    quantite: "",
+    quantiteUnit: "tonnes",
+    region: "",
+    message: "",
+  });
+  const [sendingDevis, setSendingDevis] = useState(false);
+  const [sentDevis, setSentDevis] = useState(false);
+
+  const typeProjetLabel = RADIO_OPTIONS.find((o) => o.value === projet)?.label ?? projet;
+  const gradeLabel = GRADE_OPTIONS.find((o) => o.value === grade)?.label ?? grade;
+
+  const submitDevis = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSendingDevis(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          type: "devis",
+          nom: devisForm.nom,
+          org: devisForm.org,
+          tel: devisForm.tel,
+          email: devisForm.email,
+          typeProjet: `${typeProjetLabel} — ${gradeLabel}`,
+          quantite: devisForm.quantite ? `${devisForm.quantite} ${devisForm.quantiteUnit === "futs" ? "fûts" : "tonnes"}` : "",
+          region: devisForm.region,
+          message: devisForm.message,
+        }),
+      });
+      if (res.ok) {
+        setSentDevis(true);
+        setTimeout(() => {
+          setSentDevis(false);
+          setDevisForm({ nom: "", org: "", tel: "", email: "", quantite: "", quantiteUnit: "tonnes", region: "", message: "" });
+          setProjet("route");
+          setGrade("6070");
+        }, 3000);
+      }
+    } catch { /* noop */ }
+    setSendingDevis(false);
+  };
+
   useReveal({ heroSelector: ".hero", baseDelay: 200, stepDelay: 150 });
 
   return (
@@ -346,7 +394,7 @@ export default function HomePage() {
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6.29 6.29l.98-.93a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
                 </div>
-                +261 38 81 202 93
+                +261 34 07 00 205
               </div>
               <div className="devis-hours">Disponible du lundi au vendredi</div>
             </div>
@@ -361,25 +409,25 @@ export default function HomePage() {
               <span className="devis-form-step">Tous les champs sont requis</span>
             </div>
 
-            <div className="devis-form-body">
+            <form id="devis-quote-form" className="devis-form-body" onSubmit={submitDevis}>
               <div className="form-row">
                 <div className="form-field">
                   <label htmlFor="dv-nom">Nom complet</label>
-                  <input type="text" id="dv-nom" placeholder="Jean Rakoto" aria-required="true" />
+                  <input type="text" id="dv-nom" placeholder="Jean Rakoto" required aria-required="true" value={devisForm.nom} onChange={(e) => setDevisForm({ ...devisForm, nom: e.target.value })} />
                 </div>
                 <div className="form-field">
                   <label htmlFor="dv-org">Entreprise / Organisation</label>
-                  <input type="text" id="dv-org" placeholder="BTP Madagascar SARL" aria-required="true" />
+                  <input type="text" id="dv-org" placeholder="BTP Madagascar SARL" required aria-required="true" value={devisForm.org} onChange={(e) => setDevisForm({ ...devisForm, org: e.target.value })} />
                 </div>
               </div>
               <div className="form-row">
                 <div className="form-field">
                   <label htmlFor="dv-tel">Téléphone</label>
-                  <input type="tel" id="dv-tel" placeholder="+261 XX XX XXX XX" aria-required="true" />
+                  <input type="tel" id="dv-tel" placeholder="+261 XX XX XXX XX" required aria-required="true" value={devisForm.tel} onChange={(e) => setDevisForm({ ...devisForm, tel: e.target.value })} />
                 </div>
                 <div className="form-field">
                   <label htmlFor="dv-email">Email</label>
-                  <input type="email" id="dv-email" placeholder="jean@exemple.com" aria-required="true" />
+                  <input type="email" id="dv-email" placeholder="jean@exemple.com" required aria-required="true" value={devisForm.email} onChange={(e) => setDevisForm({ ...devisForm, email: e.target.value })} />
                 </div>
               </div>
 
@@ -439,9 +487,13 @@ export default function HomePage() {
                       min="1"
                       inputMode="numeric"
                       placeholder="Ex : 20"
+                      required
+                      aria-required="true"
+                      value={devisForm.quantite}
+                      onChange={(e) => setDevisForm({ ...devisForm, quantite: e.target.value })}
                     />
                     <div className="select-wrap qte-unit-wrap">
-                      <select id="dv-qte-unit" aria-label="Unité de quantité" defaultValue="tonnes">
+                      <select id="dv-qte-unit" aria-label="Unité de quantité" value={devisForm.quantiteUnit} onChange={(e) => setDevisForm({ ...devisForm, quantiteUnit: e.target.value })}>
                         <option value="tonnes">Tonnes</option>
                         <option value="futs">Fûts</option>
                       </select>
@@ -454,6 +506,10 @@ export default function HomePage() {
                     type="text"
                     id="dv-region"
                     placeholder="Ex : Antananarivo, Toamasina…"
+                    required
+                    aria-required="true"
+                    value={devisForm.region}
+                    onChange={(e) => setDevisForm({ ...devisForm, region: e.target.value })}
                   />
                 </div>
               </div>
@@ -463,22 +519,30 @@ export default function HomePage() {
                 <textarea
                   id="dv-msg"
                   placeholder="Décrivez votre chantier, le calendrier souhaité, ou toute information utile pour préparer votre devis…"
+                  required
+                  aria-required="true"
+                  value={devisForm.message}
+                  onChange={(e) => setDevisForm({ ...devisForm, message: e.target.value })}
                 />
               </div>
-            </div>
+            </form>
 
             <div className="devis-form-footer">
               <p className="devis-form-note">
                 Vos données sont utilisées uniquement pour traiter votre
                 demande de devis. Aucune divulgation à des tiers.
               </p>
-              <button className="form-submit">
-                Envoyer ma demande
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
-                  <path d="M22 12L2 5l5 7-5 7 20-7z" />
-                  <line x1="7" y1="12" x2="14" y2="12" />
-                </svg>
-              </button>
+              {sentDevis ? (
+                <div className="sent-confirm">✓ Demande envoyée !</div>
+              ) : (
+                <button type="submit" form="devis-quote-form" className="form-submit" disabled={sendingDevis}>
+                  Envoyer ma demande
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+                    <path d="M22 12L2 5l5 7-5 7 20-7z" />
+                    <line x1="7" y1="12" x2="14" y2="12" />
+                  </svg>
+                </button>
+              )}
             </div>
           </div>
         </div>

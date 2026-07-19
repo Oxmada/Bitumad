@@ -749,6 +749,19 @@
   transform: translateY(-1px);
 }
 
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.sent-confirm {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green);
+  padding: 14px 0;
+}
+
 /* ─── PRODUITS GRID (homepage) ─── */
 .home-products-grid {
   display: grid;
