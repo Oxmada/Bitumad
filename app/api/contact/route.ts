@@ -52,8 +52,8 @@ export async function POST(req: Request) {
 
   try {
     await resend.emails.send({
-      from: "contact@bitumad.mg",
-      to: "contact@bitumad.mg",
+      from: "Bitumad <info@bitumad.mg>",
+      to: "info@bitumad.mg",
       subject,
       html,
     });
