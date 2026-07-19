@@ -1,8 +1,8 @@
 /* ─── PAGE HERO ─── */
 .page-hero {
   position: relative;
-  padding: 110px 80px 64px;
-  min-height: 380px;
+  padding: 110px 80px 96px;
+  min-height: 520px;
   background: var(--dark);
   border-bottom: 0.5px solid var(--faint);
   overflow: hidden;
@@ -128,7 +128,7 @@
 
 .page-lead {
   font-size: 16px;
-  color: var(--muted);
+  color: var(--white);
   max-width: 520px;
   line-height: 1.8;
 }
@@ -150,7 +150,7 @@
 
 .section-lead {
   font-size: 15px;
-  color: var(--muted);
+  color: var(--white);
   max-width: 560px;
   line-height: 1.75;
   margin-bottom: 64px;
@@ -308,7 +308,7 @@
 
 .timeline-body {
   font-size: 14px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.8;
 }
 
@@ -336,7 +336,7 @@
 
 .context-block-text {
   font-size: 14px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.85;
 }
 
@@ -465,7 +465,7 @@
 
 .mvv-text {
   font-size: 14px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.8;
 }
 
@@ -514,7 +514,7 @@
 
 .valeur-desc {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.7;
 }
 
@@ -539,7 +539,7 @@
 
 .partenaires-text {
   font-size: 15px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.8;
 }
 
@@ -652,7 +652,7 @@
 
 .pays-role {
   font-size: 13px;
-  color: var(--muted);
+  color: var(--white);
   margin-bottom: 16px;
   line-height: 1.6;
 }
@@ -733,7 +733,7 @@
 
 .cert-desc {
   font-size: 13px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.7;
 }
 
@@ -830,7 +830,7 @@
 
 /* ─── RESPONSIVE ─── */
 @media (max-width: 1024px) {
-  .page-hero { padding: 140px 40px 80px; }
+  .page-hero { padding: 140px 40px 104px; }
   .ap-section { padding: 80px 40px; }
   .cta-banner { margin: 0 40px 60px; padding: 48px 40px; }
 
@@ -851,7 +851,7 @@
 }
 
 @media (max-width: 768px) {
-  .page-hero { padding: 120px 24px 64px; }
+  .page-hero { padding: 120px 24px 88px; }
   .page-hero-accent { font-size: 160px; right: -40px; }
   .ap-section { padding: 60px 24px; }
   .cta-banner { margin: 0 24px 48px; padding: 40px 28px; flex-direction: column; align-items: flex-start; }

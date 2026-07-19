@@ -75,7 +75,7 @@
 
 .hero-sub {
   font-size: 15px;
-  color: var(--muted);
+  color: var(--white);
   max-width: 500px;
   line-height: 1.7;
   margin-bottom: 40px;
@@ -245,7 +245,7 @@
 
 .about-body {
   font-size: 16px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.8;
 }
 
@@ -298,7 +298,7 @@
 
 .feature-desc {
   font-size: 13px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.7;
 }
 
@@ -385,7 +385,7 @@
 
 .process-desc {
   font-size: 14px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.75;
 }
 
@@ -442,7 +442,7 @@
 
 .devis-promise-desc {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.5;
 }
 
@@ -547,7 +547,7 @@
 
 .devis-form-note {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.5;
   max-width: 260px;
 }

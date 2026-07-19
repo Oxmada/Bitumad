@@ -46,8 +46,8 @@
 ══════════════════════════════════════════ */
 .nb-page-hero {
   position: relative;
-  padding: 110px 80px 32px;
-  min-height: 380px;
+  padding: 110px 80px 56px;
+  min-height: 520px;
   background: var(--dark);
   overflow: hidden;
   border-bottom: 0.5px solid var(--faint);
@@ -162,7 +162,7 @@
 
 .nb-page-lead {
   font-size: 16px;
-  color: var(--muted);
+  color: var(--white);
   max-width: 500px;
   line-height: 1.8;
 }
@@ -324,7 +324,7 @@
 
 .nb-section-lead {
   font-size: 15px;
-  color: var(--muted);
+  color: var(--white);
   max-width: 560px;
   line-height: 1.75;
   margin-bottom: 64px;
@@ -348,7 +348,7 @@
 
 .nb-desc-body {
   font-size: 15px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.85;
 }
 
@@ -613,7 +613,7 @@
 
 .nb-app-desc {
   font-size: 14px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.8;
   margin-bottom: 24px;
   max-width: 380px;
@@ -680,7 +680,7 @@
 
 .nb-usage-step-desc {
   font-size: 12px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.6;
 }
 
@@ -786,7 +786,7 @@
 
 .nb-pdf-desc {
   font-size: 13px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.6;
   margin-bottom: 16px;
 }
@@ -902,7 +902,7 @@
 
 .nb-contact-nudge-text {
   font-size: 13px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.6;
   flex: 1;
 }
@@ -1086,7 +1086,7 @@
 
 .nb-catalog-card-desc {
   font-size: 14px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.8;
 }
 
@@ -1265,7 +1265,7 @@
 
 .nb-guide-tip p {
   font-size: 13px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.7;
 }
 
@@ -1281,7 +1281,7 @@
    RESPONSIVE — TABLETTE
 ══════════════════════════════════════════ */
 @media (min-width: 641px) and (max-width: 1200px) {
-  .nb-page-hero { padding: 130px 40px 56px; min-height: auto; }
+  .nb-page-hero { padding: 130px 40px 72px; min-height: auto; }
   .nb-section-specs .section-title br { display: none; }
   .spec-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
 }
@@ -1331,7 +1331,7 @@
   .nb-catalog-card-specs { grid-template-columns: 1fr 1fr 1fr; }
   .nb-catalog-grade-badge { font-size: 36px; }
 
-  .nb-page-hero { padding: 96px 24px 48px; }
+  .nb-page-hero { padding: 96px 24px 64px; }
   .nb-page-hero-accent { font-size: 120px; }
   .nb-hero-product-specs { grid-template-columns: 1fr 1fr; }
 

@@ -1,7 +1,8 @@
 /* ─── PAGE HERO ─── */
 .ml-page-hero {
   position: relative;
-  padding: 110px 80px 64px;
+  padding: 110px 80px 96px;
+  min-height: 520px;
   background: var(--dark);
   border-bottom: 0.5px solid var(--faint);
   overflow: hidden;
@@ -112,7 +113,7 @@
 
 .ml-block p {
   font-size: 15px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.8;
   margin-bottom: 12px;
 }
@@ -128,7 +129,7 @@
 
 .ml-block ul li {
   font-size: 15px;
-  color: var(--muted);
+  color: var(--white);
   line-height: 1.8;
   margin-bottom: 4px;
 }
