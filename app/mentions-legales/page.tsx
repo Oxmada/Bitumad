@@ -94,8 +94,6 @@ export default function MentionsLegalesPage() {
           <p>L&apos;éditeur met tout en œuvre pour assurer l&apos;exactitude des informations publiées. Cependant, il ne saurait être tenu responsable des erreurs, omissions ou dysfonctionnements techniques.</p>
           <p>Ce site a été conçu et développé par <strong>Oxmad Digital</strong>.</p>
         </div>
-
-        <p className="ml-date">Dernière mise à jour : juin 2026</p>
       </div>
     </>
   );
