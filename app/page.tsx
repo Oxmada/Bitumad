@@ -431,16 +431,21 @@ export default function HomePage() {
 
               <div className="form-row">
                 <div className="form-field">
-                  <label htmlFor="dv-qte">Quantité estimée</label>
-                  <div className="select-wrap">
-                    <select id="dv-qte">
-                      <option value="">Sélectionner…</option>
-                      <option>Moins de 5 tonnes</option>
-                      <option>5 – 20 tonnes</option>
-                      <option>20 – 50 tonnes</option>
-                      <option>50 – 100 tonnes</option>
-                      <option>Plus de 100 tonnes</option>
-                    </select>
+                  <label htmlFor="dv-qte">Quantité souhaitée</label>
+                  <div className="qte-input-group">
+                    <input
+                      type="number"
+                      id="dv-qte"
+                      min="1"
+                      inputMode="numeric"
+                      placeholder="Ex : 20"
+                    />
+                    <div className="select-wrap qte-unit-wrap">
+                      <select id="dv-qte-unit" aria-label="Unité de quantité" defaultValue="tonnes">
+                        <option value="tonnes">Tonnes</option>
+                        <option value="futs">Fûts</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
                 <div className="form-field">

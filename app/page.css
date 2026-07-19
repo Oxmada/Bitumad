@@ -613,6 +613,26 @@
   color: var(--white);
 }
 
+.qte-input-group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.qte-input-group input {
+  flex: 1 1 140px;
+  min-width: 0;
+}
+
+.qte-input-group .select-wrap {
+  flex: 1 1 120px;
+  min-width: 0;
+}
+
+.qte-input-group .select-wrap select {
+  width: 100%;
+}
+
 .select-wrap {
   position: relative;
 }
