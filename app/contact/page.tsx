@@ -6,16 +6,10 @@ import { useReveal } from "@/hooks/useReveal";
 
 type Tab = "message" | "partenariat";
 
-const PARTNER_TYPES = [
-  { label: "Distribution régionale", sub: "Réseau" },
-  { label: "Fourniture de matières premières", sub: "Approvisionnement" },
-  { label: "Logistique & transport", sub: "Opérationnel" },
-];
-
 const FAQ_ITEMS = [
   {
     q: "Quel est le délai de traitement d'un devis ?",
-    a: "Notre équipe analyse votre demande et vous envoie une proposition détaillée sous 24 heures ouvrées. Pour les commandes urgentes, n'hésitez pas à nous appeler directement au +261 38 81 202 93.",
+    a: "Notre équipe analyse votre demande et vous envoie une proposition détaillée sous 24 heures ouvrées. Pour les commandes urgentes, n'hésitez pas à nous appeler directement au +261 34 07 00 205.",
   },
   {
     q: "Livrez-vous partout à Madagascar ?",
@@ -49,10 +43,9 @@ const ArrowIcon = () => (
 export default function ContactPage() {
   const [activeTab, setActiveTab] = useState<Tab>("message");
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [radioPart, setRadioPart] = useState(0);
 
   const [msgForm, setMsgForm] = useState({ nom: "", email: "", sujet: "", message: "" });
-  const [partForm, setPartForm] = useState({ nom: "", poste: "", org: "", email: "", message: "" });
+  const [partForm, setPartForm] = useState({ nom: "", poste: "", org: "", email: "", nature: "", message: "" });
 
   const [sentMsg, setSentMsg] = useState(false);
   const [sentPart, setSentPart] = useState(false);
@@ -82,16 +75,17 @@ export default function ContactPage() {
   const submitPart = async () => {
     setSending(true);
     try {
+      const { nature, ...rest } = partForm;
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ type: "partenariat", naturePartenariat: PARTNER_TYPES[radioPart].label, ...partForm }),
+        body: JSON.stringify({ type: "partenariat", naturePartenariat: nature, ...rest }),
       });
       if (res.ok) {
         setSentPart(true);
         setTimeout(() => {
           setSentPart(false);
-          setPartForm({ nom: "", poste: "", org: "", email: "", message: "" });
+          setPartForm({ nom: "", poste: "", org: "", email: "", nature: "", message: "" });
         }, 3000);
       }
     } catch { /* noop */ }
@@ -131,7 +125,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="info-label">Téléphone</div>
-                    <div className="info-value"><a href="tel:+261388120293">+261 38 81 202 93</a></div>
+                    <div className="info-value"><a href="tel:+261340700205">+261 34 07 00 205</a></div>
                     <div className="info-sub">Appels &amp; WhatsApp</div>
                   </div>
                 </div>
@@ -141,7 +135,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <div className="info-label">Email</div>
-                    <div className="info-value"><a href="mailto:contact@bitumad.mg">contact@bitumad.mg</a></div>
+                    <div className="info-value"><a href="mailto:info@bitumad.mg">info@bitumad.mg</a></div>
                     <div className="info-sub">Réponse sous 24h</div>
                   </div>
                 </div>
@@ -278,28 +272,20 @@ export default function ContactPage() {
                       <input type="email" id="p-email" placeholder="jean@entreprise.com" value={partForm.email} onChange={(e) => setPartForm({ ...partForm, email: e.target.value })} aria-required="true" />
                     </div>
                   </div>
-                  <fieldset className="form-field form-fieldset">
-                    <legend>Nature du partenariat envisagé</legend>
-                    <div className="radio-group">
-                      {PARTNER_TYPES.map((pt, i) => (
-                        <label key={i} className={`radio-option${radioPart === i ? " selected" : ""}`}>
-                          <input
-                            type="radio"
-                            name="partenariat-type"
-                            value={i}
-                            checked={radioPart === i}
-                            onChange={() => setRadioPart(i)}
-                          />
-                          <div className="radio-dot" aria-hidden="true" />
-                          <span className="radio-label">{pt.label}</span>
-                          <span className="radio-sub">{pt.sub}</span>
-                        </label>
-                      ))}
-                    </div>
-                  </fieldset>
+                  <div className="form-field">
+                    <label htmlFor="p-nature">Nature du partenariat envisagé</label>
+                    <input
+                      type="text"
+                      id="p-nature"
+                      placeholder="Ex : Distribution régionale, logistique & transport…"
+                      value={partForm.nature}
+                      onChange={(e) => setPartForm({ ...partForm, nature: e.target.value })}
+                      aria-required="true"
+                    />
+                  </div>
                   <div className="form-field">
                     <label htmlFor="p-msg">Décrivez votre proposition</label>
-                    <textarea id="p-msg" style={{ height: "120px" }} placeholder="Contexte, objectifs, périmètre géographique et modalités envisagées…" value={partForm.message} onChange={(e) => setPartForm({ ...partForm, message: e.target.value })} />
+                    <textarea id="p-msg" style={{ height: "120px" }} placeholder="Contexte, objectifs et modalités envisagées…" value={partForm.message} onChange={(e) => setPartForm({ ...partForm, message: e.target.value })} />
                   </div>
                 </div>
                 <div className="form-panel-footer">
