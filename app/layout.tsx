@@ -28,10 +28,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: {
     template: "%s | Bitumad",
-    default: "Bitumad — Fournisseur de bitume 60/70 & 35/50 à Madagascar",
+    default: "Bitumad Madagascar",
   },
   description:
-    "Bitumad livre du bitume de pénétration 60/70 et 35/50 à Madagascar, conforme aux normes ASTM. Routes, voiries, aéroports, ports. Devis gratuit sous 24h.",
+    "Livraison de bitume 60/70 et 35/50 à Madagascar, conforme aux normes ASTM. Bitumad, votre fournisseur fiable pour vos chantiers BTP.",
   keywords:
     "bitume Madagascar, bitume 60/70, bitume 35/50, routes Madagascar, BTP Madagascar, fourniture bitume, ASTM, bitume pénétration",
   authors: [{ name: "Bitumad" }],
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: "https://www.bitumad.mg",
-    title: "Bitumad — Fournisseur de bitume 60/70 & 35/50 à Madagascar",
+    title: "Bitumad Madagascar",
     description:
-      "Bitumad livre du bitume de pénétration 60/70 et 35/50 à Madagascar, conforme aux normes ASTM. Routes, voiries, aéroports, ports. Devis gratuit sous 24h.",
+      "Livraison de bitume 60/70 et 35/50 à Madagascar, conforme aux normes ASTM. Bitumad, votre fournisseur fiable pour vos chantiers BTP.",
     siteName: "Bitumad",
     images: [
       {
@@ -57,9 +57,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bitumad — Fournisseur de bitume 60/70 & 35/50 à Madagascar",
+    title: "Bitumad Madagascar",
     description:
-      "Bitumad livre du bitume 60/70 et 35/50 à Madagascar, conforme ASTM. Routes, voiries, aéroports, ports. Devis gratuit sous 24h.",
+      "Livraison de bitume 60/70 et 35/50 à Madagascar, conforme aux normes ASTM. Bitumad, votre fournisseur fiable pour vos chantiers BTP.",
     images: [
       "https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650742/bitumad_hero_route_madagascar_avce_fux_de_bitume_whcflo.jpg",
     ],
