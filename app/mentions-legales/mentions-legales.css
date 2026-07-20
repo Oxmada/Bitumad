@@ -3,7 +3,7 @@
   position: relative;
   padding: 110px 80px 96px;
   min-height: 520px;
-  background: var(--dark);
+  background: var(--green-dim);
   border-bottom: 0.5px solid var(--faint);
   overflow: hidden;
 }
