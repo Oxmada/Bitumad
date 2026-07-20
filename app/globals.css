@@ -169,6 +169,14 @@ footer {
   letter-spacing: 0.06em;
 }
 
+/* ─── LIGHT MODE: FOOTER TEXT ─── */
+[data-theme="light"] .footer-logo,
+[data-theme="light"] .footer-links a,
+[data-theme="light"] .footer-links a:hover,
+[data-theme="light"] .footer-copy {
+  color: #000000;
+}
+
 @media (min-width: 769px) and (max-width: 1199px) {
   footer {
     padding: 40px;

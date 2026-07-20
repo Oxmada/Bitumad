@@ -20,7 +20,7 @@ export default function Navbar() {
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784570923/bitumad_logo_rectangle_vcffyo.webp"
+          src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784573110/bitumad_logo_rectangle_remove_zvajm2.webp"
           alt="Bitumad"
           className="nav-logo-img nav-logo-img--light"
           style={{ height: "40px", width: "auto" }}
@@ -63,7 +63,7 @@ export default function Navbar() {
           aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
           aria-expanded={open}
         >
-          {open ? <X size={22} color="var(--white)" /> : <Menu size={22} color="var(--white)" />}
+          {open ? <X size={22} /> : <Menu size={22} />}
         </button>
       </div>
 

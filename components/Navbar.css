@@ -350,3 +350,19 @@
 @media (max-width: 768px) {
   .nav { padding: 16px 24px; }
 }
+
+/* ─── LIGHT MODE: HEADER TEXT ─── */
+[data-theme="light"] .nav-logo,
+[data-theme="light"] .nav-links a,
+[data-theme="light"] .nav-links a:hover,
+[data-theme="light"] .nav-dropdown a,
+[data-theme="light"] .nav-dropdown a:hover,
+[data-theme="light"] .nav-dropdown-grade,
+[data-theme="light"] .theme-toggle,
+[data-theme="light"] .nav-hamburger,
+[data-theme="light"] .nav-mobile a,
+[data-theme="light"] .nav-mobile-group-btn,
+[data-theme="light"] .nav-mobile-submenu a,
+[data-theme="light"] .nav-mobile-submenu a:hover {
+  color: #000000;
+}

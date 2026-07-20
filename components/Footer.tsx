@@ -11,7 +11,7 @@ export default function Footer() {
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784570923/bitumad_logo_rectangle_vcffyo.webp"
+          src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784573110/bitumad_logo_rectangle_remove_zvajm2.webp"
           alt="Bitumad"
           className="footer-logo-img footer-logo-img--light"
           style={{ height: "38px", width: "auto" }}
