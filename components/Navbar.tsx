@@ -54,8 +54,8 @@ export default function Navbar() {
       </ul>
 
       <div className="nav-cta-group">
-        <a href="/#devis" className="nav-cmd">Obtenir un devis</a>
         <ThemeToggle />
+        <a href="/#devis" className="nav-cmd">Obtenir un devis</a>
 
         <button
           className="nav-hamburger"
