@@ -228,6 +228,12 @@
 .nb-hero-spec:nth-child(3) { border-radius: 0 0 0 6px; }
 .nb-hero-spec:last-child { border-radius: 0 0 6px 0; }
 
+/* This card floats over the darkened hero photo — needs an opaque
+   background in light mode since --dark2/--dark3 are translucent green washes
+   that would let the photo bleed through. */
+[data-theme="light"] .nb-hero-product-card { background: #ffffff; }
+[data-theme="light"] .nb-hero-spec { background: #e4f3ee; }
+
 .nb-hero-spec-val {
   font-family: var(--font-display), 'Bebas Neue', sans-serif;
   font-size: 26px;

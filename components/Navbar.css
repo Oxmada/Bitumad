@@ -169,6 +169,13 @@
   transform: translateX(-50%) rotate(45deg);
 }
 
+/* Floats over arbitrary page content (no backdrop-blur) — must stay opaque
+   in light mode since --dark2 is a translucent green wash there. */
+[data-theme="light"] .nav-dropdown,
+[data-theme="light"] .nav-dropdown::before {
+  background: #ffffff;
+}
+
 .nav-dropdown-item:hover .nav-dropdown,
 .nav-dropdown-item:focus-within .nav-dropdown {
   opacity: 1;

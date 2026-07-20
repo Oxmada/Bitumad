@@ -71,10 +71,10 @@
 }
 
 [data-theme="light"] {
-  --black:  #f7f4ec;
-  --dark:   #f0ead9;
-  --dark2:  #e8e0cb;
-  --dark3:  #ded3b6;
+  --black:  #ffffff;
+  --dark:   #ffffff;
+  --dark2:  rgba(29, 158, 117, 0.12);
+  --dark3:  rgba(29, 158, 117, 0.18);
 
   --white:  #17140f;
   --sand:   #2a2418;
