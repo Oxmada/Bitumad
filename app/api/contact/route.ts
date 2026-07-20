@@ -18,29 +18,29 @@ function escapeHtml(value: unknown): string {
 function renderRow(label: string, value: unknown) {
   return `
     <tr>
-      <td style="padding:12px 0;border-bottom:1px solid #2a2a27;vertical-align:top;width:180px;">
-        <span style="font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:#25c490;text-transform:uppercase;letter-spacing:.04em;">${label}</span>
+      <td style="padding:12px 0;border-bottom:1px solid #e5e2d8;vertical-align:top;width:180px;">
+        <span style="font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:#1D9E75;text-transform:uppercase;letter-spacing:.04em;">${label}</span>
       </td>
-      <td style="padding:12px 0;border-bottom:1px solid #2a2a27;vertical-align:top;">
-        <span style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#f5f2eb;">${escapeHtml(value)}</span>
+      <td style="padding:12px 0;border-bottom:1px solid #e5e2d8;vertical-align:top;">
+        <span style="font-family:Arial,Helvetica,sans-serif;font-size:15px;color:#161614;">${escapeHtml(value)}</span>
       </td>
     </tr>`;
 }
 
 function renderEmailTemplate(heading: string, tag: string, rows: string) {
   return `
-  <div style="background-color:#0c0c0b;padding:32px 16px;font-family:Arial,Helvetica,sans-serif;">
-    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;background-color:#161614;border-radius:12px;overflow:hidden;border:1px solid #2a2a27;">
+  <div style="background-color:#f5f2eb;padding:32px 16px;font-family:Arial,Helvetica,sans-serif;">
+    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:600px;margin:0 auto;background-color:#ffffff;border-radius:12px;overflow:hidden;border:1px solid #e5e2d8;">
       <tr>
         <td style="background-color:#1D9E75;padding:24px 28px;text-align:left;">
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
             <tr>
               <td style="vertical-align:middle;">
-                <img src="${LOGO_URL}" alt="Bitumad" width="40" height="40" style="display:block;border-radius:50%;background:#0c0c0b;" />
+                <img src="${LOGO_URL}" alt="Bitumad" width="40" height="40" style="display:block;border-radius:50%;background:#ffffff;" />
               </td>
               <td style="vertical-align:middle;padding-left:12px;">
-                <span style="font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:700;color:#0c0c0b;">Bitumad</span><br/>
-                <span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;color:#0c0c0b;letter-spacing:.06em;text-transform:uppercase;">${tag}</span>
+                <span style="font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:700;color:#ffffff;">Bitumad</span><br/>
+                <span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:700;color:#ffffff;letter-spacing:.06em;text-transform:uppercase;">${tag}</span>
               </td>
             </tr>
           </table>
@@ -48,15 +48,15 @@ function renderEmailTemplate(heading: string, tag: string, rows: string) {
       </tr>
       <tr>
         <td style="padding:28px;">
-          <h2 style="margin:0 0 20px;font-family:Arial,Helvetica,sans-serif;font-size:20px;color:#f5f2eb;">${heading}</h2>
+          <h2 style="margin:0 0 20px;font-family:Arial,Helvetica,sans-serif;font-size:20px;color:#161614;">${heading}</h2>
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
             ${rows}
           </table>
         </td>
       </tr>
       <tr>
-        <td style="padding:20px 28px;background-color:#0c0c0b;">
-          <span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#8a8a86;">Notification automatique — bitumad.mg</span>
+        <td style="padding:20px 28px;background-color:#f5f2eb;">
+          <span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#7a776c;">Notification automatique — bitumad.mg</span>
         </td>
       </tr>
     </table>
