@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   creator: "Bitumad",
   metadataBase: new URL("https://www.bitumad.mg"),
   alternates: { canonical: "/" },
-  icons: { icon: "https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650741/bitumad_logo_cercle_remove_v2_zcpvnc.webp" },
+  icons: { icon: "https://res.cloudinary.com/uuiwf5lx/image/upload/v1784584212/bitumad_logo_remove_carr%C3%A9_gn5iut.webp" },
   openGraph: {
     type: "website",
     url: "https://www.bitumad.mg",
