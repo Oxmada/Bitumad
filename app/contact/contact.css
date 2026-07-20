@@ -521,10 +521,11 @@
   right: -20px;
   top: 50%;
   transform: translateY(-50%);
-  font-family: var(--font-display), sans-serif;
-  font-size: 180px;
+  font-family: var(--font-brand), 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 140px;
   color: rgba(0, 0, 0, 0.07);
-  letter-spacing: -0.04em;
+  letter-spacing: -0.01em;
   line-height: 1;
   pointer-events: none;
 }

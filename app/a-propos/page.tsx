@@ -289,7 +289,7 @@ export default function APropos() {
             </div>
           </div>
           <Image
-            src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1781869241/Bitumad_chargement-conteneur-futs_ovko7a.webp"
+            src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784582208/Bitumad_chargement-conteneur-futs_ivyrl8.webp"
             alt="Déchargement de fûts de bitume depuis un camion sur site"
             className="supply-chain-photo reveal reveal-delay-3"
             width={560}

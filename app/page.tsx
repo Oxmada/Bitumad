@@ -329,7 +329,7 @@ export default function HomePage() {
             </div>
           </div>
           <Image
-            src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1781873966/Bitumad_zone-chargement-crepuscule_ct1kns.webp"
+            src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784582515/bitumad_camion_f%C3%BBts-de-bitume_soir_nw6v3j.webp"
             alt="Zone de chargement de bitume au crépuscule"
             className="process-img reveal reveal-delay-3"
             width={400}
