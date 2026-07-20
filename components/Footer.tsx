@@ -3,7 +3,19 @@ export default function Footer() {
     <footer>
       <a href="/" className="footer-logo">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784570915/Bitumad-logo-simple_white_cfpbuq.png" alt="Bitumad" style={{ height: "38px", width: "auto" }} />
+        <img
+          src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784570915/Bitumad-logo-simple_white_cfpbuq.png"
+          alt="Bitumad"
+          className="footer-logo-img footer-logo-img--dark"
+          style={{ height: "38px", width: "auto" }}
+        />
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784570923/bitumad_logo_rectangle_vcffyo.webp"
+          alt="Bitumad"
+          className="footer-logo-img footer-logo-img--light"
+          style={{ height: "38px", width: "auto" }}
+        />
       </a>
       <span className="footer-copy">
         © 2025 BITUMAD &nbsp;·&nbsp; <a href="/mentions-legales" style={{ color: 'inherit', textDecoration: 'none' }}>Mentions légales</a>

@@ -28,6 +28,11 @@
   color: var(--green);
 }
 
+.nav-logo-img--light { display: none; }
+
+[data-theme="light"] .nav-logo-img--dark { display: none; }
+[data-theme="light"] .nav-logo-img--light { display: inline-block; }
+
 .nav-links {
   display: flex;
   align-items: center;

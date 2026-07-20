@@ -140,6 +140,11 @@ footer {
   color: var(--green);
 }
 
+.footer-logo-img--light { display: none; }
+
+[data-theme="light"] .footer-logo-img--dark { display: none; }
+[data-theme="light"] .footer-logo-img--light { display: inline-block; }
+
 .footer-links {
   display: flex;
   gap: 32px;
