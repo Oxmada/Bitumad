@@ -10,7 +10,7 @@
   justify-content: space-between;
   padding: 0 40px;
   height: 80px;
-  background: rgba(12, 12, 11, 0.82);
+  background: color-mix(in srgb, var(--black) 82%, transparent);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 0.5px solid var(--faint);
@@ -50,7 +50,7 @@
 
 .nav-cmd {
   background: var(--green);
-  color: var(--black);
+  color: var(--on-accent);
   font-size: 13px;
   font-weight: 600;
   padding: 8px 18px;
@@ -65,6 +65,37 @@
   background: var(--green-light);
   transform: translateY(-1px);
 }
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  background: none;
+  border: 0.5px solid var(--faint);
+  border-radius: 8px;
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s, color 0.2s;
+}
+
+.theme-toggle:hover {
+  background: var(--dark2);
+  color: var(--green);
+}
+
+.theme-toggle-icon--moon { display: none; }
+
+[data-theme="light"] .theme-toggle-icon--sun { display: none; }
+[data-theme="light"] .theme-toggle-icon--moon { display: block; }
 
 .nav-hamburger {
   display: none;
@@ -237,7 +268,7 @@
 
   .nav-mobile .nav-cmd {
     background: var(--green);
-    color: var(--black);
+    color: var(--on-accent);
     font-weight: 600;
   }
 
@@ -285,7 +316,7 @@
   }
 
   .nav-mobile-submenu a:hover {
-    background: rgba(245, 242, 235, 0.08);
+    background: color-mix(in srgb, var(--white) 8%, transparent);
     color: var(--white);
   }
 

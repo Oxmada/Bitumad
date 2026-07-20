@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 import "./Navbar.css";
 
 export default function Navbar() {
@@ -42,14 +43,18 @@ export default function Navbar() {
 
       <a href="/#devis" className="nav-cmd">Obtenir un devis</a>
 
-      <button
-        className="nav-hamburger"
-        onClick={() => setOpen(!open)}
-        aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-        aria-expanded={open}
-      >
-        {open ? <X size={22} color="var(--white)" /> : <Menu size={22} color="var(--white)" />}
-      </button>
+      <div className="nav-actions">
+        <ThemeToggle />
+
+        <button
+          className="nav-hamburger"
+          onClick={() => setOpen(!open)}
+          aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
+          aria-expanded={open}
+        >
+          {open ? <X size={22} color="var(--white)" /> : <Menu size={22} color="var(--white)" />}
+        </button>
+      </div>
 
       {open && (
         <div className="nav-mobile">

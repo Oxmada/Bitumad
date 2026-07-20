@@ -98,8 +98,16 @@ export default function RootLayout({
     <html
       lang="fr"
       className={`${bebasNeue.variable} ${instrumentSans.variable} ${jetbrainsMono.variable}`}
+      suppressHydrationWarning
     >
       <body>
+        <script
+          id="theme-init"
+          dangerouslySetInnerHTML={{
+            __html:
+              "(function(){try{if(localStorage.getItem('theme')==='light'){document.documentElement.setAttribute('data-theme','light');}}catch(e){}})();",
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

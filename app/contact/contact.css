@@ -5,14 +5,14 @@
   gap: 8px;
   font-family: var(--font-mono), monospace;
   font-size: 11px;
-  color: var(--muted);
+  color: var(--on-photo-muted);
   letter-spacing: 0.08em;
   margin-bottom: 32px;
 }
-.c-breadcrumb a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
-.c-breadcrumb a:hover { color: var(--white); }
+.c-breadcrumb a { color: var(--on-photo-muted); text-decoration: none; transition: color 0.2s; }
+.c-breadcrumb a:hover { color: var(--on-photo); }
 .c-breadcrumb span { color: var(--green); }
-.breadcrumb-sep { color: var(--faint); }
+.breadcrumb-sep { color: var(--on-photo-faint); }
 
 .c-eyebrow {
   font-family: var(--font-mono), monospace;
@@ -67,8 +67,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(var(--faint) 0.5px, transparent 0.5px),
-    linear-gradient(90deg, var(--faint) 0.5px, transparent 0.5px);
+    linear-gradient(var(--on-photo-faint) 0.5px, transparent 0.5px),
+    linear-gradient(90deg, var(--on-photo-faint) 0.5px, transparent 0.5px);
   background-size: 80px 80px;
   mask-image: radial-gradient(ellipse 80% 100% at 80% 50%, black 30%, transparent 100%);
   -webkit-mask-image: radial-gradient(ellipse 80% 100% at 80% 50%, black 30%, transparent 100%);
@@ -94,14 +94,14 @@
   font-size: clamp(52px, 6vw, 80px);
   line-height: 0.95;
   letter-spacing: 0.02em;
-  color: var(--white);
+  color: var(--on-photo);
   margin-bottom: 20px;
 }
 .page-title em { font-style: normal; color: var(--green); }
 
 .page-lead {
   font-size: 16px;
-  color: var(--white);
+  color: var(--on-photo);
   max-width: 520px;
   line-height: 1.8;
 }
@@ -333,7 +333,7 @@
   -webkit-appearance: none;
 }
 .form-field input::placeholder,
-.form-field textarea::placeholder { color: rgba(245, 242, 235, 0.2); }
+.form-field textarea::placeholder { color: color-mix(in srgb, var(--white) 20%, transparent); }
 .form-field input:focus,
 .form-field textarea:focus,
 .form-field select:focus { border-color: var(--green-border); background: var(--dark2); }
@@ -405,7 +405,7 @@
   align-items: center;
   gap: 10px;
   background: var(--green);
-  color: var(--black);
+  color: var(--on-accent);
   font-weight: 600;
   font-size: 14px;
   padding: 14px 28px;
@@ -423,7 +423,7 @@
 .btn-submit svg {
   width: 16px;
   height: 16px;
-  stroke: var(--black);
+  stroke: var(--on-accent);
   fill: none;
   stroke-width: 2;
   stroke-linecap: round;
@@ -539,7 +539,7 @@
 .cta-banner-text h2 {
   font-family: var(--font-display), sans-serif;
   font-size: 40px;
-  color: var(--black);
+  color: var(--on-accent);
   letter-spacing: 0.02em;
   line-height: 1.05;
   margin-bottom: 10px;
@@ -549,8 +549,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--black);
-  color: var(--white);
+  background: var(--on-accent-chip-bg);
+  color: var(--on-accent-chip-text);
   font-weight: 600;
   font-size: 14px;
   padding: 16px 32px;
@@ -563,7 +563,7 @@
   position: relative;
   z-index: 1;
 }
-.cta-banner-btn:hover { background: #1e1e1c; transform: translateY(-2px); }
+.cta-banner-btn:hover { background: var(--on-accent-chip-bg-hover); transform: translateY(-2px); }
 .cta-banner-btn svg {
   width: 16px;
   height: 16px;

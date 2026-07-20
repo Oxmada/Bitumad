@@ -13,8 +13,8 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(var(--faint) 0.5px, transparent 0.5px),
-    linear-gradient(90deg, var(--faint) 0.5px, transparent 0.5px);
+    linear-gradient(var(--on-photo-faint) 0.5px, transparent 0.5px),
+    linear-gradient(90deg, var(--on-photo-faint) 0.5px, transparent 0.5px);
   background-size: 80px 80px;
   mask-image: radial-gradient(ellipse 70% 100% at 20% 50%, black 20%, transparent 80%);
   -webkit-mask-image: radial-gradient(ellipse 70% 100% at 20% 50%, black 20%, transparent 80%);
@@ -63,7 +63,7 @@
   font-size: clamp(64px, 9vw, 120px);
   line-height: 0.95;
   letter-spacing: 0.02em;
-  color: var(--white);
+  color: var(--on-photo);
   margin-bottom: 28px;
   text-wrap: balance;
 }
@@ -75,7 +75,7 @@
 
 .hero-sub {
   font-size: 15px;
-  color: var(--white);
+  color: var(--on-photo);
   max-width: 500px;
   line-height: 1.7;
   margin-bottom: 40px;
@@ -92,7 +92,7 @@
   align-items: center;
   gap: 10px;
   background: var(--green);
-  color: var(--black);
+  color: var(--on-accent);
   font-weight: 600;
   font-size: 14px;
   padding: 14px 28px;
@@ -111,18 +111,18 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: var(--muted);
+  color: var(--on-photo-muted);
   font-size: 14px;
   text-decoration: none;
   padding: 14px 20px;
-  border: 0.5px solid var(--faint);
+  border: 0.5px solid var(--on-photo-faint);
   border-radius: 8px;
   transition: color 0.2s, border-color 0.2s;
 }
 
 .btn-ghost:hover {
-  color: var(--white);
-  border-color: rgba(245, 242, 235, 0.35);
+  color: var(--on-photo);
+  border-color: color-mix(in srgb, var(--on-photo) 35%, transparent);
 }
 
 
@@ -157,14 +157,14 @@
   font-family: var(--font-display), 'Bebas Neue', sans-serif;
   font-size: 14px;
   letter-spacing: 0.1em;
-  color: var(--black);
+  color: var(--on-accent);
 }
 
 .ticker-dot {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: rgba(12, 12, 11, 0.4);
+  background: color-mix(in srgb, var(--on-accent) 40%, transparent);
   flex-shrink: 0;
 }
 
@@ -201,10 +201,10 @@
   inset: 0;
   background: linear-gradient(
     90deg,
-    var(--black) 0%,
+    var(--photo-vignette) 0%,
     transparent 30%,
     transparent 70%,
-    var(--black) 100%
+    var(--photo-vignette) 100%
   );
 }
 
@@ -214,7 +214,7 @@
   left: 80px;
   font-family: var(--font-mono), 'JetBrains Mono', monospace;
   font-size: 11px;
-  color: var(--muted);
+  color: var(--on-photo-muted);
   letter-spacing: 0.1em;
   text-transform: uppercase;
 }
@@ -347,7 +347,7 @@
 .process-number {
   font-family: var(--font-display), 'Bebas Neue', sans-serif;
   font-size: 100px;
-  color: rgba(245, 242, 235, 0.04);
+  color: color-mix(in srgb, var(--white) 4%, transparent);
   line-height: 1;
   position: absolute;
   top: 16px;
@@ -590,7 +590,7 @@
 
 .form-field input::placeholder,
 .form-field textarea::placeholder {
-  color: rgba(245, 242, 235, 0.2);
+  color: color-mix(in srgb, var(--white) 20%, transparent);
 }
 
 .form-field input:focus,
@@ -731,7 +731,7 @@
   align-items: center;
   gap: 10px;
   background: var(--green);
-  color: var(--black);
+  color: var(--on-accent);
   font-weight: 600;
   font-size: 14px;
   padding: 14px 28px;
