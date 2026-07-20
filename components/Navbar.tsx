@@ -12,7 +12,7 @@ export default function Navbar() {
     <nav className="nav">
       <a href="/" className="nav-logo">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src="https://res.cloudinary.com/uuiwf5lx/image/upload/q_auto/f_auto/v1779650741/Bitumad-logo-simple_nal1lr.webp" alt="Bitumad" style={{ height: "40px", width: "auto" }} />
+        <img src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784570915/Bitumad-logo-simple_white_cfpbuq.png" alt="Bitumad" style={{ height: "40px", width: "auto" }} />
       </a>
 
       <ul className="nav-links">
