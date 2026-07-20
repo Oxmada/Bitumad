@@ -16,14 +16,12 @@ export default function Navbar() {
           src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784570915/Bitumad-logo-simple_white_cfpbuq.png"
           alt="Bitumad"
           className="nav-logo-img nav-logo-img--dark"
-          style={{ height: "40px", width: "auto" }}
         />
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="https://res.cloudinary.com/uuiwf5lx/image/upload/v1784573110/bitumad_logo_rectangle_remove_zvajm2.webp"
           alt="Bitumad"
           className="nav-logo-img nav-logo-img--light"
-          style={{ height: "40px", width: "auto" }}
         />
       </a>
 

@@ -48,19 +48,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
-  opacity: 0.5;
   filter: brightness(0.6) saturate(0.7);
-}
-
-.page-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(12, 12, 11, 0.2) 0%,
-    rgba(12, 12, 11, 0.35) 100%
-  );
-  pointer-events: none;
 }
 
 .page-hero-grid {
@@ -202,6 +190,10 @@
   height: 100%;
   border: none;
   filter: invert(0.92) hue-rotate(180deg) saturate(0.3) brightness(0.9);
+}
+
+[data-theme="light"] .map-card iframe {
+  filter: none;
 }
 
 /* Hours */
