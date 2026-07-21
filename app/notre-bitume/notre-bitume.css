@@ -709,6 +709,59 @@
 .nb-usage-arrow svg { width: 12px; height: 12px; stroke: var(--muted); }
 
 /* ══════════════════════════════════════════
+   STORAGE SECTION
+══════════════════════════════════════════ */
+.nb-section-stockage {
+  padding: 100px 80px;
+  border-top: 0.5px solid var(--faint);
+  background: var(--dark);
+}
+
+.nb-storage-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+}
+
+.nb-storage-card {
+  background: var(--dark2);
+  padding: 32px 28px;
+  transition: background 0.2s;
+}
+
+.nb-storage-card:first-child { border-radius: 12px 0 0 12px; }
+.nb-storage-card:last-child { border-radius: 0 12px 12px 0; }
+.nb-storage-card:hover { background: var(--dark3); }
+
+.nb-storage-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  background: var(--green-dim);
+  border: 0.5px solid var(--green-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.nb-storage-icon svg { width: 22px; height: 22px; }
+
+.nb-storage-title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+.nb-storage-desc {
+  font-size: 13px;
+  color: var(--white);
+  line-height: 1.7;
+}
+
+/* ══════════════════════════════════════════
    DOWNLOAD SECTION
 ══════════════════════════════════════════ */
 .nb-section-download {
@@ -1298,6 +1351,7 @@
   .nb-section-description,
   .nb-section-specs,
   .nb-section-applications,
+  .nb-section-stockage,
   .nb-section-download { padding: 80px 40px; }
   .nb-section-applications { padding-bottom: 0; }
 
@@ -1314,6 +1368,10 @@
 }
 
 @media (max-width: 900px) {
+  .nb-storage-grid { grid-template-columns: 1fr; }
+  .nb-storage-card:first-child { border-radius: 12px 12px 0 0; }
+  .nb-storage-card:last-child { border-radius: 0 0 12px 12px; }
+
   .nb-apps-grid { grid-template-columns: 1fr; }
   .nb-app-card:first-child { border-radius: 12px 12px 0 0; }
   .nb-app-card:nth-child(2) { border-radius: 0; }
@@ -1344,6 +1402,7 @@
   .nb-section-description,
   .nb-section-specs,
   .nb-section-applications,
+  .nb-section-stockage,
   .nb-section-download { padding: 60px 24px; }
   .nb-section-applications { padding-bottom: 0; }
 

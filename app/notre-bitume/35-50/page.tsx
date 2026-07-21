@@ -84,6 +84,36 @@ const USAGE_STEPS = [
   { num: "04", title: "Compactage", desc: "Un compacteur à rouleau assure la densification finale et la planéité de la surface." },
 ];
 
+const STORAGE_ITEMS = [
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M3 21h18" /><path d="M5 21V10l7-6 7 6v11" /><path d="M9 21v-6h6v6" />
+      </svg>
+    ),
+    title: "Entreposage sécurisé",
+    desc: "Fûts stockés sur surfaces stables et planes, protégés des chocs et des manipulations répétées.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    ),
+    title: "Protection contre les éléments",
+    desc: "À l'abri d'une exposition directe et prolongée à l'eau, aux embruns salins ou au soleil, pour préserver l'intégrité du produit.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="var(--green)" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" />
+      </svg>
+    ),
+    title: "Traçabilité stricte des lots",
+    desc: "Suivi de chaque lot du départ usine jusqu'au chantier, pour garantir la qualité de livraison.",
+  },
+];
+
 const PDF_INCLUDES = [
   "Tableau complet des spécifications ASTM (8 paramètres)",
   "Méthodes de test et unités de mesure",
@@ -290,6 +320,24 @@ export default function Bitume3550Page() {
         </div>
       </section>
 
+      {/* ─── STOCKAGE ─── */}
+      <section id="nb-stockage" className="nb-section-stockage">
+        <div className="nb-eyebrow reveal">Recommandations</div>
+        <h2 className="nb-section-title reveal reveal-delay-1">STOCKAGE & MANUTENTION</h2>
+        <p className="nb-section-lead reveal reveal-delay-2">
+          Quelques précautions simples pour préserver la qualité du bitume 35/50 entre la livraison et sa mise en œuvre, en environnement côtier.
+        </p>
+        <div className="nb-storage-grid">
+          {STORAGE_ITEMS.map((item, i) => (
+            <div className={`nb-storage-card reveal reveal-delay-${i + 2}`} key={item.title}>
+              <div className="nb-storage-icon">{item.icon}</div>
+              <div className="nb-storage-title">{item.title}</div>
+              <div className="nb-storage-desc">{item.desc}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ─── TÉLÉCHARGEMENT ─── */}
       <section id="nb-telechargement" className="nb-section-download">
         <div className="nb-eyebrow reveal">Documentation technique</div>
@@ -348,7 +396,7 @@ export default function Bitume3550Page() {
               </div>
               <div className="nb-contact-nudge-text">
                 Besoin d'un certificat d'analyse pour un lot spécifique ?{" "}
-                <a href="/contact">Contactez notre équipe</a> — nous vous le transmettrons sous 24h.
+                <a href="/contact">Contactez notre équipe</a> — nous vous le transmettrons sous 48h.
               </div>
             </div>
 

@@ -219,7 +219,7 @@ export default function HomePage() {
             </h2>
           </div>
           <p className="section-lead section-lead--right reveal reveal-delay-2">
-            Choisissez le grade adapté à votre zone de chantier — intérieure ou côtière.
+            Choisissez le grade adapté à votre zone de chantier.
           </p>
         </div>
 
@@ -346,7 +346,7 @@ export default function HomePage() {
           OBTENEZ VOTRE DEVIS GRATUIT
         </h2>
         <p className="section-lead reveal reveal-delay-2">
-          Remplissez ce formulaire et notre équipe vous répond sous 24h avec
+          Remplissez ce formulaire et notre équipe vous répond sous 48h avec
           une proposition adaptée à votre chantier.
         </p>
 
@@ -362,7 +362,7 @@ export default function HomePage() {
                   </svg>
                 </div>
                 <div>
-                  <div className="devis-promise-title">Réponse sous 24h</div>
+                  <div className="devis-promise-title">Réponse sous 48h</div>
                   <div className="devis-promise-desc">
                     Notre équipe traite chaque demande rapidement et vous
                     envoie une proposition claire.

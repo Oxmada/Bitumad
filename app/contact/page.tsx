@@ -9,7 +9,7 @@ type Tab = "message" | "partenariat";
 const FAQ_ITEMS = [
   {
     q: "Quel est le délai de traitement d'un devis ?",
-    a: "Notre équipe analyse votre demande et vous envoie une proposition détaillée sous 24 heures ouvrées. Pour les commandes urgentes, n'hésitez pas à nous appeler directement au +261 34 07 00 205.",
+    a: "Notre équipe analyse votre demande et vous envoie une proposition détaillée sous 48 heures ouvrées. Pour les commandes urgentes, n'hésitez pas à nous appeler directement au +261 34 07 00 205.",
   },
   {
     q: "Livrez-vous partout à Madagascar ?",
@@ -104,7 +104,7 @@ export default function ContactPage() {
             PARLONS DE VOTRE<br /><em>PROJET</em>
           </h1>
           <p className="page-lead reveal reveal-delay-3">
-            Une question sur nos produits, une demande de devis ou un partenariat à envisager — notre équipe est disponible et vous répond sous 24 heures.
+            Une question sur nos produits, une demande de devis ou un partenariat à envisager — notre équipe est disponible et vous répond sous 48 heures.
           </p>
         </div>
       </div>
@@ -135,7 +135,7 @@ export default function ContactPage() {
                   <div>
                     <div className="info-label">Email</div>
                     <div className="info-value"><a href="mailto:info@bitumad.mg">info@bitumad.mg</a></div>
-                    <div className="info-sub">Réponse sous 24h</div>
+                    <div className="info-sub">Réponse sous 48h</div>
                   </div>
                 </div>
                 <div className="info-row">
@@ -235,7 +235,7 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="form-panel-footer">
-                  <p className="form-note">Notre équipe traite les messages dans l&apos;ordre de réception. Réponse garantie sous 24h ouvrées.</p>
+                  <p className="form-note">Notre équipe traite les messages dans l&apos;ordre de réception. Réponse garantie sous 48h ouvrées.</p>
                   {sentMsg ? (
                     <div className="sent-confirm">✓ Message envoyé !</div>
                   ) : (

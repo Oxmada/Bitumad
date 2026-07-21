@@ -3,6 +3,58 @@ import Image from 'next/image';
 import './a-propos.css';
 import { useReveal } from '@/hooks/useReveal';
 
+const SUPPLY_CHAIN_STEPS = [
+  {
+    label: 'Fournisseurs internationaux',
+    sub: 'Raffinage & négoce',
+    icon: (
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /></svg>
+    ),
+  },
+  {
+    label: 'Transport maritime',
+    sub: 'En fûts 180 kg',
+    icon: (
+      <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /></svg>
+    ),
+  },
+  {
+    label: 'Arrivée port de Toamasina',
+    sub: 'Réception',
+    icon: (
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+    ),
+  },
+  {
+    label: 'Dédouanement',
+    sub: 'Conformité douanière',
+    icon: (
+      <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="16" y1="13" x2="8" y2="13" /><line x1="16" y1="17" x2="8" y2="17" /></svg>
+    ),
+  },
+  {
+    label: 'Acheminement entrepôt',
+    sub: 'Transport routier',
+    icon: (
+      <svg viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h20" /><rect x="2" y="14" width="20" height="8" rx="2" /><path d="M6 6V4" /><path d="M10 6V4" /><path d="M14 6V4" /><path d="M18 6V4" /></svg>
+    ),
+  },
+  {
+    label: 'Stockage sécurisé',
+    sub: 'Entrepôt Bitumad',
+    icon: (
+      <svg viewBox="0 0 24 24"><path d="M3 21h18" /><path d="M5 21V10l7-6 7 6v11" /><path d="M9 21v-6h6v6" /></svg>
+    ),
+  },
+  {
+    label: 'Livraison client finale',
+    sub: 'Partout à Madagascar',
+    icon: (
+      <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+    ),
+  },
+];
+
 export default function APropos() {
   useReveal({ heroSelector: '.page-hero' });
 
@@ -24,6 +76,36 @@ export default function APropos() {
         </div>
       </div>
 
+      {/* MOT DU PRÉSIDENT */}
+      <section id="president" className="ap-section ap-president">
+        <div className="eyebrow reveal">Le mot du Président</div>
+
+        <div className="president-quote-block reveal reveal-delay-2">
+          <blockquote className="president-quote">
+            « Construire aujourd&apos;hui les routes qui accompagneront le développement de Madagascar demain. »
+          </blockquote>
+          <div className="president-author">
+            <div className="president-author-name">Galib Daya</div>
+            <div className="president-author-role">Président, Bitumad</div>
+          </div>
+        </div>
+
+        <div className="president-pillars reveal reveal-delay-3">
+          <div className="president-pillar">
+            <div className="president-pillar-title">Pérennité & fiabilité</div>
+            <div className="president-pillar-desc">Bâtir une structure solide et durable au service des infrastructures routières malgaches.</div>
+          </div>
+          <div className="president-pillar">
+            <div className="president-pillar-title">Preuve du concept</div>
+            <div className="president-pillar-desc">Réussite de notre première opération majeure d&apos;importation : 200 tonnes de bitume réparties en 10 conteneurs.</div>
+          </div>
+          <div className="president-pillar">
+            <div className="president-pillar-title">Ambition</div>
+            <div className="president-pillar-desc">Devenir la référence nationale de l&apos;importation et de la distribution de bitume à Madagascar, en maîtrisant toute la chaîne logistique — de l&apos;international jusqu&apos;au client final.</div>
+          </div>
+        </div>
+      </section>
+
       {/* HISTOIRE */}
       <section id="histoire" className="ap-section ap-histoire">
         <div className="histoire-layout">
@@ -41,20 +123,6 @@ export default function APropos() {
               height={360}
               sizes="(max-width: 768px) 100vw, 50vw"
             />
-            <div className="histoire-stat-grid">
-              <div className="histoire-stat">
-                <div className="histoire-stat-num">60<em>/70</em></div>
-                <div className="histoire-stat-label">Grade de pénétration — standard international ASTM</div>
-              </div>
-              <div className="histoire-stat">
-                <div className="histoire-stat-num"><em>100</em>%</div>
-                <div className="histoire-stat-label">Conforme aux normes internationales ASTM</div>
-              </div>
-              <div className="histoire-stat">
-                <div className="histoire-stat-num">3<em> étapes</em></div>
-                <div className="histoire-stat-label">Du devis à la livraison sur votre chantier</div>
-              </div>
-            </div>
           </div>
 
           <div className="histoire-right">
@@ -67,7 +135,7 @@ export default function APropos() {
                 <span className="timeline-year-tag">2024 — Fondation</span>
                 <div className="timeline-title">Naissance de Bitumad</div>
                 <div className="timeline-body">
-                  Face à une demande non satisfaite en matériaux routiers de qualité à Madagascar, Bitumad naît avec un objectif clair : rendre accessible un bitume de pénétration 60/70 conforme aux normes internationales, directement importé depuis des fournisseurs certifiés.
+                  Face à une demande non satisfaite en matériaux routiers de qualité à Madagascar, Bitumad naît avec un objectif clair : rendre accessible un bitume de pénétration conforme aux normes internationales, directement importé depuis des fournisseurs certifiés.
                 </div>
               </div>
             </div>
@@ -93,7 +161,7 @@ export default function APropos() {
                 <span className="timeline-year-tag">Notre réponse</span>
                 <div className="timeline-title">Un bitume pensé pour Madagascar</div>
                 <div className="timeline-body">
-                  Bitumad sélectionne un bitume de pénétration 60/70 spécialement adapté aux variations climatiques de la Grande Île — résistant aux hautes températures estivales et flexible lors des saisons fraîches. Nos partenariats avec des fournisseurs internationaux garantissent une traçabilité totale et une conformité ASTM à chaque livraison.
+                  Bitumad sélectionne des bitumes de pénétration spécialement adaptés aux variations climatiques de la Grande Île — résistants aux hautes températures estivales et flexibles lors des saisons fraîches. Nos partenariats avec des fournisseurs internationaux garantissent une traçabilité totale et une conformité ASTM à chaque livraison.
                 </div>
               </div>
             </div>
@@ -186,7 +254,7 @@ export default function APropos() {
       </section>
 
       {/* MISSION / VISION / VALEURS */}
-      <section id="mission" className="ap-section ap-mission" style={{ display: 'none' }}>
+      <section id="mission" className="ap-section ap-mission">
         <div className="eyebrow reveal">Mission · Vision · Valeurs</div>
         <h2 className="section-title reveal reveal-delay-1">CE QUI NOUS ANIME</h2>
         <p className="section-lead reveal reveal-delay-2">
@@ -224,23 +292,23 @@ export default function APropos() {
         <div className="valeurs-grid">
           <div className="valeur-item reveal reveal-delay-1">
             <div className="valeur-num">01</div>
-            <div className="valeur-name">Qualité</div>
-            <div className="valeur-desc">Un bitume conforme aux normes ASTM, tracé de l&apos;origine à la livraison. Aucun compromis sur les spécifications techniques.</div>
+            <div className="valeur-name">Intégrité</div>
+            <div className="valeur-desc">Transparence, respect strict des contrats et éthique dans toutes nos transactions commerciales.</div>
           </div>
           <div className="valeur-item reveal reveal-delay-2">
             <div className="valeur-num">02</div>
-            <div className="valeur-name">Fiabilité</div>
-            <div className="valeur-desc">Des délais tenus, des quantités garanties et un suivi rigoureux à chaque étape de la chaîne d&apos;approvisionnement.</div>
+            <div className="valeur-name">Excellence</div>
+            <div className="valeur-desc">Sélection rigoureuse de fournisseurs reconnus mondialement et recherche constante de la meilleure qualité.</div>
           </div>
           <div className="valeur-item reveal reveal-delay-3">
             <div className="valeur-num">03</div>
-            <div className="valeur-name">Engagement local</div>
-            <div className="valeur-desc">Une entreprise fondée et dirigée par des Malgaches, pour le développement de Madagascar. Nous investissons où nous travaillons.</div>
+            <div className="valeur-name">Fiabilité</div>
+            <div className="valeur-desc">Disponibilité permanente des produits, respect des délais de livraison et stabilité des prix engagés.</div>
           </div>
           <div className="valeur-item reveal reveal-delay-4">
             <div className="valeur-num">04</div>
-            <div className="valeur-name">Transparence</div>
-            <div className="valeur-desc">Des devis clairs, des fiches techniques accessibles et une communication directe à chaque étape de votre commande.</div>
+            <div className="valeur-name">Engagement local</div>
+            <div className="valeur-desc">Impact direct sur le développement économique et la réhabilitation du réseau routier malgache.</div>
           </div>
         </div>
       </section>
@@ -258,34 +326,13 @@ export default function APropos() {
             </div>
             <div className="supply-chain">
               <div className="supply-chain-title">Chaîne d&apos;approvisionnement</div>
-              <div className="supply-step">
-                <div className="supply-step-icon">
-                  <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+              {SUPPLY_CHAIN_STEPS.map((step) => (
+                <div className="supply-step" key={step.label}>
+                  <div className="supply-step-icon">{step.icon}</div>
+                  {step.label}
+                  <span className="supply-step-sub">{step.sub}</span>
                 </div>
-                Raffinage & production
-                <span className="supply-step-sub">Pays exportateurs</span>
-              </div>
-              <div className="supply-step">
-                <div className="supply-step-icon">
-                  <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-                </div>
-                Contrôle qualité & certification
-                <span className="supply-step-sub">ASTM</span>
-              </div>
-              <div className="supply-step">
-                <div className="supply-step-icon">
-                  <svg viewBox="0 0 24 24"><path d="M22 17H2a3 3 0 0 0 3-3V9a3 3 0 0 0-3-3h20"/><rect x="2" y="14" width="20" height="8" rx="2"/><path d="M6 6V4"/><path d="M10 6V4"/><path d="M14 6V4"/><path d="M18 6V4"/></svg>
-                </div>
-                Transport maritime
-                <span className="supply-step-sub">En fûts 180 kg</span>
-              </div>
-              <div className="supply-step">
-                <div className="supply-step-icon">
-                  <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                </div>
-                Livraison — Madagascar
-                <span className="supply-step-sub">Sur chantier</span>
-              </div>
+              ))}
             </div>
           </div>
           <Image
@@ -296,6 +343,32 @@ export default function APropos() {
             height={420}
             sizes="(max-width: 768px) 100vw, 50vw"
           />
+        </div>
+
+        {/* Gestion des risques */}
+        <div className="risks-title reveal">Gestion des risques</div>
+        <div className="risks-grid">
+          <div className="risk-card reveal reveal-delay-2">
+            <div className="risk-icon">
+              <svg viewBox="0 0 24 24"><path d="M12 2l2.4 6.8L21 9l-5.5 4.6L17 21l-5-3.8L7 21l1.5-7.4L3 9l6.6-.2z" /></svg>
+            </div>
+            <div className="risk-title">Stabilité des coûts</div>
+            <div className="risk-desc">Politique tarifaire ajustée et anticipation des fluctuations de devises (USD/MGA).</div>
+          </div>
+          <div className="risk-card reveal reveal-delay-3">
+            <div className="risk-icon">
+              <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" /></svg>
+            </div>
+            <div className="risk-title">Continuité de service</div>
+            <div className="risk-desc">Réseau multi-armateurs et constitution d&apos;un stock de sécurité pour éviter l&apos;impact des retards maritimes.</div>
+          </div>
+          <div className="risk-card reveal reveal-delay-4">
+            <div className="risk-icon">
+              <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4" /><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" /></svg>
+            </div>
+            <div className="risk-title">Gestion de la qualité</div>
+            <div className="risk-desc">Veille réglementaire et partenariat avec des transitaires d&apos;expérience.</div>
+          </div>
         </div>
 
         {/* Pays fournisseurs — masqué, réactiver en retirant style={{ display: 'none' }} */}

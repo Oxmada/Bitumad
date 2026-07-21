@@ -179,7 +179,7 @@ export default function NossBitumesPage() {
           </div>
           <p>
             Vous ne savez pas quel grade choisir ? Notre équipe technique peut vous conseiller en fonction de votre zone géographique et des contraintes de votre chantier.{" "}
-            <a href="/contact">Contactez-nous</a> — réponse sous 24h.
+            <a href="/contact">Contactez-nous</a> — réponse sous 48h.
           </p>
         </div>
       </section>
